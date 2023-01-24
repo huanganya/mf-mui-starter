@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@mf-mui-starter/app-shared/app-manager": [
+        "libs/app-shared/app-manager/src/index.ts"
+      ],
+      "@mf-mui-starter/common-lib": ["libs/common-lib/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
