@@ -1,12 +1,12 @@
 import { useState, useCallback, useEffect } from 'react';
 
 export const useLoginEffect = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   //simulate the login status
   setInterval(() => {
     setIsLoggedIn(!isLoggedIn);
-  }, 60000);
+  }, 600000);
 
-  return { isLoggedIn };
+  return { isLoggedIn, setIsLoggedIn };
 };

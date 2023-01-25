@@ -1,13 +1,13 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import styles from './app.module.scss';
-import NxWelcome from './nx-welcome';
+import LoginPage from '../screens/login-page';
 
-export function App() {
+const App = () => {
   return (
     <>
-      <NxWelcome title="auth" />
+      <LoginPage />
     </>
   );
-}
+};
 
 export default App;

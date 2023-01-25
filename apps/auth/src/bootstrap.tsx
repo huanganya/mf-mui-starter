@@ -1,12 +1,16 @@
-import { AppProvider } from '@mf-mui-starter/app-shared/app-manager';
-import { useLoginEffect } from '@mf-mui-starter/common-lib';
+import {
+  AppProvider,
+  AuthContext,
+} from '@mf-mui-starter/app-shared/app-manager';
+import React from 'react';
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 
 import App from './app/app';
 
 const StandAloneApp = () => {
-  const { isLoggedIn } = useLoginEffect();
+  const { isLoggedIn } = React.useContext(AuthContext);
+
   return (
     <>
       {!isLoggedIn && <App />}
@@ -18,7 +22,9 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <StrictMode>
-    <StandAloneApp />
-  </StrictMode>
+  <AppProvider>
+    <StrictMode>
+      <StandAloneApp />
+    </StrictMode>
+  </AppProvider>
 );
