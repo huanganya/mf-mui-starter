@@ -11,7 +11,7 @@ export function App() {
 
   useEffect(() => {
     if (isLoggedIn) {
-      navigate('/remote');
+      navigate('/');
     } else {
       navigate('/login');
     }
@@ -32,13 +32,7 @@ export function App() {
           </li>
         </ul>
       )}
-      {!isLoggedIn && (
-        <ul>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-        </ul>
-      )}
+
       <AppRoutes />
     </React.Suspense>
   );

@@ -5,8 +5,7 @@ export const theme = createTheme({
     MuiInputBase: {
       styleOverrides: {
         root: {
-          '&.Mui-focused': `10px solid`,
-          padding: '50px',
+          height: '2.5em',
         },
       },
     },

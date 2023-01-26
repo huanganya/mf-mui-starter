@@ -1,8 +1,13 @@
-import { useFormik } from 'formik';
+import { useFormik, FormikProvider, Form } from 'formik';
 import * as yup from 'yup';
 import { Button, Container, Grid, InputLabel, TextField } from '@mui/material';
 import { AuthContext } from '@mf-mui-starter/app-shared/app-manager';
 import React from 'react';
+import {
+  DirectionType,
+  FormInput,
+  FormField,
+} from '@mf-mui-starter/common-lib';
 
 const validationSchema = yup.object({
   email: yup
@@ -31,54 +36,43 @@ const LoginForm = () => {
 
   return (
     <Container maxWidth="sm">
-      <form onSubmit={formik.handleSubmit}>
-        <Grid container direction={'column'}>
-          <Grid item container direction={'column'}>
+      <FormikProvider value={formik}>
+        <Form>
+          <Grid container spacing={3} direction={'column'}>
             <Grid item>
-              <InputLabel shrink htmlFor="email">
-                Email
-              </InputLabel>
+              <h1>Please login first</h1>
             </Grid>
-            <Grid item>
-              <TextField
+            <FormInput
+              label="Email"
+              name="email"
+              direction={DirectionType.column}
+              required
+              testId="email"
+              type="email"
+              onChange={formik.handleChange}
+            />
+            <FormInput
+              label="Password"
+              name="password"
+              testId="password"
+              direction={DirectionType.column}
+              required
+              type="password"
+              onChange={formik.handleChange}
+            />
+            <Grid item container>
+              <Button
+                color="primary"
+                variant="contained"
                 fullWidth
-                id="email"
-                name="email"
-                variant="outlined"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                error={formik.touched.email && Boolean(formik.errors.email)}
-                helperText={formik.touched.email && formik.errors.email}
-              />
+                type="submit"
+              >
+                Submit
+              </Button>
             </Grid>
           </Grid>
-          <Grid item container direction={'column'}>
-            <Grid item>
-              <InputLabel shrink htmlFor="password">
-                Password
-              </InputLabel>
-            </Grid>
-            <Grid item>
-              <TextField
-                fullWidth
-                id="password"
-                name="password"
-                variant="outlined"
-                type="password"
-                value={formik.values.password}
-                onChange={formik.handleChange}
-                error={
-                  formik.touched.password && Boolean(formik.errors.password)
-                }
-                helperText={formik.touched.password && formik.errors.password}
-              />
-            </Grid>
-          </Grid>
-        </Grid>
-        <Button color="primary" variant="contained" fullWidth type="submit">
-          Submit
-        </Button>
-      </form>
+        </Form>
+      </FormikProvider>
     </Container>
   );
 };
