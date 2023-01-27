@@ -60,3 +60,4 @@ Run `nx graph` to see a diagram of the dependencies of your projects.
 2. Will add some e2e tests
 3. Will add more configurations to mui theme
 4. Will add more components to the codebase
+5. Will try to move the fonts/images into the common-assets library

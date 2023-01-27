@@ -1,13 +1,9 @@
 import { useFormik, FormikProvider, Form } from 'formik';
 import * as yup from 'yup';
-import { Button, Container, Grid, InputLabel, TextField } from '@mui/material';
+import { Button, Container, Grid, Typography } from '@mui/material';
 import { AuthContext } from '@mf-mui-starter/app-shared/app-manager';
 import React from 'react';
-import {
-  DirectionType,
-  FormInput,
-  FormField,
-} from '@mf-mui-starter/common-lib';
+import { DirectionType, FormInput } from '@mf-mui-starter/common-lib';
 
 const validationSchema = yup.object({
   email: yup
@@ -40,7 +36,7 @@ const LoginForm = () => {
         <Form>
           <Grid container spacing={3} direction={'column'}>
             <Grid item>
-              <h1>Please login first</h1>
+              <Typography variant="h5">Please login first</Typography>
             </Grid>
             <FormInput
               label="Email"

@@ -18,6 +18,7 @@
       "@mf-mui-starter/app-shared/app-manager": [
         "libs/app-shared/app-manager/src/index.ts"
       ],
+      "@mf-mui-starter/common-assets": ["libs/common-assets/src/index.ts"],
       "@mf-mui-starter/common-lib": ["libs/common-lib/src/index.ts"]
     }
   },
