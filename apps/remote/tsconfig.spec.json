@@ -16,7 +16,7 @@
     "src/**/*.test.jsx",
     "src/**/*.spec.jsx",
     "src/**/*.d.ts",
-    "__test__/app.spec.tsx"
+    "__test__/**/*.spec.js"
   ],
   "files": [
     "../../node_modules/@nrwl/react/typings/cssmodule.d.ts",
