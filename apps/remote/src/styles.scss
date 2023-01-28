@@ -1,6 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @font-face {
-  font-family: 'Inter';
-  src: local('Inter'),
-    url('/fonts/Inter-VariableFont_slnt,wght.ttf') format('truetype');
+  font-family: 'InterRegular';
+  src: local('InterRegular'), url('/fonts/Inter-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'InterBold';
+  src: local('InterBold'), url('/fonts/Inter-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'InterSemiBold';
+  src: local('InterSemiBold'),
+    url('/fonts/Inter-SemiBold.ttf') format('truetype');
 }

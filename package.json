@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve shell --open --devRemotes=remote,auth",
+    "start": "nx serve shell --open --devRemotes=remote",
     "build": "nx build",
     "test": "nx test"
   },

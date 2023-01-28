@@ -1,4 +1,7 @@
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
+import { ThemeProviderProps } from '@mui/material/styles/ThemeProvider';
+import { FC } from 'react';
 
 export const theme = responsiveFontSizes(
   createTheme({
@@ -125,6 +128,12 @@ export const theme = responsiveFontSizes(
     },
   })
 );
+
+type AppThemeProviderProp = { children?: React.ReactElement };
+
+export const AppThemeProvider = ({ children }: AppThemeProviderProp) => {
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+};
 
 declare module '@mui/material/styles' {
   interface TypographyVariants {

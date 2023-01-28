@@ -1,9 +1,11 @@
 import { useFormik, FormikProvider, Form } from 'formik';
 import * as yup from 'yup';
 import { Button, Container, Grid, Typography } from '@mui/material';
-import { AuthContext } from '@mf-mui-starter/app-shared/app-manager';
-import React from 'react';
 import { DirectionType, FormInput } from '@mf-mui-starter/common-lib';
+
+export interface LoginFormProp {
+  onSubmit: () => void;
+}
 
 const validationSchema = yup.object({
   email: yup
@@ -16,18 +18,14 @@ const validationSchema = yup.object({
     .min(8, 'Password should be of minimum 8 characters length'),
 });
 
-const LoginForm = () => {
-  const { setIsLoggedIn } = React.useContext(AuthContext);
+export const LoginForm = ({ onSubmit }: LoginFormProp) => {
   const formik = useFormik({
     initialValues: {
       email: 'foobar@example.com',
       password: 'foobar',
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-      setIsLoggedIn(true);
-    },
+    onSubmit: onSubmit,
   });
 
   return (
@@ -67,5 +65,3 @@ const LoginForm = () => {
     </Container>
   );
 };
-
-export default LoginForm;

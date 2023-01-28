@@ -1,38 +1,24 @@
 import * as React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AppRoutes } from '../routes/app-routes';
-import { useEffect } from 'react';
-import { AuthContext } from '@mf-mui-starter/app-shared/app-manager';
 import { Button } from '@mui/material';
+import { authContext } from '@mf-mui-starter/app-shared/app-manager';
 
 export function App() {
-  const navigate = useNavigate();
-  const { isLoggedIn, setIsLoggedIn } = React.useContext(AuthContext);
-
-  useEffect(() => {
-    if (isLoggedIn) {
-      navigate('/');
-    } else {
-      navigate('/login');
-    }
-  }, [isLoggedIn]);
-
+  const { logout } = React.useContext(authContext);
   return (
     <React.Suspense fallback={null}>
-      {isLoggedIn && (
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/remote">Remote</Link>
-          </li>
-          <li>
-            <Button onClick={() => setIsLoggedIn(false)}>Logout</Button>
-          </li>
-        </ul>
-      )}
-
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/remote">Remote</Link>
+        </li>
+        <li>
+          <Button onClick={logout}>Logout</Button>
+        </li>
+      </ul>
       <AppRoutes />
     </React.Suspense>
   );
