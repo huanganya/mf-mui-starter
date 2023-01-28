@@ -15,7 +15,15 @@
         "baseHref": "/",
         "main": "apps/shell/src/main.ts",
         "tsConfig": "apps/shell/tsconfig.app.json",
-        "assets": ["apps/shell/src/favicon.ico", "apps/shell/src/assets"],
+        "assets": [
+          "apps/shell/src/favicon.ico",
+          "apps/shell/src/assets",
+          {
+            "input": "libs/common-assets/src/fonts",
+            "glob": "*.ttf",
+            "output": "fonts"
+          }
+        ],
         "styles": ["apps/shell/src/styles.scss"],
         "scripts": [],
         "webpackConfig": "apps/shell/webpack.config.js"

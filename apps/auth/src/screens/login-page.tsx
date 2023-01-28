@@ -36,33 +36,28 @@ const LoginForm = () => {
         <Form>
           <Grid container spacing={3} direction={'column'}>
             <Grid item>
-              <Typography variant="h5">Please login first</Typography>
+              <Typography variant="body16">LOGIN FORM</Typography>
             </Grid>
             <FormInput
               label="Email"
               name="email"
+              testId="email"
+              placeholder="Please input email"
               direction={DirectionType.column}
               required
-              testId="email"
               type="email"
-              onChange={formik.handleChange}
             />
             <FormInput
               label="Password"
               name="password"
               testId="password"
+              placeholder="Please input password"
               direction={DirectionType.column}
               required
               type="password"
-              onChange={formik.handleChange}
             />
-            <Grid item container>
-              <Button
-                color="primary"
-                variant="contained"
-                fullWidth
-                type="submit"
-              >
+            <Grid item container justifyContent="flex-end">
+              <Button variant="contained" type="submit">
                 Submit
               </Button>
             </Grid>

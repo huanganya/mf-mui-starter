@@ -7,6 +7,7 @@ export interface FormInputProps {
   label: string;
   name: string;
   testId: string;
+  placeholder?: string;
   direction?: DirectionType;
   required?: boolean;
   onChange?: React.ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement>;
@@ -18,6 +19,7 @@ export const FormInput: FC<FormInputProps> = ({
   name,
   testId,
   type,
+  placeholder,
   onChange,
   required = false,
 }) => {
@@ -33,6 +35,7 @@ export const FormInput: FC<FormInputProps> = ({
     >
       <TextField
         {...field}
+        placeholder={placeholder}
         fullWidth
         data-testid={`text-filed-${testId}`}
         name={name}

@@ -1,5 +1,6 @@
-import { Grid, InputLabel } from '@mui/material';
+import { Grid, InputLabel, Typography, useTheme } from '@mui/material';
 import { FC, ReactElement } from 'react';
+
 export enum DirectionType {
   row = 'row',
   column = 'column',
@@ -20,11 +21,18 @@ export const FormField: FC<FormFieldProps> = ({
   direction = DirectionType.row,
   required = false,
 }) => {
+  const theme = useTheme();
+
   return (
     <Grid item spacing={1} container direction={direction}>
       <Grid item xs={4}>
         <InputLabel shrink htmlFor={name} data-testid={`label-${testId}`}>
-          {label} {required && '*'}
+          <Typography variant="body18Bold">
+            {label}{' '}
+            <Typography display="inline" color={theme.palette.primary.main}>
+              {required && '*'}
+            </Typography>
+          </Typography>
         </InputLabel>
       </Grid>
       <Grid item xs={8}>

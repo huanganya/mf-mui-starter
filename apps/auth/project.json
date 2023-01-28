@@ -15,7 +15,15 @@
         "baseHref": "/",
         "main": "apps/auth/src/main.ts",
         "tsConfig": "apps/auth/tsconfig.app.json",
-        "assets": ["apps/auth/src/favicon.ico", "apps/auth/src/assets"],
+        "assets": [
+          "apps/auth/src/favicon.ico",
+          "apps/auth/src/assets",
+          {
+            "input": "libs/common-assets/src/fonts",
+            "glob": "*.ttf",
+            "output": "fonts"
+          }
+        ],
         "styles": ["apps/auth/src/styles.scss"],
         "scripts": [],
         "webpackConfig": "apps/auth/webpack.config.js"

@@ -15,7 +15,15 @@
         "baseHref": "/",
         "main": "apps/remote/src/main.ts",
         "tsConfig": "apps/remote/tsconfig.app.json",
-        "assets": ["apps/remote/src/favicon.ico", "apps/remote/src/assets"],
+        "assets": [
+          "apps/remote/src/favicon.ico",
+          "apps/remote/src/assets",
+          {
+            "input": "libs/common-assets/src/fonts",
+            "glob": "*.ttf",
+            "output": "fonts"
+          }
+        ],
         "styles": ["apps/remote/src/styles.scss"],
         "scripts": [],
         "webpackConfig": "apps/remote/webpack.config.js"
