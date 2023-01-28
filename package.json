@@ -6,7 +6,9 @@
     "start": "nx serve shell --open --devRemotes=remote",
     "build": "nx build",
     "test:shell": "nx run shell:test --codeCoverage",
-    "test:remote": "nx run remote:test --codeCoverage"
+    "test:remote": "nx run remote:test --codeCoverage",
+    "test:app-shared": "nx run app-shared:test --codeCoverage",
+    "test:common-lib": "nx run common-lib:test --codeCoverage"
   },
   "private": true,
   "dependencies": {

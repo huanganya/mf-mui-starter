@@ -62,4 +62,3 @@ Run `nx graph` to see a diagram of the dependencies of your projects.
 4. Will add more components to the codebase : wip
 5. Will try to move the fonts/images into the common-assets library : done
    5.1 move global scss file to common-assets library : todo
-6. add

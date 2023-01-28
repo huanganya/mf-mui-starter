@@ -24,7 +24,6 @@ export const FormInput: FC<FormInputProps> = ({
   required = false,
 }) => {
   const [field, meta] = useField({ name });
-  console.log(field, meta, meta.error);
   return (
     <FormField
       label={label}

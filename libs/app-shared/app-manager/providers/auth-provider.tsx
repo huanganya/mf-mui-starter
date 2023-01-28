@@ -1,5 +1,5 @@
-import { useLoginEffect } from '@mf-mui-starter/common-lib';
 import { createContext } from 'react';
+import { useLoginEffect } from '@mf-mui-starter/common-lib';
 import { LoginForm } from '@mf-mui-starter/app-shared/uis';
 
 export const AuthContext = createContext<Record<string, any>>({});
@@ -36,7 +36,7 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProp) => {
         logout,
       }}
     >
-      {!isLoggedIn && <LoginForm onSubmit={() => setIsLoggedIn(true)} />}
+      {!isLoggedIn && <LoginForm onSubmit={login} />}
       {isLoggedIn && children}
     </authContext.Provider>
   );

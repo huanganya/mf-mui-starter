@@ -3,7 +3,6 @@ import { useContext } from 'react';
 
 export function NxWelcome() {
   const { counter, setCounter } = useContext(GlobalDataContext);
-  console.log('setCounter', counter, setCounter);
   return (
     <>
       remote{' '}
