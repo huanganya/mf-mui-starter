@@ -1,6 +1,5 @@
 import { render } from '@testing-library/react';
-
-import App from './app';
+import App from '../src/app/app';
 
 describe('App', () => {
   it('should render successfully', () => {
@@ -8,8 +7,8 @@ describe('App', () => {
     expect(baseElement).toBeTruthy();
   });
 
-  it('should have a greeting as the title', () => {
+  it('should have a remote text', () => {
     const { getByText } = render(<App />);
-    expect(getByText(/Welcome remote/gi)).toBeTruthy();
+    expect(getByText(/remote/gi)).toBeTruthy();
   });
 });

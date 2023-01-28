@@ -1,7 +1,5 @@
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/material/styles';
-import { ThemeProviderProps } from '@mui/material/styles/ThemeProvider';
-import { FC } from 'react';
 
 export const theme = responsiveFontSizes(
   createTheme({

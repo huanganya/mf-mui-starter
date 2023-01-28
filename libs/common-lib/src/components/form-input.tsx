@@ -31,13 +31,13 @@ export const FormInput: FC<FormInputProps> = ({
       name={name}
       testId={testId}
       direction={DirectionType.column}
-      required
+      required={required}
     >
       <TextField
         {...field}
         placeholder={placeholder}
         fullWidth
-        data-testid={`text-filed-${testId}`}
+        data-testid={`text-field-${testId}`}
         name={name}
         variant="outlined"
         onChange={(event): void => {
