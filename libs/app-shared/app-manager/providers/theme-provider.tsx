@@ -60,6 +60,11 @@ export const theme = responsiveFontSizes(
         fontSize: '1.75em',
         fontWeight: 700,
       },
+      h6: {
+        fontFamily: 'InterBold',
+        fontSize: '1.5em',
+        fontWeight: 700,
+      },
       title: {
         fontFamily: 'InterBold',
         fontSize: '1.5em',
@@ -123,6 +128,38 @@ export const theme = responsiveFontSizes(
           },
         },
       },
+      MuiTabs: {
+        styleOverrides: {
+          indicator: {
+            height: 3,
+          },
+        },
+      },
+      MuiTab: {
+        styleOverrides: {
+          root: {
+            fontFamily: 'InterSemiBold',
+            fontSize: '0.875em',
+            '&:hover': {
+              color: '#CE3A4E',
+            },
+            '&$selected': {
+              color: '#CE3A4E',
+              '&:hover': {
+                color: '#CE3A4E',
+              },
+            },
+          },
+        },
+      },
+      MuiAppBar: {
+        styleOverrides: {
+          root: {
+            backgroundColor: '#fff',
+            color: '#CE3A4E',
+          },
+        },
+      },
     },
   })
 );
@@ -180,6 +217,5 @@ declare module '@mui/material/Typography' {
     body14SemiBold: true;
     body14Medium: true;
     body14: true;
-    h6: false;
   }
 }

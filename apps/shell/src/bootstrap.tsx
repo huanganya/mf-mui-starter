@@ -1,4 +1,3 @@
-import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { AppProvider } from '@mf-mui-starter/app-shared/app-manager';
@@ -10,10 +9,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <AppProvider>
-    <StrictMode>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </AppProvider>
 );
