@@ -6,12 +6,13 @@ This project was generated using [Nx](https://nx.dev).
 
 🔎 **This is the experiment project to use micro-frontend for auth(module 1), remote(module 2) and shell(the main app)**
 
-## auth module
+## auth module(Update: auth module was moved to AuthProvider)
 
 Auth module presents the login for with yup validation;
 MUI Grid is used for responsive design
 Formik is used for form validation and submit
 The global auth state is managed by React Context API
+Update: AuthProvider is more flexible to be shared by both shell app and remote apps
 
 ## remote module
 
