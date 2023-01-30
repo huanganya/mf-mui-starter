@@ -30,7 +30,7 @@ export const TopAppbar = () => {
   return (
     <MainAppBar
       renderLogo={renderLogo}
-      pages={['Remote', 'Home']}
+      pages={['Home', 'Remote']}
       settings={['Profile', 'Account', 'Dashboard', 'Logout']}
     />
   );
