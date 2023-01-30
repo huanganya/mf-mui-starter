@@ -1,10 +1,11 @@
 import * as React from 'react';
+import Box from '@mui/material/Box';
 import MenuItem from '@mui/material/MenuItem';
 import { Tab, Tabs } from '@mui/material';
 import { ArrowDropDown } from '@mui/icons-material';
-import { TabPopover } from './tab-popover';
+import { AnchoredPopover } from '../others/anchored-popover';
 
-export const MainTabs = ({ pages }: { pages: string[] }) => {
+export const DesktopTabs = ({ pages }: { pages: string[] }) => {
   const [value, setValue] = React.useState(0);
   const [anchorEl, setAnchorEl] = React.useState<
     (EventTarget & Element) | null
@@ -19,7 +20,7 @@ export const MainTabs = ({ pages }: { pages: string[] }) => {
   };
 
   return (
-    <>
+    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
       <Tabs value={value} onChange={handleChange}>
         {pages.map((page, index) => (
           <Tab
@@ -31,7 +32,7 @@ export const MainTabs = ({ pages }: { pages: string[] }) => {
         ))}
       </Tabs>
       {anchorEl && (
-        <TabPopover anchorEl={anchorEl}>
+        <AnchoredPopover anchorEl={anchorEl}>
           <>
             <MenuItem onClick={() => handleMenuItemClick('Three')}>
               Three
@@ -43,8 +44,8 @@ export const MainTabs = ({ pages }: { pages: string[] }) => {
               Five
             </MenuItem>
           </>
-        </TabPopover>
+        </AnchoredPopover>
       )}
-    </>
+    </Box>
   );
 };

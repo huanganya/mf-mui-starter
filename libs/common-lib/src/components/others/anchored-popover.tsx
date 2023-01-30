@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Popover } from '@mui/material';
 
-export const TabPopover = ({
+export const AnchoredPopover = ({
   anchorEl,
   children,
 }: {
