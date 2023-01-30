@@ -57,8 +57,23 @@ Run `nx graph` to see a diagram of the dependencies of your projects.
 ## Todo
 
 1. Will add some unit tests : wip
+
 2. Will add some e2e tests : todo
-3. Will add more configurations to mui theme : wip
-4. Will add more components to the codebase : wip
+
+3. Will add more configurations to mui theme : done
+
+4. Will add more components to the codebase
+
+   4.1 added anchored-popover to common-lib
+
+   4.2 added link-tab to common-lib
+
+   4.3 added form-field and form-input to common-lib
+
+   4.4 added appbar related component to common-lib
+
+   4.5 added top-appbar(app specific appbar) to app-shared
+
 5. Will try to move the fonts/images into the common-assets library : done
+
    5.1 move global scss file to common-assets library : todo
