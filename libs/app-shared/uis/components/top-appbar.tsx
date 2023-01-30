@@ -1,8 +1,40 @@
-import { Typography } from '@mui/material';
+import { MenuItem, Typography } from '@mui/material';
 import { MainAppBar } from '@mf-mui-starter/common-lib';
 import AdbIcon from '@mui/icons-material/Adb';
 
 export const TopAppbar = () => {
+  const pageTabs = [
+    { title: 'Home', link: '/home' },
+    {
+      title: 'Remote 1',
+      renderComponent: () => (
+        <>
+          <MenuItem onClick={() => {}}>Three</MenuItem>
+          <MenuItem onClick={() => {}}>Four</MenuItem>
+          <MenuItem onClick={() => {}}>Five</MenuItem>
+        </>
+      ),
+    },
+    {
+      title: 'Remote 2',
+      renderComponent: () => (
+        <>
+          <MenuItem onClick={() => {}}>One</MenuItem>
+          <MenuItem onClick={() => {}}>Two</MenuItem>
+          <MenuItem onClick={() => {}}>Six</MenuItem>
+        </>
+      ),
+    },
+    {
+      title: 'Remote 3',
+      renderComponent: () => (
+        <Typography pr={'10px'} pl={'10px'}>
+          <p>For some message</p>
+          <p>Can add interactive content here</p>
+        </Typography>
+      ),
+    },
+  ];
   const renderLogo = () => {
     return (
       <>
@@ -30,7 +62,7 @@ export const TopAppbar = () => {
   return (
     <MainAppBar
       renderLogo={renderLogo}
-      pages={['Home', 'Remote']}
+      pageTabs={pageTabs}
       settings={['Profile', 'Account', 'Dashboard', 'Logout']}
     />
   );

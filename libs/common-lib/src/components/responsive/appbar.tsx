@@ -6,8 +6,9 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { PageTabProp } from '../appbar/desktop-tabs';
 
-export const MobileTabAppBar = ({ pages }: { pages: string[] }) => {
+export const MobileTabAppBar = ({ pageTabs }: { pageTabs: PageTabProp[] }) => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -49,9 +50,9 @@ export const MobileTabAppBar = ({ pages }: { pages: string[] }) => {
             display: { xs: 'block', md: 'none' },
           }}
         >
-          {pages.map((page) => (
-            <MenuItem key={page} onClick={handleCloseNavMenu}>
-              <Typography textAlign="center">{page}</Typography>
+          {pageTabs.map((page) => (
+            <MenuItem key={page.title} onClick={handleCloseNavMenu}>
+              <Typography textAlign="center">{page.title}</Typography>
             </MenuItem>
           ))}
         </Menu>

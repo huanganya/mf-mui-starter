@@ -4,15 +4,14 @@ import { Tab, Tabs } from '@mui/material';
 import { ArrowDropDown } from '@mui/icons-material';
 import { AnchoredPopover } from '../others/anchored-popover';
 import { LinkTab } from '../others/link-tab';
-import ClickAwayListener from '@mui/base/ClickAwayListener';
 
-interface PageTabProp {
+export interface PageTabProp {
   title: string;
   link?: string;
   renderComponent?: () => React.ReactElement;
 }
 export const DesktopTabs = ({ pageTabs }: { pageTabs: PageTabProp[] }) => {
-  const [value, setValue] = React.useState<PageTabProp | null>(null);
+  const [value, setValue] = React.useState<PageTabProp>(pageTabs[0]);
   const [anchorEl, setAnchorEl] = React.useState<
     (EventTarget & Element) | null
   >(null);
@@ -21,9 +20,19 @@ export const DesktopTabs = ({ pageTabs }: { pageTabs: PageTabProp[] }) => {
     setAnchorEl(event.currentTarget);
     setValue(newValue);
   };
+
+  const handleTabClick = (
+    event: React.SyntheticEvent,
+    newValue: PageTabProp
+  ) => {
+    if (anchorEl !== event.currentTarget) {
+      setAnchorEl(event.currentTarget);
+      setValue(newValue);
+    } else {
+      setAnchorEl(null);
+    }
+  };
   const handleClickAway = () => {
-    console.log('handleClickAway');
-    setValue(null);
     setAnchorEl(null);
   };
 
@@ -40,6 +49,9 @@ export const DesktopTabs = ({ pageTabs }: { pageTabs: PageTabProp[] }) => {
         <Tab
           key={index}
           value={tab}
+          onClick={(event) => {
+            handleTabClick(event, tab);
+          }}
           label={tab.title}
           icon={<ArrowDropDown />}
           iconPosition="end"
@@ -50,7 +62,7 @@ export const DesktopTabs = ({ pageTabs }: { pageTabs: PageTabProp[] }) => {
   };
   return (
     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-      <Tabs value={value ?? 0} onChange={handleChange}>
+      <Tabs value={value} onChange={handleChange}>
         {pageTabs.map(renderTab)}
       </Tabs>
       {anchorEl && value?.renderComponent && (

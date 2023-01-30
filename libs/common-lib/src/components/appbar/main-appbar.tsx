@@ -1,16 +1,15 @@
-import { MenuItem } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { MobileTabAppBar } from '../responsive/appbar';
-import { DesktopTabs } from './desktop-tabs';
+import { DesktopTabs, PageTabProp } from './desktop-tabs';
 import { MainMenu } from './main-menu';
 
 export const MainAppBar = ({
-  pages,
+  pageTabs,
   settings,
   renderLogo,
 }: {
-  pages: string[];
+  pageTabs: PageTabProp[];
   settings: string[];
   renderLogo?: () => React.ReactElement;
 }) => {
@@ -19,32 +18,8 @@ export const MainAppBar = ({
       <AppBar position="fixed">
         <Toolbar disableGutters>
           {renderLogo?.()}
-          <MobileTabAppBar pages={pages} />
-          <DesktopTabs
-            pageTabs={[
-              { title: 'Home', link: '/home' },
-              {
-                title: 'Remote 1',
-                renderComponent: () => (
-                  <>
-                    <MenuItem onClick={() => {}}>Three</MenuItem>
-                    <MenuItem onClick={() => {}}>Four</MenuItem>
-                    <MenuItem onClick={() => {}}>Five</MenuItem>
-                  </>
-                ),
-              },
-              {
-                title: 'Remote 2',
-                renderComponent: () => (
-                  <>
-                    <MenuItem onClick={() => {}}>One</MenuItem>
-                    <MenuItem onClick={() => {}}>Two</MenuItem>
-                    <MenuItem onClick={() => {}}>Six</MenuItem>
-                  </>
-                ),
-              },
-            ]}
-          />
+          <MobileTabAppBar pageTabs={pageTabs} />
+          <DesktopTabs pageTabs={pageTabs} />
           <MainMenu settings={settings} />
         </Toolbar>
       </AppBar>
