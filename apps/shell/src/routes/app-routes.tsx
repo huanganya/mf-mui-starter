@@ -7,7 +7,7 @@ export const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<NxWelcome title="shell" />} />
-      <Route path="/remote" element={<Remote />} />
+      <Route path="/remote/*" element={<Remote />} />
     </Routes>
   );
 };

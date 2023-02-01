@@ -21,18 +21,15 @@ export const DesktopTabs = ({ pageTabs }: { pageTabs: PageTabProp[] }) => {
     setValue(newValue);
   };
 
-  const handleTabClick = (
+  const handleTabOpen = (
     event: React.SyntheticEvent,
     newValue: PageTabProp
   ) => {
-    if (anchorEl !== event.currentTarget) {
-      setAnchorEl(event.currentTarget);
-      setValue(newValue);
-    } else {
-      setAnchorEl(null);
-    }
+    setAnchorEl(event.currentTarget);
+    setValue(newValue);
   };
-  const handleClickAway = () => {
+
+  const handleClose = () => {
     setAnchorEl(null);
   };
 
@@ -50,15 +47,23 @@ export const DesktopTabs = ({ pageTabs }: { pageTabs: PageTabProp[] }) => {
           key={index}
           value={tab}
           onClick={(event) => {
-            handleTabClick(event, tab);
+            handleTabOpen(event, tab);
           }}
+          onMouseOver={(event) => handleTabOpen(event, tab)}
           label={tab.title}
           icon={<ArrowDropDown />}
           iconPosition="end"
         />
       );
     }
-    return <LinkTab key={index} href={tab.link} label={tab.title} />;
+    return (
+      <LinkTab
+        key={index}
+        href={tab.link}
+        label={tab.title}
+        onMouseOver={() => setValue(tab)}
+      />
+    );
   };
   return (
     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
@@ -66,7 +71,7 @@ export const DesktopTabs = ({ pageTabs }: { pageTabs: PageTabProp[] }) => {
         {pageTabs.map(renderTab)}
       </Tabs>
       {anchorEl && value?.renderComponent && (
-        <AnchoredPopover anchorEl={anchorEl} handleClickAway={handleClickAway}>
+        <AnchoredPopover anchorEl={anchorEl} handleClose={handleClose}>
           {value.renderComponent()}
         </AnchoredPopover>
       )}

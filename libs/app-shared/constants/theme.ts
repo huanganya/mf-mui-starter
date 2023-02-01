@@ -30,6 +30,8 @@ export const typography: TypographyOptions = {
     fontFamily: 'InterRegular',
     fontSize: 16,
     textTransform: 'none',
+    lineHeight: '150%',
+    letterSpacing: '1.2%',
   },
   button: {
     fontFamily: 'InterSemiBold',

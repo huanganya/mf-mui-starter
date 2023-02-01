@@ -5,8 +5,8 @@ import { TopAppbar } from '@mf-mui-starter/app-shared/uis';
 export function App() {
   return (
     <React.Suspense fallback={null}>
-      <AppRoutes />
       <TopAppbar />
+      <AppRoutes />
     </React.Suspense>
   );
 }

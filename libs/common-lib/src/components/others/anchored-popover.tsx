@@ -1,20 +1,21 @@
 import * as React from 'react';
-import { ClickAwayListener, Popover } from '@mui/material';
+import { Popover } from '@mui/material';
 
 export const AnchoredPopover = ({
   anchorEl,
-  handleClickAway,
+  handleClose,
   children,
 }: {
   anchorEl: EventTarget & Element;
-  handleClickAway: () => void;
+  handleClose: () => void;
   children: React.ReactElement;
 }) => {
   return (
     <Popover
       open={Boolean(anchorEl)}
       anchorEl={anchorEl}
-      onClose={() => {}}
+      onClose={handleClose}
+      onClick={handleClose}
       anchorOrigin={{
         vertical: 'bottom',
         horizontal: 'left',
@@ -24,9 +25,7 @@ export const AnchoredPopover = ({
         horizontal: 'left',
       }}
     >
-      <ClickAwayListener onClickAway={handleClickAway}>
-        <div role="presentation">{children} </div>
-      </ClickAwayListener>
+      {children}
     </Popover>
   );
 };
