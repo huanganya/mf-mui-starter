@@ -24,8 +24,14 @@ export const FormField: FC<FormFieldProps> = ({
   const theme = useTheme();
 
   return (
-    <Grid item spacing={1} container direction={direction}>
-      <Grid item xs={4}>
+    <Grid
+      item
+      spacing={1}
+      container
+      direction={direction}
+      data-testid={`grid-container-${testId}`}
+    >
+      <Grid item xs={4} data-testid={`grid-label-${testId}`}>
         <InputLabel shrink htmlFor={name} data-testid={`label-${testId}`}>
           <Typography variant="body18Bold">
             {label}{' '}
@@ -35,7 +41,7 @@ export const FormField: FC<FormFieldProps> = ({
           </Typography>
         </InputLabel>
       </Grid>
-      <Grid item xs={8}>
+      <Grid item xs={8} data-testid={`grid-field-${testId}`}>
         {children}
       </Grid>
     </Grid>

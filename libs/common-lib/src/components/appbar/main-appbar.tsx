@@ -11,7 +11,7 @@ export const MainAppBar = ({
   renderLogo,
 }: {
   pageTabs: PageTabProp[];
-  rightPageTabs: PageTabProp[];
+  rightPageTabs?: PageTabProp[];
   settings: string[];
   renderLogo?: () => React.ReactElement;
 }) => {
@@ -22,7 +22,7 @@ export const MainAppBar = ({
           {renderLogo?.()}
           <MobileTabAppBar pageTabs={pageTabs} />
           <DesktopTabs pageTabs={pageTabs} />
-          <DesktopTabs pageTabs={rightPageTabs} />
+          {rightPageTabs && <DesktopTabs pageTabs={rightPageTabs} />}
           <MainMenu settings={settings} />
         </Toolbar>
       </AppBar>

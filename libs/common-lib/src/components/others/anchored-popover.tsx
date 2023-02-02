@@ -8,7 +8,7 @@ export const AnchoredPopover = ({
 }: {
   anchorEl: EventTarget & Element;
   handleClose: () => void;
-  children: React.ReactElement;
+  children?: React.ReactElement;
 }) => {
   return (
     <Popover

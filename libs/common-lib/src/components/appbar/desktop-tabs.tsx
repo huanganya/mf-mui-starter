@@ -61,9 +61,9 @@ export const DesktopTabs = ({ pageTabs }: { pageTabs: PageTabProp[] }) => {
       >
         {pageTabs.map(renderTab)}
       </Tabs>
-      {anchorEl && pageTabs[value]?.renderComponent && (
+      {anchorEl && pageTabs[value].renderComponent && (
         <AnchoredPopover anchorEl={anchorEl} handleClose={handleClose}>
-          {pageTabs[value].renderComponent?.() ?? <></>}
+          {pageTabs[value].renderComponent?.()}
         </AnchoredPopover>
       )}
     </Box>
