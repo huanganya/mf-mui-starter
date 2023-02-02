@@ -70,6 +70,7 @@ export const TopAppbar = () => {
       renderComponent: () => (
         <>
           <MenuItem
+            data-testid="remote-1-menu-1"
             onClick={() => {
               navigate('/remote/page-three');
             }}
@@ -77,6 +78,7 @@ export const TopAppbar = () => {
             menu item Three
           </MenuItem>
           <MenuItem
+            data-testid="remote-1-menu-2"
             onClick={() => {
               navigate('/remote/page-four');
             }}
@@ -84,6 +86,7 @@ export const TopAppbar = () => {
             menu item Four
           </MenuItem>
           <MenuItem
+            data-testid="remote-1-menu-3"
             onClick={() => {
               navigate('/remote/page-five');
             }}
