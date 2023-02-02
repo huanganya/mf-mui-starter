@@ -9,6 +9,9 @@ import RuleOutlined from '@mui/icons-material/RuleOutlined';
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
+import { SearchOutlined } from '@mui/icons-material';
+import LinkIcon from '@mui/icons-material/Link';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 
 const getListItems1 = (navigate: NavigateFunction): AlignItemProp[] => {
   return [
@@ -112,6 +115,42 @@ export const TopAppbar = () => {
       ),
     },
   ];
+
+  const rightPageTabs = [
+    {
+      title: 'Search',
+      icon: <SearchOutlined />,
+      renderComponent: () => (
+        <>
+          <MenuItem
+            data-testid="remote-1-menu-1"
+            onClick={() => {
+              navigate('/remote/page-three');
+            }}
+          >
+            menu item Three
+          </MenuItem>
+        </>
+      ),
+    },
+    {
+      title: 'Shortcuts',
+      icon: <LinkIcon />,
+      renderComponent: () => (
+        <AlignItemsList maxWidth={360} items={getListItems1(navigate)} />
+      ),
+    },
+    {
+      title: 'Alerts',
+      icon: <NotificationsNoneIcon />,
+      renderComponent: () => (
+        <Box padding={'10px'}>
+          <Typography>For some message</Typography>
+          <Typography>Can add interactive content here</Typography>
+        </Box>
+      ),
+    },
+  ];
   const renderLogo = () => {
     return (
       <>
@@ -137,11 +176,14 @@ export const TopAppbar = () => {
     );
   };
   return (
-    <MainAppBar
-      renderLogo={renderLogo}
-      pageTabs={pageTabs}
-      settings={['Profile', 'Account', 'Dashboard', 'Logout']}
-    />
+    <>
+      <MainAppBar
+        renderLogo={renderLogo}
+        pageTabs={pageTabs}
+        rightPageTabs={rightPageTabs}
+        settings={['Profile', 'Account', 'Dashboard', 'Logout']}
+      />
+    </>
   );
 };
 

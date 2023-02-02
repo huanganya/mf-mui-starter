@@ -7,9 +7,11 @@ import { MainMenu } from './main-menu';
 export const MainAppBar = ({
   pageTabs,
   settings,
+  rightPageTabs,
   renderLogo,
 }: {
   pageTabs: PageTabProp[];
+  rightPageTabs: PageTabProp[];
   settings: string[];
   renderLogo?: () => React.ReactElement;
 }) => {
@@ -20,6 +22,7 @@ export const MainAppBar = ({
           {renderLogo?.()}
           <MobileTabAppBar pageTabs={pageTabs} />
           <DesktopTabs pageTabs={pageTabs} />
+          <DesktopTabs pageTabs={rightPageTabs} />
           <MainMenu settings={settings} />
         </Toolbar>
       </AppBar>
