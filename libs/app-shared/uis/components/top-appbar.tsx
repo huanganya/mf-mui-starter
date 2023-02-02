@@ -1,4 +1,4 @@
-import { MenuItem, Typography } from '@mui/material';
+import { Box, MenuItem, Typography } from '@mui/material';
 import AdbIcon from '@mui/icons-material/Adb';
 import {
   MainAppBar,
@@ -105,10 +105,10 @@ export const TopAppbar = () => {
     {
       title: 'Remote 3',
       renderComponent: () => (
-        <Typography pr={'10px'} pl={'10px'}>
-          <p>For some message</p>
-          <p>Can add interactive content here</p>
-        </Typography>
+        <Box padding={'10px'}>
+          <Typography>For some message</Typography>
+          <Typography>Can add interactive content here</Typography>
+        </Box>
       ),
     },
   ];

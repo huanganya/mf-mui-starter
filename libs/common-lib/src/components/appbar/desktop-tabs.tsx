@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import { Tab, Tabs } from '@mui/material';
-import { ArrowDropDown } from '@mui/icons-material';
+import { ArrowDropDown, SvgIconComponent } from '@mui/icons-material';
 import { AnchoredPopover } from '../others/anchored-popover';
 import { LinkTab } from '../others/link-tab';
 
@@ -9,6 +9,7 @@ export interface PageTabProp {
   title: string;
   link?: string;
   renderComponent?: () => React.ReactElement;
+  icon?: React.ReactElement;
 }
 export const DesktopTabs = ({ pageTabs }: { pageTabs: PageTabProp[] }) => {
   const [value, setValue] = React.useState<number>(0);
@@ -24,26 +25,20 @@ export const DesktopTabs = ({ pageTabs }: { pageTabs: PageTabProp[] }) => {
     setAnchorEl(null);
   };
 
-  const renderTab = (
-    tab: {
-      renderComponent?: () => React.ReactElement;
-      title: string;
-      link?: string;
-    },
-    index: number
-  ) => {
+  const renderTab = (tab: PageTabProp, index: number) => {
     if (tab.renderComponent) {
+      const onClick = (event: React.SyntheticEvent): void => {
+        handleTabOpen(event, index);
+      };
       return (
         <Tab
           key={index}
           value={index}
-          onClick={(event) => {
-            handleTabOpen(event, index);
-          }}
-          onMouseOver={(event) => handleTabOpen(event, index)}
+          onClick={onClick}
+          onMouseOver={onClick}
           label={tab.title}
-          icon={<ArrowDropDown />}
-          iconPosition="end"
+          icon={tab.icon ?? <ArrowDropDown />}
+          iconPosition={tab.icon ? 'top' : 'end'}
         />
       );
     }

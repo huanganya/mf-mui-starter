@@ -26,11 +26,12 @@ export const AlignItemsList = ({
         padding: '10px',
       }}
     >
-      {items.map((item) => (
+      {items.map((item, index) => (
         <ListItem
           alignItems="flex-start"
           sx={{ borderRadius: '5px' }}
           onClick={item.onclick}
+          key={index}
         >
           <ListItemAvatar>{item.icon}</ListItemAvatar>
           <ListItemText primary={item.primary} secondary={item.secondary} />
