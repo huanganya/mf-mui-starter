@@ -8,11 +8,11 @@ This project was generated using [Nx](https://nx.dev).
 
 ## auth module(Update: auth module was moved to AuthProvider)
 
-Auth module presents the login for with yup validation;
-MUI Grid is used for responsive design
-Formik is used for form validation and submit
-The global auth state is managed by React Context API
-Update: AuthProvider is more flexible to be shared by both shell app and remote apps
+1. Auth module presents the login for with yup validation;
+2. MUI Grid is used for responsive design
+3. Formik is used for form validation and submit
+4. The global auth state is managed by React Context API
+5. Update: AuthProvider is more flexible to be shared by both shell app and remote apps
 
 ## remote module
 
@@ -35,15 +35,21 @@ Run `nx g @nrwl/react:lib my-lib` to generate a library.
 
 Libraries are shareable across libraries and applications. They can be imported from `@mf-mui-starter/mylib`.
 
-## Development server
+## Development Host server
 
-Run `npm run start` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+Run `npm run start` for a dev server. The app will automatically reload if you change any of the source files.
+
+1. Host App: Navigate to http://localhost:4200/.
+2. Remote App: Navigate to http://localhost:4201/.
+3. Host App will render the remote app
+4. Remote App's route was handled by a Redirector which will remove the extra path from the local request
 
 ## Running unit tests
 
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
+Run `npm run test:shell` to execute the unit tests for host app.
+Run `npm run test:remote` to execute the unit tests for remote app.
+Run `npm run app-shared` to execute the unit tests for app-shared library.
+Run `npm run test:common-lib` to execute the unit tests for common-lib library.
 
 ## Running end-to-end tests
 
@@ -74,6 +80,12 @@ Run `nx graph` to see a diagram of the dependencies of your projects.
    4.4 added appbar related component to common-lib
 
    4.5 added top-appbar(app specific appbar) to app-shared
+
+   4.6 added align-itemslist to common-lib
+
+   4.7 added more components to the common-lib
+
+   4.8 refactored tab-bar to make the value of the tabs to be number
 
 5. Will try to move the fonts/images into the common-assets library : done
 
