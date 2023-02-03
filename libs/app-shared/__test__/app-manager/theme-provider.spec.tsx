@@ -2,6 +2,7 @@ import { Typography } from '@mui/material';
 import { render } from '@testing-library/react';
 import React from 'react';
 import { AppThemeProvider } from '../../app-manager';
+import { palette } from '../../constants/theme';
 
 describe('AppThemeProvider', () => {
   it('should render successfully', () => {
