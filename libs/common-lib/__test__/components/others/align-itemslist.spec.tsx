@@ -29,9 +29,8 @@ describe('AlignItemsList', () => {
   );
 
   it('should render AlignItemsList properly', async () => {
-    const { debug } = render(<TestComponent />);
-
-    debug();
+    const { getByRole } = render(<TestComponent />);
+   expect(getByRole('list')).toBeTruthy();
   });
 
   it('should render its child value', async () => {
