@@ -1,15 +1,17 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import { Tab, Tabs } from '@mui/material';
-import { ArrowDropDown, SvgIconComponent } from '@mui/icons-material';
+import { ArrowDropDown } from '@mui/icons-material';
 import { AnchoredPopover } from '../others/anchored-popover';
 import { LinkTab } from '../others/link-tab';
 
 export interface PageTabProp {
   title: string;
   link?: string;
-  renderComponent?: () => React.ReactElement;
+  renderComponent?: (handleClose: () => void) => React.ReactElement;
+  popoverFullWidth?: boolean;
   icon?: React.ReactElement;
+  alignment?: 'left' | 'right';
 }
 export const DesktopTabs = ({ pageTabs }: { pageTabs: PageTabProp[] }) => {
   const [value, setValue] = React.useState<number>(0);
@@ -52,7 +54,12 @@ export const DesktopTabs = ({ pageTabs }: { pageTabs: PageTabProp[] }) => {
     );
   };
   return (
-    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+    <Box
+      sx={{
+        flexGrow: 1,
+        display: { xs: 'none', md: 'flex' },
+      }}
+    >
       <Tabs
         value={value}
         onChange={(event, index) => {
@@ -61,11 +68,18 @@ export const DesktopTabs = ({ pageTabs }: { pageTabs: PageTabProp[] }) => {
       >
         {pageTabs.map(renderTab)}
       </Tabs>
-      {anchorEl && pageTabs[value].renderComponent && (
-        <AnchoredPopover anchorEl={anchorEl} handleClose={handleClose}>
-          {pageTabs[value].renderComponent?.()}
-        </AnchoredPopover>
-      )}
+      <Box>
+        {anchorEl && pageTabs[value].renderComponent && (
+          <AnchoredPopover
+            anchorEl={anchorEl}
+            handleClose={handleClose}
+            popoverFullWidth={pageTabs[value].popoverFullWidth}
+            alignment={pageTabs[value].alignment ?? 'left'}
+          >
+            {pageTabs[value].renderComponent?.(handleClose)}
+          </AnchoredPopover>
+        )}
+      </Box>
     </Box>
   );
 };

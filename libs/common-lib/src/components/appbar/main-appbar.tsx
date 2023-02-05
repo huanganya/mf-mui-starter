@@ -2,28 +2,31 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { MobileTabAppBar } from '../responsive/appbar';
 import { DesktopTabs, PageTabProp } from './desktop-tabs';
-import { MainMenu } from './main-menu';
+import { DesktopButton, DesktopButtonProp } from './desktop-button';
 
 export const MainAppBar = ({
   pageTabs,
-  settings,
   rightPageTabs,
   renderLogo,
+  profileItem,
+  logoutItem,
 }: {
   pageTabs: PageTabProp[];
   rightPageTabs?: PageTabProp[];
-  settings: string[];
   renderLogo?: () => React.ReactElement;
+  profileItem: DesktopButtonProp;
+  logoutItem: DesktopButtonProp;
 }) => {
   return (
     <>
-      <AppBar position="fixed">
-        <Toolbar disableGutters>
+      <AppBar>
+        <Toolbar>
           {renderLogo?.()}
           <MobileTabAppBar pageTabs={pageTabs} />
           <DesktopTabs pageTabs={pageTabs} />
           {rightPageTabs && <DesktopTabs pageTabs={rightPageTabs} />}
-          <MainMenu settings={settings} />
+          <DesktopButton item={profileItem} index={1} />
+          <DesktopButton item={logoutItem} index={2} />
         </Toolbar>
       </AppBar>
       <Toolbar />

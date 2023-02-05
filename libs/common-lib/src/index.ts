@@ -3,3 +3,7 @@ export * from './components/form/form-field';
 export * from './components/form/form-input';
 export * from './components/appbar/main-appbar';
 export * from './components/others/align-itemslist';
+export * from './components/others/avatar-list-item';
+export * from './components/appbar/desktop-button';
+export * from './components/others/icon-text-field';
+export * from './components/others/search-bar';
