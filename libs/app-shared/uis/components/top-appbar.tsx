@@ -18,10 +18,12 @@ import {
   profileItemData,
   logoutItem,
 } from '../../constants/top-appbar-items';
+import { authContext } from '../../app-manager/providers/auth-provider';
+import React from 'react';
 
 export const TopAppbar = () => {
   const navigate = useNavigate();
-
+  const { logout } = React.useContext(authContext);
   const pageTabs = [
     { title: 'Home', link: '/' },
     {
@@ -122,7 +124,13 @@ export const TopAppbar = () => {
         pageTabs={pageTabs}
         rightPageTabs={rightPageTabs}
         profileItem={profileItem}
-        logoutItem={logoutItem}
+        logoutItem={{
+          ...logoutItem,
+          onClick: () => {
+            console.log('logout clicked');
+            logout();
+          },
+        }}
       />
     </>
   );

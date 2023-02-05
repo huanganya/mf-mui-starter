@@ -9,7 +9,7 @@ export interface AlignItemProp {
   icon: React.ReactElement;
   primary: string;
   secondary?: string;
-  onclick?: () => void;
+  onClick?: () => void;
 }
 export const AvatarListItem = ({
   item,
@@ -24,7 +24,7 @@ export const AvatarListItem = ({
     <ListItem
       alignItems="flex-start"
       sx={sx}
-      onClick={item.onclick}
+      onClick={item.onClick}
       key={index}
       data-testid={`list-item-${item.testId}`}
     >

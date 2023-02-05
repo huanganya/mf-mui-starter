@@ -20,7 +20,7 @@ describe('AlignItemsList', () => {
       ),
       primary: 'Brunch this weekend?',
       secondary: "— I'll be in your neighborhood doing errands this…",
-      onclick: onClick,
+      onClick: onClick,
     },
   ];
 
@@ -30,7 +30,7 @@ describe('AlignItemsList', () => {
 
   it('should render AlignItemsList properly', async () => {
     const { getByRole } = render(<TestComponent />);
-   expect(getByRole('list')).toBeTruthy();
+    expect(getByRole('list')).toBeTruthy();
   });
 
   it('should render its child value', async () => {
@@ -39,7 +39,7 @@ describe('AlignItemsList', () => {
     expect(getByRole('listitem')).toBeTruthy();
   });
 
-  it('should do onclick when its child is clicked', async () => {
+  it('should do onClick when its child is clicked', async () => {
     const { getByText } = render(<TestComponent />);
 
     fireEvent.click(getByText('Brunch this weekend?'));

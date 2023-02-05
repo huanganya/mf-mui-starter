@@ -29,7 +29,7 @@ export const getListRemote2 = (
       ),
       primary: 'Brunch this weekend?',
       secondary: "— I'll be in your neighborhood doing errands this…",
-      onclick: () => {
+      onClick: () => {
         handleClose();
         navigate('remote/path1');
       },
@@ -48,7 +48,7 @@ export const getListRemote2 = (
       ),
       primary: 'Summer BBQ',
       secondary: "— Wish I could come, but I'm out of town this…",
-      onclick: () => {
+      onClick: () => {
         handleClose();
         navigate('remote/path2');
       },
@@ -67,7 +67,7 @@ export const getListRemote2 = (
       ),
       primary: 'Oui Oui',
       secondary: ' — Do you have Paris recommendations? Have you ever…',
-      onclick: () => {
+      onClick: () => {
         handleClose();
         navigate('remote/path1/path11');
       },
@@ -202,7 +202,7 @@ export const getListProfile = (
       ),
       primary: 'Brunch this weekend?',
       secondary: "— I'll be in your neighborhood doing errands this…",
-      onclick: () => {
+      onClick: () => {
         handleClose();
         navigate('remote/path1');
       },
@@ -221,7 +221,7 @@ export const getListProfile = (
       ),
       primary: 'Summer BBQ',
       secondary: "— Wish I could come, but I'm out of town this…",
-      onclick: () => {
+      onClick: () => {
         handleClose();
         navigate('remote/path2');
       },
@@ -240,7 +240,7 @@ export const getListProfile = (
       ),
       primary: 'Oui Oui',
       secondary: ' — Do you have Paris recommendations? Have you ever…',
-      onclick: () => {
+      onClick: () => {
         handleClose();
         navigate('remote/path1/path11');
       },

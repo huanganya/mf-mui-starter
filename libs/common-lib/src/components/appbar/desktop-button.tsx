@@ -21,16 +21,18 @@ export const DesktopButton = ({
     (EventTarget & Element) | null
   >(null);
 
+  const shouldRenderExpand = item.renderComponent;
+
   const handleClick = (event: {
     currentTarget: React.SetStateAction<(EventTarget & Element) | null>;
   }) => {
-    setAnchorEl(event.currentTarget);
+    shouldRenderExpand && setAnchorEl(event.currentTarget);
+    item.onClick?.();
   };
 
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const shouldRenderExpand = item.renderComponent;
 
   return (
     <>
@@ -41,7 +43,7 @@ export const DesktopButton = ({
         <AvatarListItem item={item} index={index} />
         {shouldRenderExpand && (anchorEl ? <ExpandLess /> : <ExpandMore />)}
       </ListItemButton>
-      {anchorEl && (
+      {shouldRenderExpand && anchorEl && (
         <AnchoredPopover
           anchorEl={anchorEl}
           handleClose={handleClose}
