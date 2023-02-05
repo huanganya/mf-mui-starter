@@ -8,9 +8,9 @@ import { LinkTab } from '../others/link-tab';
 export interface PageTabProp {
   title: string;
   link?: string;
+  icon?: React.ReactElement;
   renderComponent?: (handleClose: () => void) => React.ReactElement;
   popoverFullWidth?: boolean;
-  icon?: React.ReactElement;
   alignment?: 'left' | 'right';
 }
 export const DesktopTabs = ({ pageTabs }: { pageTabs: PageTabProp[] }) => {

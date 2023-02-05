@@ -35,6 +35,7 @@ export const AvatarListItem = ({
         data-testid={`list-item-text-${item.testId}`}
         primary={item.primary}
         secondary={item.secondary}
+        sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}
       />
     </ListItem>
   );

@@ -1,5 +1,4 @@
 import { Box, Typography } from '@mui/material';
-import AdbIcon from '@mui/icons-material/Adb';
 import {
   MainAppBar,
   AlignItemsList,
@@ -20,6 +19,7 @@ import {
 } from '../../constants/top-appbar-items';
 import { authContext } from '../../app-manager/providers/auth-provider';
 import React from 'react';
+import { Logo } from './logo';
 
 export const TopAppbar = () => {
   const navigate = useNavigate();
@@ -82,31 +82,6 @@ export const TopAppbar = () => {
     },
   ];
 
-  const renderLogo = () => {
-    return (
-      <>
-        <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-        <Typography
-          variant="h6"
-          noWrap
-          component="a"
-          href="/"
-          sx={{
-            mr: 2,
-            display: { xs: 'none', md: 'flex' },
-            fontFamily: 'monospace',
-            fontWeight: 700,
-            letterSpacing: '.3rem',
-            color: 'inherit',
-            textDecoration: 'none',
-          }}
-        >
-          LOGO
-        </Typography>
-      </>
-    );
-  };
-
   const profileItem: DesktopButtonProp = {
     ...profileItemData,
     renderComponent: (handleClose: () => void) => (
@@ -120,7 +95,7 @@ export const TopAppbar = () => {
   return (
     <>
       <MainAppBar
-        renderLogo={renderLogo}
+        logo={<Logo />}
         pageTabs={pageTabs}
         rightPageTabs={rightPageTabs}
         profileItem={profileItem}

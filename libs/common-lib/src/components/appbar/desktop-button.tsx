@@ -4,7 +4,7 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import { AnchoredPopover } from '../others/anchored-popover';
 import { AlignItemProp, AvatarListItem } from '../others/avatar-list-item';
-import { useTheme } from '@mui/material';
+import { Box, SxProps, Theme, useTheme } from '@mui/material';
 
 export interface DesktopButtonProp extends AlignItemProp {
   renderComponent?: (handleClose: () => void) => React.ReactElement;
@@ -12,9 +12,11 @@ export interface DesktopButtonProp extends AlignItemProp {
 export const DesktopButton = ({
   item,
   index,
+  sx,
 }: {
   item: DesktopButtonProp;
   index: number;
+  sx?: SxProps<Theme>;
 }) => {
   const theme = useTheme();
   const [anchorEl, setAnchorEl] = React.useState<
@@ -38,9 +40,19 @@ export const DesktopButton = ({
     <>
       <ListItemButton
         onClick={handleClick}
-        sx={{ color: theme.palette.text.primary }}
+        sx={{
+          ...sx,
+          color: theme.palette.text.primary,
+          padding: '4px',
+          borderLeft: 1,
+          borderColor: '#dddddd',
+        }}
       >
-        <AvatarListItem item={item} index={index} />
+        <AvatarListItem
+          sx={{ padding: '4px', textAlign: 'center' }}
+          item={item}
+          index={index}
+        />
         {shouldRenderExpand && (anchorEl ? <ExpandLess /> : <ExpandMore />)}
       </ListItemButton>
       {shouldRenderExpand && anchorEl && (
