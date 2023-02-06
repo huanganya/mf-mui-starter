@@ -4,6 +4,7 @@ import { Tab, Tabs } from '@mui/material';
 import { ArrowDropDown } from '@mui/icons-material';
 import { AnchoredPopover } from '../others/anchored-popover';
 import { LinkTab } from '../others/link-tab';
+import { DesktopBox } from '../responsive/desktop-box';
 
 export interface PageTabProp {
   title: string;
@@ -54,32 +55,29 @@ export const DesktopTabs = ({ pageTabs }: { pageTabs: PageTabProp[] }) => {
     );
   };
   return (
-    <Box
-      sx={{
-        flexGrow: 1,
-        display: { xs: 'none', md: 'flex' },
-      }}
-    >
-      <Tabs
-        value={value}
-        onChange={(event, index) => {
-          handleTabOpen(event, index);
-        }}
-      >
-        {pageTabs.map(renderTab)}
-      </Tabs>
-      <Box>
-        {anchorEl && pageTabs[value].renderComponent && (
-          <AnchoredPopover
-            anchorEl={anchorEl}
-            handleClose={handleClose}
-            popoverFullWidth={pageTabs[value].popoverFullWidth}
-            alignment={pageTabs[value].alignment ?? 'left'}
-          >
-            {pageTabs[value].renderComponent?.(handleClose)}
-          </AnchoredPopover>
-        )}
-      </Box>
-    </Box>
+    <DesktopBox>
+      <>
+        <Tabs
+          value={value}
+          onChange={(event, index) => {
+            handleTabOpen(event, index);
+          }}
+        >
+          {pageTabs.map(renderTab)}
+        </Tabs>
+        <Box>
+          {anchorEl && pageTabs[value].renderComponent && (
+            <AnchoredPopover
+              anchorEl={anchorEl}
+              handleClose={handleClose}
+              popoverFullWidth={pageTabs[value].popoverFullWidth}
+              alignment={pageTabs[value].alignment ?? 'left'}
+            >
+              {pageTabs[value].renderComponent?.(handleClose)}
+            </AnchoredPopover>
+          )}
+        </Box>
+      </>
+    </DesktopBox>
   );
 };

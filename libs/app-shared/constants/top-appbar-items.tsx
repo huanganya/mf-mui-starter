@@ -10,6 +10,7 @@ import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import InboxIcon from '@mui/icons-material/InboxOutlined';
 import { LogoutOutlined } from '@mui/icons-material';
+import { NavMenuItem, NavMenuItemProps } from '../uis/components/nav-menu-item';
 
 export const getListRemote2 = (
   navigate: NavigateFunction,
@@ -76,14 +77,7 @@ export const getListRemote2 = (
   ];
 };
 
-interface MenuItemProps {
-  testId: string;
-  title: string;
-  href: string;
-  leftIcon?: React.ReactElement;
-}
-
-const menuItemsForRemote1: MenuItemProps[] = [
+const menuItemsForRemote1: NavMenuItemProps[] = [
   {
     testId: 'remote-1-menu-1',
     title: 'menu item Three',
@@ -101,18 +95,15 @@ const menuItemsForRemote1: MenuItemProps[] = [
   },
 ];
 
-export const getMenuItemsRemote1 = (
-  navigate: NavigateFunction,
-  handleClose: () => void
-) => (
+export const getMenuItemsRemote1 = (handleClose: () => void) => (
   <>
-    {menuItemsForRemote1.map((item) =>
-      mapForMenuItems(item, navigate, handleClose)
-    )}
+    {menuItemsForRemote1.map((item) => (
+      <NavMenuItem item={item} handleClose={handleClose} />
+    ))}
   </>
 );
 
-const menuItemsForShortcuts: MenuItemProps[] = [
+const menuItemsForShortcuts: NavMenuItemProps[] = [
   {
     testId: 'shortcut-menu-1',
     title: 'Shopping Cart',
@@ -139,37 +130,13 @@ const menuItemsForShortcuts: MenuItemProps[] = [
   },
 ];
 
-export const getMenuItemsShortcuts = (
-  navigate: NavigateFunction,
-  handleClose: () => void
-) => (
+export const getMenuItemsShortcuts = (handleClose: () => void) => (
   <>
-    {menuItemsForShortcuts.map((item) =>
-      mapForMenuItems(item, navigate, handleClose)
-    )}
+    {menuItemsForShortcuts.map((item) => (
+      <NavMenuItem item={item} handleClose={handleClose} />
+    ))}
   </>
 );
-
-const mapForMenuItems = (
-  item: MenuItemProps,
-  navigate: NavigateFunction,
-  handleClose: () => void
-) => {
-  return (
-    <MenuItem
-      data-testid={item.testId}
-      onClick={() => {
-        handleClose();
-        navigate(item.testId);
-      }}
-    >
-      {item.leftIcon}
-      <Typography sx={item.leftIcon ? { ml: 1 } : undefined}>
-        {item.title}
-      </Typography>
-    </MenuItem>
-  );
-};
 
 export const profileItemData: AlignItemProp = {
   icon: <InboxIcon />,

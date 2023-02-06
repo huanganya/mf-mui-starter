@@ -5,6 +5,7 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import { AnchoredPopover } from '../others/anchored-popover';
 import { AlignItemProp, AvatarListItem } from '../others/avatar-list-item';
 import { Box, SxProps, Theme, useTheme } from '@mui/material';
+import { DesktopBox } from '../responsive/desktop-box';
 
 export interface DesktopButtonProp extends AlignItemProp {
   renderComponent?: (handleClose: () => void) => React.ReactElement;
@@ -37,34 +38,36 @@ export const DesktopButton = ({
   };
 
   return (
-    <>
-      <ListItemButton
-        onClick={handleClick}
-        sx={{
-          ...sx,
-          color: theme.palette.text.primary,
-          padding: '4px',
-          borderLeft: 1,
-          borderColor: '#dddddd',
-        }}
-      >
-        <AvatarListItem
-          sx={{ padding: '4px', textAlign: 'center' }}
-          item={item}
-          index={index}
-        />
-        {shouldRenderExpand && (anchorEl ? <ExpandLess /> : <ExpandMore />)}
-      </ListItemButton>
-      {shouldRenderExpand && anchorEl && (
-        <AnchoredPopover
-          anchorEl={anchorEl}
-          handleClose={handleClose}
-          popoverFullWidth={false}
-          alignment={'right'}
+    <DesktopBox>
+      <>
+        <ListItemButton
+          onClick={handleClick}
+          sx={{
+            ...sx,
+            color: theme.palette.text.primary,
+            padding: '4px',
+            borderLeft: 1,
+            borderColor: '#dddddd',
+          }}
         >
-          {item.renderComponent?.(handleClose)}
-        </AnchoredPopover>
-      )}
-    </>
+          <AvatarListItem
+            sx={{ padding: '4px', textAlign: 'center' }}
+            item={item}
+            index={index}
+          />
+          {shouldRenderExpand && (anchorEl ? <ExpandLess /> : <ExpandMore />)}
+        </ListItemButton>
+        {shouldRenderExpand && anchorEl && (
+          <AnchoredPopover
+            anchorEl={anchorEl}
+            handleClose={handleClose}
+            popoverFullWidth={false}
+            alignment={'right'}
+          >
+            {item.renderComponent?.(handleClose)}
+          </AnchoredPopover>
+        )}
+      </>
+    </DesktopBox>
   );
 };

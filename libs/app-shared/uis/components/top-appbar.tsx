@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Badge, Box, Typography } from '@mui/material';
 import {
   MainAppBar,
   AlignItemsList,
@@ -20,6 +20,7 @@ import {
 import { authContext } from '../../app-manager/providers/auth-provider';
 import React from 'react';
 import { Logo } from './logo';
+import { AlertBox } from './alert-box';
 
 export const TopAppbar = () => {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ export const TopAppbar = () => {
     {
       title: 'Remote 1',
       renderComponent: (handleClose: () => void) =>
-        getMenuItemsRemote1(navigate, handleClose),
+        getMenuItemsRemote1(handleClose),
     },
     {
       title: 'Remote 2',
@@ -66,17 +67,18 @@ export const TopAppbar = () => {
       title: 'Shortcuts',
       icon: <LinkIcon />,
       renderComponent: (handleClose: () => void) =>
-        getMenuItemsShortcuts(navigate, handleClose),
+        getMenuItemsShortcuts(handleClose),
       alignment: 'right' as 'left' | 'right',
     },
     {
       title: 'Alerts',
-      icon: <NotificationsNoneIcon />,
+      icon: (
+        <Badge color="primary" variant="dot">
+          <NotificationsNoneIcon />
+        </Badge>
+      ),
       renderComponent: (handleClose: () => void) => (
-        <Box padding={'10px'} onClick={handleClose}>
-          <Typography>For some message</Typography>
-          <Typography>Can add interactive content here</Typography>
-        </Box>
+        <AlertBox handleClose={handleClose} />
       ),
       alignment: 'right' as 'left' | 'right',
     },
