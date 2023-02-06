@@ -2,14 +2,17 @@ import * as React from 'react';
 import { AppRoutes } from '../routes/app-routes';
 import { TopAppbar } from '@mf-mui-starter/app-shared/uis';
 import style from './app.module.scss';
+import { Box, Container } from '@mui/material';
 
 export function App() {
   return (
     <React.Suspense fallback={null}>
-      <div className={style.app}>
+      <Box className={style.app}>
         <TopAppbar />
-        <AppRoutes />
-      </div>
+        <Container>
+          <AppRoutes />
+        </Container>
+      </Box>
     </React.Suspense>
   );
 }
