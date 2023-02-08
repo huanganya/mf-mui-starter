@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react';
-import { AppThemeProvider } from './theme-provider';
+import { AppThemeProvider } from '@mf-mui-starter/common-lib';
 import { AuthContextProvider } from './auth-provider';
 
 type AppProviderProps = { children?: React.ReactNode };

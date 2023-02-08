@@ -13,8 +13,12 @@ const Template: ComponentStory<typeof DesktopButton> = (args) => {
 
 export const Primary = Template.bind({});
 Primary.args = {
-  primary: 'Elizabett Lim',
-  secondary: 'My profile & others',
-  testId: 'profile-item',
-  renderComponent: <p>Test</p>,
+  item: {
+    icon: <p>icon</p>,
+    primary: 'Elizabett Lim',
+    secondary: 'My profile & others',
+    testId: 'profile-item',
+    renderComponent: () => <p>Test</p>,
+  },
+  index: 1,
 };

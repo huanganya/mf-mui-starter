@@ -1,4 +1,3 @@
-import { theme } from '@mf-mui-starter/app-shared/app-manager';
 import {
   Grid,
   CardMedia,
@@ -7,8 +6,10 @@ import {
   Typography,
   Card,
   Box,
+  useTheme,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+const theme = useTheme();
 const LeftStrip = () => {
   return (
     <Box
