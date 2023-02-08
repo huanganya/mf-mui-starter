@@ -6,6 +6,7 @@ describe('AlignItemsList', () => {
   const onClick = jest.fn();
   const TestData = [
     {
+      testId:"0",
       key: 0,
       id: 0,
       icon: (
