@@ -13,12 +13,12 @@ const pageTabs = [
   { title: 'Home', link: '/' },
   {
     title: 'Remote 1',
-    renderComponent: () => <h1>Remote 1 content</h1>,
+    renderComponent: (handleClose: () => void) => <h1 onClick={handleClose}>Remote 1 content</h1>,
   },
   {
     title: 'Search',
     icon: <SearchOutlined />,
-    renderComponent: () => <h1>Search content</h1>,
+    renderComponent: (handleClose: () => void) => <h1 onClick={handleClose}>>Search content</h1>,
   },
 ];
 

@@ -1,20 +1,11 @@
-import * as React from 'react';
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
+import { AlignItemProp, AvatarListItem } from './avatar-list-item';
 
-export interface AlignItemProp {
-  icon: React.ReactElement;
-  primary: string;
-  secondary: string;
-  onclick?: () => void;
-}
 export const AlignItemsList = ({
   maxWidth,
   items,
 }: {
-  maxWidth: number;
+  maxWidth?: number;
   items: AlignItemProp[];
 }) => {
   return (
@@ -27,15 +18,11 @@ export const AlignItemsList = ({
       }}
     >
       {items.map((item, index) => (
-        <ListItem
-          alignItems="flex-start"
+        <AvatarListItem
+          item={item}
+          index={index}
           sx={{ borderRadius: '5px' }}
-          onClick={item.onclick}
-          key={index}
-        >
-          <ListItemAvatar>{item.icon}</ListItemAvatar>
-          <ListItemText primary={item.primary} secondary={item.secondary} />
-        </ListItem>
+        />
       ))}
     </List>
   );

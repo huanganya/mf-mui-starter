@@ -1,114 +1,50 @@
-import { Box, MenuItem, Typography } from '@mui/material';
-import AdbIcon from '@mui/icons-material/Adb';
+import { Badge, Box, Typography } from '@mui/material';
 import {
   MainAppBar,
   AlignItemsList,
-  AlignItemProp,
+  SearchBar,
+  DesktopButtonProp,
 } from '@mf-mui-starter/common-lib';
-import RuleOutlined from '@mui/icons-material/RuleOutlined';
-import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
-import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
-import { NavigateFunction, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { SearchOutlined } from '@mui/icons-material';
 import LinkIcon from '@mui/icons-material/Link';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
-
-const getListItems1 = (navigate: NavigateFunction): AlignItemProp[] => {
-  return [
-    {
-      icon: (
-        <RuleOutlined
-          sx={{
-            backgroundColor: '#F8ECEE',
-            color: '#BE4651',
-            padding: '10px',
-            borderRadius: '5px',
-          }}
-        />
-      ),
-      primary: 'Brunch this weekend?',
-      secondary: "— I'll be in your neighborhood doing errands this…",
-      onclick: () => navigate('remote/path1'),
-    },
-    {
-      icon: (
-        <ThumbUpOutlinedIcon
-          sx={{
-            backgroundColor: '#F4E9DF',
-            color: '#D67A30',
-            padding: '10px',
-            borderRadius: '5px',
-          }}
-        />
-      ),
-      primary: 'Summer BBQ',
-      secondary: "— Wish I could come, but I'm out of town this…",
-      onclick: () => navigate('remote/path2'),
-    },
-    {
-      icon: (
-        <MenuBookOutlinedIcon
-          sx={{
-            backgroundColor: '#EBF1F9',
-            color: '#3C6F60',
-            padding: '10px',
-            borderRadius: '5px',
-          }}
-        />
-      ),
-      primary: 'Oui Oui',
-      secondary: ' — Do you have Paris recommendations? Have you ever…',
-      onclick: () => navigate('remote/path1/path11'),
-    },
-  ];
-};
+import {
+  getListRemote2,
+  getMenuItemsRemote1,
+  getMenuItemsShortcuts,
+  getListProfile,
+  profileItemData,
+  logoutItem,
+} from '../../constants/top-appbar-items';
+import { authContext } from '../../app-manager/providers/auth-provider';
+import React from 'react';
+import { Logo } from './logo';
+import { AlertBox } from './alert-box';
 
 export const TopAppbar = () => {
   const navigate = useNavigate();
-
+  const { logout } = React.useContext(authContext);
   const pageTabs = [
     { title: 'Home', link: '/' },
     {
       title: 'Remote 1',
-      renderComponent: () => (
-        <>
-          <MenuItem
-            data-testid="remote-1-menu-1"
-            onClick={() => {
-              navigate('/remote/page-three');
-            }}
-          >
-            menu item Three
-          </MenuItem>
-          <MenuItem
-            data-testid="remote-1-menu-2"
-            onClick={() => {
-              navigate('/remote/page-four');
-            }}
-          >
-            menu item Four
-          </MenuItem>
-          <MenuItem
-            data-testid="remote-1-menu-3"
-            onClick={() => {
-              navigate('/remote/page-five');
-            }}
-          >
-            menu item Five
-          </MenuItem>
-        </>
-      ),
+      renderComponent: (handleClose: () => void) =>
+        getMenuItemsRemote1(handleClose),
     },
     {
       title: 'Remote 2',
-      renderComponent: () => (
-        <AlignItemsList maxWidth={360} items={getListItems1(navigate)} />
+      renderComponent: (handleClose: () => void) => (
+        <AlignItemsList
+          maxWidth={360}
+          items={getListRemote2(navigate, handleClose)}
+        />
       ),
     },
     {
       title: 'Remote 3',
-      renderComponent: () => (
-        <Box padding={'10px'}>
+      renderComponent: (handleClose: () => void) => (
+        <Box padding={'10px'} onClick={handleClose}>
           <Typography>For some message</Typography>
           <Typography>Can add interactive content here</Typography>
         </Box>
@@ -120,68 +56,58 @@ export const TopAppbar = () => {
     {
       title: 'Search',
       icon: <SearchOutlined />,
-      renderComponent: () => (
-        <>
-          <MenuItem
-            data-testid="remote-1-menu-1"
-            onClick={() => {
-              navigate('/remote/page-three');
-            }}
-          >
-            menu item Three
-          </MenuItem>
-        </>
+      popoverFullWidth: true,
+      renderComponent: (handleClose: () => void) => (
+        <Box paddingLeft={'20px'} paddingRight={'20px'}>
+          <SearchBar />
+        </Box>
       ),
     },
     {
       title: 'Shortcuts',
       icon: <LinkIcon />,
-      renderComponent: () => (
-        <AlignItemsList maxWidth={360} items={getListItems1(navigate)} />
-      ),
+      renderComponent: (handleClose: () => void) =>
+        getMenuItemsShortcuts(handleClose),
+      alignment: 'right' as 'left' | 'right',
     },
     {
       title: 'Alerts',
-      icon: <NotificationsNoneIcon />,
-      renderComponent: () => (
-        <Box padding={'10px'}>
-          <Typography>For some message</Typography>
-          <Typography>Can add interactive content here</Typography>
-        </Box>
+      icon: (
+        <Badge color="primary" variant="dot">
+          <NotificationsNoneIcon />
+        </Badge>
       ),
+      renderComponent: (handleClose: () => void) => (
+        <AlertBox handleClose={handleClose} />
+      ),
+      alignment: 'right' as 'left' | 'right',
     },
   ];
-  const renderLogo = () => {
-    return (
-      <>
-        <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-        <Typography
-          variant="h6"
-          noWrap
-          component="a"
-          href="/"
-          sx={{
-            mr: 2,
-            display: { xs: 'none', md: 'flex' },
-            fontFamily: 'monospace',
-            fontWeight: 700,
-            letterSpacing: '.3rem',
-            color: 'inherit',
-            textDecoration: 'none',
-          }}
-        >
-          LOGO
-        </Typography>
-      </>
-    );
+
+  const profileItem: DesktopButtonProp = {
+    ...profileItemData,
+    renderComponent: (handleClose: () => void) => (
+      <AlignItemsList
+        maxWidth={360}
+        items={getListProfile(navigate, handleClose)}
+      />
+    ),
   };
+
   return (
     <>
       <MainAppBar
-        renderLogo={renderLogo}
+        logo={<Logo />}
         pageTabs={pageTabs}
         rightPageTabs={rightPageTabs}
-        settings={['Profile', 'Account', 'Dashboard', 'Logout']}
+        profileItem={profileItem}
+        logoutItem={{
+          ...logoutItem,
+          onClick: () => {
+            console.log('logout clicked');
+            logout();
+          },
+        }}
       />
     </>
   );

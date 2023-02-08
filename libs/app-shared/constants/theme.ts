@@ -189,6 +189,22 @@ export const components = {
       },
     },
   },
+  MuiToggleButton: {
+    styleOverrides: {
+      root: {
+        backgroundColor: '#fff',
+        color: palette.text.primary,
+        '&.Mui-selected': {
+          color: '#fff',
+          backgroundColor: '#323841',
+          '&:hover': {
+            color: '#fff',
+            backgroundColor: '#323841',
+          },
+        },
+      },
+    },
+  },
 };
 
 declare module '@mui/material/styles' {

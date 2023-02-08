@@ -14,6 +14,7 @@ export const IconTextField = ({
     <TextField
       {...props}
       InputProps={{
+        ...props.InputProps,
         startAdornment: iconStart ? (
           <InputAdornment position="start">{iconStart}</InputAdornment>
         ) : null,
