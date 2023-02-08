@@ -27,7 +27,13 @@ export const HomeCarousel = () => {
 
 function Item(props: { item: { name: string; description: string } }) {
   return (
-    <Paper sx={{ backgroundColor: '#fafaff', borderRadius: '5px' }}>
+    <Paper
+      sx={{
+        textAlign: 'center',
+        backgroundColor: '#fafaff',
+        borderRadius: '5px',
+      }}
+    >
       <Typography variant="subheader">{props.item.name}</Typography>
       <Typography>{props.item.description}</Typography>
       <Typography>{props.item.description}</Typography>

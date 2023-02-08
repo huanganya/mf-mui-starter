@@ -8,4 +8,5 @@ export * from './components/appbar/desktop-button';
 export * from './components/others/icon-text-field';
 export * from './components/others/search-bar';
 export * from './components/others/toggle-buttons';
+export * from './components/others/localized-datepicker';
 export * from './components/responsive/desktop-box';
