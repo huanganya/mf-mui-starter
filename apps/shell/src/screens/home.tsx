@@ -3,6 +3,7 @@ import { Card, Grid, Link } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { HomeCarousel } from '../components/home/home-carousel';
 import { LeftCardBottom } from '../components/home/left-card-bottom';
 import { LeftCardTop } from '../components/home/left-card-top';
 
@@ -26,6 +27,9 @@ export const Home = ({ title }: { title: string }) => {
           </Grid>
         </Grid>
         <Grid item container direction="column" md={8} spacing={3}>
+          <Grid item>
+            <HomeCarousel />
+          </Grid>
           <Grid item>
             <Typography variant="subheader">
               Main content
