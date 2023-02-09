@@ -1,9 +1,4 @@
 import {
-  DangerousOutlined,
-  InfoOutlined,
-  MessageOutlined,
-} from '@mui/icons-material';
-import {
   Badge,
   Box,
   Button,
@@ -12,7 +7,6 @@ import {
   Grid,
   Typography,
 } from '@mui/material';
-import { useEffect, useState } from 'react';
 
 export interface TaskItem {
   id: string;
@@ -145,3 +139,4 @@ export const TasksCard = (props: {
 };
 
 export default TasksCard;
+

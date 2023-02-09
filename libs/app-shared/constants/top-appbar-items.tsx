@@ -3,7 +3,6 @@ import RuleOutlined from '@mui/icons-material/RuleOutlined';
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
 import { NavigateFunction } from 'react-router-dom';
-import { MenuItem, Typography } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LocalAtmIcon from '@mui/icons-material/LocalAtm';
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
