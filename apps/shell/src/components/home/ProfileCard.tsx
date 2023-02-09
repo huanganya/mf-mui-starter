@@ -73,7 +73,7 @@ export const ProfileCard = (props: { userData: userData }) => {
 
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardMedia image={'assets/images/cards/background.png'}>
+      <CardMedia image={'/assets/images/cards/background.png'}>
         {/* <CardContent> */}
         <Grid container item xs={12}>
           <Grid
@@ -90,6 +90,7 @@ export const ProfileCard = (props: { userData: userData }) => {
                   height: '50px',
                   marginTop: '15px',
                   marginRight: '10px',
+                  marginLeft:"10px"
                 }}
               />
             )}
