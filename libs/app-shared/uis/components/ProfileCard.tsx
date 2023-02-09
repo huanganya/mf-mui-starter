@@ -9,10 +9,7 @@ import {
   Grid,
   List,
 } from '@mui/material';
-import {
-  AlignItemProp,
-  AvatarListItem,
-} from '../../../common-lib/src/components/others/avatar-list-item';
+import {AlignItemProp , AvatarListItem} from "../../../common-lib/src/lib/components/others/avatar-list-item"
 import {
   FavoriteBorder,
   LocalAtm,
