@@ -6,9 +6,13 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { PageTabProp } from '../appbar/desktop-tabs';
+import { DesktopTabProp } from '../appbar/desktop-tabs';
 
-export const MobileTabAppBar = ({ pageTabs }: { pageTabs: PageTabProp[] }) => {
+export const MobileTabAppBar = ({
+  pageTabs,
+}: {
+  pageTabs: DesktopTabProp[];
+}) => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );

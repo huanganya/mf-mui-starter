@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 import { useLoginEffect } from '@mf-mui-starter/common-lib';
-import { LoginForm } from '@mf-mui-starter/app-shared/uis';
+import { LoginForm } from '../../uis';
 
 export const AuthContext = createContext<Record<string, any>>({});
 

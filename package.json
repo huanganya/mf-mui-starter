@@ -9,7 +9,8 @@
     "test:remote": "nx run remote:test --codeCoverage",
     "test:app-shared": "nx run app-shared:test --codeCoverage",
     "test:common-lib": "nx run common-lib:test --codeCoverage",
-    "storybook:common-lib": "nx storybook common-lib"
+    "story:common": "nx storybook common-lib",
+    "build-story:common": "nx run common-lib:build-storybook"
   },
   "private": true,
   "dependencies": {

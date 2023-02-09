@@ -1,4 +1,8 @@
-import { AlignItemProp } from '@mf-mui-starter/common-lib';
+import {
+  AlignItemProp,
+  NavMenuItem,
+  NavMenuItemProps,
+} from '@mf-mui-starter/common-lib';
 import RuleOutlined from '@mui/icons-material/RuleOutlined';
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import MenuBookOutlinedIcon from '@mui/icons-material/MenuBookOutlined';
@@ -9,7 +13,6 @@ import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import InboxIcon from '@mui/icons-material/InboxOutlined';
 import { LogoutOutlined } from '@mui/icons-material';
-import { NavMenuItem, NavMenuItemProps } from '../uis/components/nav-menu-item';
 
 export const getListRemote2 = (
   navigate: NavigateFunction,

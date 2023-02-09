@@ -9,6 +9,7 @@ export * from './lib/components/others/icon-text-field';
 export * from './lib/components/others/search-bar';
 export * from './lib/components/others/toggle-buttons';
 export * from './lib/components/others/localized-datepicker';
+export * from './lib/components/others/nav-menu-item';
 export * from './lib/components/responsive/desktop-box';
 export * from './theme/theme-provider';
 export * from './theme/theme';

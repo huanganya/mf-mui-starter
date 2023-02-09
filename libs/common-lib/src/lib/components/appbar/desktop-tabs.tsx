@@ -6,7 +6,7 @@ import { AnchoredPopover } from '../others/anchored-popover';
 import { LinkTab } from '../others/link-tab';
 import { DesktopBox } from '../responsive/desktop-box';
 
-export interface PageTabProp {
+export interface DesktopTabProp {
   title: string;
   link?: string;
   icon?: React.ReactElement;
@@ -14,7 +14,7 @@ export interface PageTabProp {
   popoverFullWidth?: boolean;
   alignment?: 'left' | 'right';
 }
-export const DesktopTabs = ({ pageTabs }: { pageTabs: PageTabProp[] }) => {
+export const DesktopTabs = ({ pageTabs }: { pageTabs: DesktopTabProp[] }) => {
   const [value, setValue] = React.useState<number>(0);
   const [anchorEl, setAnchorEl] = React.useState<
     (EventTarget & Element) | null
@@ -28,7 +28,7 @@ export const DesktopTabs = ({ pageTabs }: { pageTabs: PageTabProp[] }) => {
     setAnchorEl(null);
   };
 
-  const renderTab = (tab: PageTabProp, index: number) => {
+  const renderTab = (tab: DesktopTabProp, index: number) => {
     if (tab.renderComponent) {
       const onClick = (event: React.SyntheticEvent): void => {
         handleTabOpen(event, index);
