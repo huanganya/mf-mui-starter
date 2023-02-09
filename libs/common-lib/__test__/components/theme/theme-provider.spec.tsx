@@ -1,8 +1,6 @@
 import { Typography } from '@mui/material';
 import { render } from '@testing-library/react';
-import React from 'react';
-import { AppThemeProvider } from '../../app-manager';
-import { palette } from '../../constants/theme';
+import { AppThemeProvider, palette } from '../../../src/';
 
 describe('AppThemeProvider', () => {
   it('should render successfully', () => {
@@ -34,19 +32,35 @@ describe('AppThemeProvider', () => {
   it('should render with the correct color', () => {
     const { getByText } = render(
       <AppThemeProvider>
-            <>
-              <Typography display="inline" color={palette.primary.main}>Test Primary Palette</Typography>
-              <Typography display="inline" color={palette.secondary.main}>Test Secondary Palette</Typography>
-              <Typography display="inline" color={palette.success.main}>Test Success Palette</Typography>
-              <Typography display="inline" color={palette.info.main}>Test Info Palette</Typography>
-              <Typography display="inline" color={palette.warning.main}>Test Warning Palette</Typography>
-              <Typography display="inline" color={palette.error.main}>Test Error Palette</Typography>
-              <Typography display="inline" color={palette.text.primary}>Test Text Palette</Typography>
-              <Typography display="inline" color={palette.text.disabled}>Test Text Disabled Palette</Typography>
-            </>
-        </AppThemeProvider>
-      );
-  
+        <>
+          <Typography display="inline" color={palette.primary.main}>
+            Test Primary Palette
+          </Typography>
+          <Typography display="inline" color={palette.secondary.main}>
+            Test Secondary Palette
+          </Typography>
+          <Typography display="inline" color={palette.success.main}>
+            Test Success Palette
+          </Typography>
+          <Typography display="inline" color={palette.info.main}>
+            Test Info Palette
+          </Typography>
+          <Typography display="inline" color={palette.warning.main}>
+            Test Warning Palette
+          </Typography>
+          <Typography display="inline" color={palette.error.main}>
+            Test Error Palette
+          </Typography>
+          <Typography display="inline" color={palette.text.primary}>
+            Test Text Palette
+          </Typography>
+          <Typography display="inline" color={palette.text.disabled}>
+            Test Text Disabled Palette
+          </Typography>
+        </>
+      </AppThemeProvider>
+    );
+
     const palette1 = getByText('Test Primary Palette');
     expect(getComputedStyle(palette1).color).toBe('rgb(206, 58, 78)');
     const palette2 = getByText('Test Secondary Palette');
