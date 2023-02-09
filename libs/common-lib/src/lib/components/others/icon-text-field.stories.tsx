@@ -1,3 +1,4 @@
+import { ArrowRightAltOutlined, SearchOutlined } from '@mui/icons-material';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IconTextField } from './icon-text-field';
 
@@ -12,4 +13,12 @@ const Template: ComponentStory<typeof IconTextField> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  variant: 'standard',
+  margin: 'normal',
+  placeholder: 'Search field ?',
+  fullWidth: false,
+  InputProps: { disableUnderline: true },
+  iconStart: <SearchOutlined />,
+  iconEnd: <ArrowRightAltOutlined />,
+};
