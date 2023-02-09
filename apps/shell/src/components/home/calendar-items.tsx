@@ -1,15 +1,6 @@
-import {
-  Grid,
-  CardMedia,
-  Chip,
-  Link,
-  Typography,
-  Card,
-  Box,
-  useTheme,
-} from '@mui/material';
+import { theme } from '@mf-mui-starter/common-lib';
+import { Grid, Chip, Link, Typography, Card, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-const theme = useTheme();
 const LeftStrip = () => {
   return (
     <Box
