@@ -1,6 +1,7 @@
 import { ArrowRightAltOutlined, MessageOutlined } from '@mui/icons-material';
 import { fireEvent, render } from '@testing-library/react';
-import { TasksCard } from '../../../uis/components/TasksCard';
+import React from 'react';
+import { TasksCard } from '../../../src/components/home/TasksCard';
 
 describe('TasksCard', () => {
   const onMouseClickCallback = jest.fn();

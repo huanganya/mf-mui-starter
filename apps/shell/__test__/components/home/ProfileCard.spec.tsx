@@ -1,5 +1,6 @@
 import { fireEvent, render } from '@testing-library/react';
-import ProfileCard from '../../../uis/components/ProfileCard';
+import ProfileCard from '../../../src/components/home/ProfileCard';
+import React from 'react';
 describe('ProfileCard', () => {
 
   const TestComponent = () => (

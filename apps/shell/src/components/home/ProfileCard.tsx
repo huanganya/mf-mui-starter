@@ -9,7 +9,10 @@ import {
   Grid,
   List,
 } from '@mui/material';
-import {AlignItemProp , AvatarListItem} from "../../../common-lib/src/lib/components/others/avatar-list-item"
+import {
+  AlignItemProp,
+  AvatarListItem,
+} from '../../../../../libs/common-lib/src/lib/components/others/avatar-list-item';
 import {
   FavoriteBorder,
   LocalAtm,
@@ -27,7 +30,7 @@ export const ProfileCard = (props: { userData: userData }) => {
   const { userData } = props;
   const items: AlignItemProp[] = [
     {
-      icon: <ShoppingCart sx={{ paddingTop: '4px!important' }} />,
+      icon: <ShoppingCart />,
 
       primary: 'GEMS',
       onClick: () => {
@@ -40,7 +43,7 @@ export const ProfileCard = (props: { userData: userData }) => {
       testId: 'profile-list-item1',
     },
     {
-      icon: <LocalAtm sx={{ paddingTop: '4px' }} />,
+      icon: <LocalAtm/>,
       primary: 'G-FAST',
 
       onClick: () => {
@@ -49,7 +52,7 @@ export const ProfileCard = (props: { userData: userData }) => {
       testId: 'profile-list-item2',
     },
     {
-      icon: <FavoriteBorder sx={{ paddingTop: '4px' }} />,
+      icon: <FavoriteBorder  />,
       primary: 'My Favorite Reading Materials',
 
       onClick: () => {
@@ -58,7 +61,7 @@ export const ProfileCard = (props: { userData: userData }) => {
       testId: 'profile-list-item3',
     },
     {
-      icon: <QuestionAnswer sx={{ paddingTop: '4px' }} />,
+      icon: <QuestionAnswer />,
       primary: 'Submit Feedback',
 
       onClick: () => {
@@ -70,7 +73,7 @@ export const ProfileCard = (props: { userData: userData }) => {
 
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardMedia image={"https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"}>
+      <CardMedia image={'assets/images/cards/background.png'}>
         {/* <CardContent> */}
         <Grid container item xs={12}>
           <Grid
@@ -205,4 +208,3 @@ export const ProfileCard = (props: { userData: userData }) => {
 };
 
 export default ProfileCard;
-

@@ -2,13 +2,12 @@ import { GlobalDataContext } from '@mf-mui-starter/app-shared/app-manager';
 import { ArrowRightAltOutlined, MessageOutlined } from '@mui/icons-material';
 import { Card, Grid, Link } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import TasksCard, { TaskItem } from 'libs/app-shared/uis/components/TasksCard';
+import TasksCard, { TaskItem } from "apps/shell/src/components/home/TasksCard"
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HomeCalendar } from '../components/home/home-calendar';
 import { HomeCarousel } from '../components/home/home-carousel';
-import { LeftCardBottom } from '../components/home/left-card-bottom';
-import { LeftCardTop } from '../components/home/left-card-top';
+import ProfileCard from "apps/shell/src/components/home/ProfileCard"
 
 export const Home = ({ title }: { title: string }) => {
   const { counter, setCounter } = useContext(GlobalDataContext);
@@ -59,7 +58,15 @@ export const Home = ({ title }: { title: string }) => {
       <Grid item container spacing={3}>
         <Grid item container direction="column" md={4} spacing={3}>
           <Grid item>
-            <LeftCardTop />
+            {/* <LeftCardTop /> */}
+            <ProfileCard
+              userData={{
+                userName: 'Davin Lesmana',
+                userNRIC: 'S3279307Z',
+                userPicture:
+                  'https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png',
+              }}
+            />
           </Grid>
           <Grid item>
             {/* <LeftCardBottom /> */}
