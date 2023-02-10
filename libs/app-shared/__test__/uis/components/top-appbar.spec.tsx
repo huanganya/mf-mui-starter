@@ -1,4 +1,4 @@
-import { TopAppbar } from '@mf-mui-starter/app-shared/lib';
+import { TopAppbar } from '@mf-mui-starter/app-shared';
 import { fireEvent, render } from '@testing-library/react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 

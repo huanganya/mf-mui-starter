@@ -17,10 +17,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@mf-mui-starter/app-shared/app-manager": [
-        "libs/app-shared/src/app-manager/index.ts"
-      ],
-      "@mf-mui-starter/app-shared/lib": ["libs/app-shared/src/lib/index.ts"],
+      "@mf-mui-starter/app-shared": ["libs/app-shared/src/index.ts"],
       "@mf-mui-starter/common-assets": ["libs/common-assets/src/index.ts"],
       "@mf-mui-starter/common-lib": ["libs/common-lib/src/index.ts"],
       "@mf-mui-starter/storybook-host": ["libs/storybook-host/src/index.ts"]

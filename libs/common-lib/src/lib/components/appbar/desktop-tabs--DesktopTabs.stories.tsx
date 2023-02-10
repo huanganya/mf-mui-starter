@@ -7,7 +7,7 @@ import RuleOutlined from '@mui/icons-material/RuleOutlined';
 
 const Story: ComponentMeta<typeof DesktopTabs> = {
   component: DesktopTabs,
-  title: 'DesktopTabs',
+  title: 'Common-DesktopTabs',
 };
 export default Story;
 

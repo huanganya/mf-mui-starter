@@ -1,4 +1,5 @@
 {
+  "name": "app-shared",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/app-shared",
   "projectType": "library",
@@ -17,6 +18,33 @@
       "options": {
         "jestConfig": "libs/app-shared/jest.config.ts",
         "passWithNoTests": true
+      }
+    },
+    "storybook": {
+      "executor": "@nrwl/storybook:storybook",
+      "options": {
+        "uiFramework": "@storybook/react",
+        "port": 4410,
+        "configDir": "libs/app-shared/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@nrwl/storybook:build",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "uiFramework": "@storybook/react",
+        "configDir": "libs/app-shared/.storybook",
+        "outputDir": "dist/storybook/app-shared"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
       }
     }
   }

@@ -1,4 +1,4 @@
-import { GlobalDataContext } from '@mf-mui-starter/app-shared/app-manager';
+import { GlobalDataContext } from '@mf-mui-starter/app-shared';
 import { Card, Grid, Link } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { useContext } from 'react';

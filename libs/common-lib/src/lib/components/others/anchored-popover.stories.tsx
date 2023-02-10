@@ -3,7 +3,7 @@ import { AnchoredPopover } from './anchored-popover';
 
 const Story: ComponentMeta<typeof AnchoredPopover> = {
   component: AnchoredPopover,
-  title: 'AnchoredPopover',
+  title: 'Common-AnchoredPopover',
 };
 export default Story;
 

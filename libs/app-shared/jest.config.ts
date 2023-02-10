@@ -8,7 +8,7 @@ export default {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   moduleNameMapper: {
     '@mf-mui-starter/common-lib': '<rootDir>/../../libs/common-lib/src',
-    '@mf-mui-starter/app-shared/lib': '<rootDir>/src/lib',
+    '@mf-mui-starter/app-shared': '<rootDir>/src',
   },
   coverageDirectory: '../../coverage/libs/app-shared',
   coverageReporters: ['text'],

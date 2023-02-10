@@ -1,4 +1,4 @@
-import { IndicatorCarousel } from '@mf-mui-starter/app-shared/lib';
+import { IndicatorCarousel } from '@mf-mui-starter/app-shared';
 import { Paper, Button, Typography } from '@mui/material';
 
 export const HomeCarousel = () => {

@@ -20,7 +20,7 @@ import {
 import React from 'react';
 import { Logo } from './logo';
 import { AlertBox } from './alert-box';
-import { authContext } from '../../app-manager';
+import { authContext } from '../../app-manager/providers/auth-provider';
 
 export const TopAppbar = () => {
   const navigate = useNavigate();

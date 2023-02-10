@@ -3,7 +3,7 @@ import { LinkTab } from './link-tab';
 
 const Story: ComponentMeta<typeof LinkTab> = {
   component: LinkTab,
-  title: 'LinkTab',
+  title: 'Common-LinkTab',
   argTypes: {
     onMouseOver: { action: 'onMouseOver executed!' },
   },

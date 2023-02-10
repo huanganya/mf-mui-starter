@@ -1,4 +1,4 @@
-import { GlobalDataContext } from '@mf-mui-starter/app-shared/app-manager';
+import { GlobalDataContext } from '@mf-mui-starter/app-shared';
 import { useContext } from 'react';
 
 export function NxWelcome({ title }: { title: string }) {

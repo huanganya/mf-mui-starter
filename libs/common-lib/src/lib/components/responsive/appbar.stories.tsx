@@ -3,7 +3,7 @@ import { MobileTabAppBar } from './appbar';
 
 const Story: ComponentMeta<typeof MobileTabAppBar> = {
   component: MobileTabAppBar,
-  title: 'MobileTabAppBar',
+  title: 'Common-MobileTabAppBar',
 };
 export default Story;
 

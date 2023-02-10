@@ -13,7 +13,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const Story: ComponentMeta<typeof MainAppBar> = {
   component: MainAppBar,
-  title: 'MainAppBar',
+  title: 'Common-MainAppBar',
 };
 export default Story;
 

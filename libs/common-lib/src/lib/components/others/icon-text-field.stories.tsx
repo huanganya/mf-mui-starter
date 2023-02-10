@@ -4,7 +4,7 @@ import { IconTextField } from './icon-text-field';
 
 const Story: ComponentMeta<typeof IconTextField> = {
   component: IconTextField,
-  title: 'IconTextField',
+  title: 'Common-IconTextField',
 };
 export default Story;
 

@@ -11,6 +11,7 @@
     "test:common-lib": "nx run common-lib:test --codeCoverage",
     "story:common": "nx storybook common-lib",
     "build-story:common": "nx run common-lib:build-storybook",
+    "story:app-shared": "nx storybook app-shared",
     "story": "nx storybook storybook-host"
   },
   "private": true,
@@ -50,6 +51,7 @@
     "@nrwl/workspace": "14.2.4",
     "@storybook/addon-essentials": "^6.5.15",
     "@storybook/builder-webpack5": "^6.5.15",
+    "@storybook/core-common": "^6.5.15",
     "@storybook/core-server": "^6.5.15",
     "@storybook/manager-webpack5": "^6.5.15",
     "@storybook/react": "^6.5.15",

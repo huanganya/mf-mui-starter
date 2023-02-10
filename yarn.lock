@@ -3275,7 +3275,7 @@
     "unfetch" "^4.2.0"
     "util-deprecate" "^1.0.2"
 
-"@storybook/core-common@6.5.16":
+"@storybook/core-common@^6.5.15", "@storybook/core-common@6.5.16":
   "integrity" "sha512-2qtnKP3TTOzt2cp6LXKRTh7XrI9z5VanMnMTgeoFcA5ebnndD4V6BExQUdYPClE/QooLx6blUWNgS9dFEpjSqQ=="
   "resolved" "https://registry.npmjs.org/@storybook/core-common/-/core-common-6.5.16.tgz"
   "version" "6.5.16"

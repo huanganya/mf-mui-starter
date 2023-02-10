@@ -3,7 +3,7 @@ import { SearchBar } from './search-bar';
 
 const Story: ComponentMeta<typeof SearchBar> = {
   component: SearchBar,
-  title: 'SearchBar',
+  title: 'Common-SearchBar',
 };
 export default Story;
 
