@@ -84,6 +84,12 @@ export const typography: TypographyOptions = {
     fontFamily: 'InterSemiBold',
     fontSize: '1.125em',
   },
+  body18Semi: {
+    fontFamily: 'InterRegular',
+    fontSize: '1.125em',
+    fontWeight: 600,
+    lineHeight: '150%',
+  },
   body18: {
     fontFamily: 'InterRegular',
     fontSize: '1.125em',
@@ -213,6 +219,7 @@ declare module '@mui/material/styles' {
     subheader: React.CSSProperties;
     body18Bold: React.CSSProperties;
     body18SemiBold: React.CSSProperties;
+    body18Semi: React.CSSProperties; 
     body18: React.CSSProperties;
     body16Bold: React.CSSProperties;
     body16SemiBold: React.CSSProperties;
@@ -228,6 +235,7 @@ declare module '@mui/material/styles' {
     subheader?: React.CSSProperties;
     body18Bold?: React.CSSProperties;
     body18SemiBold?: React.CSSProperties;
+    body18Semi?: React.CSSProperties;
     body18?: React.CSSProperties;
     body16Bold?: React.CSSProperties;
     body16SemiBold?: React.CSSProperties;
@@ -246,6 +254,7 @@ declare module '@mui/material/Typography' {
     subheader: true;
     body18Bold: true;
     body18SemiBold: true;
+    body18Semi: true;
     body18: true;
     body16Bold: true;
     body16SemiBold: true;

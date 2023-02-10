@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const CalendarItems = () => {
   const navigate = useNavigate();
-  var cards = [
+  const cards = [
     {
       link: 'event/abc',
       chip: 'abc ceremony',

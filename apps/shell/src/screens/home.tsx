@@ -7,6 +7,7 @@ import { HomeCalendar } from '../components/home/home-calendar';
 import { HomeCarousel } from '../components/home/home-carousel';
 import { LeftCardBottom } from '../components/home/left-card-bottom';
 import { LeftCardTop } from '../components/home/left-card-top';
+import { Notifications } from '../components/home/notification-banner';
 
 export const Home = ({ title }: { title: string }) => {
   const { counter, setCounter } = useContext(GlobalDataContext);
