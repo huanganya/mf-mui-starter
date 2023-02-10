@@ -13,19 +13,15 @@ export const Home = ({ title }: { title: string }) => {
   const { counter, setCounter } = useContext(GlobalDataContext);
   const navigate = useNavigate();
   return (
-    <Container>
+    <Container sx={{ marginTop: "24px" }}>
       <Grid
         container
         direction="column"
         spacing={3}
         sx={{ paddingTop: '20px' }}
       >
+        <Notifications />
         <Grid item container spacing={3}>
-          <Grid item container direction="column" md={12} spacing={3}>
-            <Grid item>
-              <Notifications />
-            </Grid>
-          </Grid>
           <Grid item container direction="column" md={4} spacing={3}>
             <Grid item>
               <LeftCardTop />
