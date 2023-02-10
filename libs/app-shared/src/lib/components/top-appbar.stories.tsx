@@ -8,7 +8,7 @@ const Story: ComponentMeta<typeof TopAppbar> = {
 export default Story;
 
 const Template: ComponentStory<typeof TopAppbar> = (args) => {
-  return <TopAppbar {...args} />;
+  return <TopAppbar />;
 };
 
 export const Primary = Template.bind({});

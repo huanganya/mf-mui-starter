@@ -8,7 +8,7 @@ const Story: ComponentMeta<typeof BottomFooter> = {
 export default Story;
 
 const Template: ComponentStory<typeof BottomFooter> = (args) => {
-  return <BottomFooter {...args} />;
+  return <BottomFooter />;
 };
 
 export const Primary = Template.bind({});

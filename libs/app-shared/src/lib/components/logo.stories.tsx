@@ -8,7 +8,7 @@ const Story: ComponentMeta<typeof Logo> = {
 export default Story;
 
 const Template: ComponentStory<typeof Logo> = (args) => {
-  return <Logo {...args} />;
+  return <Logo />;
 };
 
 export const Primary = Template.bind({});
