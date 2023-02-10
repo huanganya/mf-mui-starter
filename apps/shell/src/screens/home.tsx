@@ -7,20 +7,20 @@ import { HomeCalendar } from '../components/home/home-calendar';
 import { HomeCarousel } from '../components/home/home-carousel';
 import { LeftCardBottom } from '../components/home/left-card-bottom';
 import { LeftCardTop } from '../components/home/left-card-top';
+import { Notifications } from '../components/home/notification-banner';
 
 export const Home = ({ title }: { title: string }) => {
   const { counter, setCounter } = useContext(GlobalDataContext);
   const navigate = useNavigate();
   return (
     <Grid container direction="column" spacing={3}>
-      <Grid item>
-        <Card>
-          <Typography variant="h5" sx={{ textAlign: 'center' }}>
-            It is the Host App: Top Item{' '}
-          </Typography>
-        </Card>
-      </Grid>
       <Grid item container spacing={3}>
+        <Grid item container direction="column" md={12} spacing={3}>
+          <Grid item>
+            <Notifications />
+          </Grid>
+        </Grid>
+
         <Grid item container direction="column" md={4} spacing={3}>
           <Grid item>
             <LeftCardTop />

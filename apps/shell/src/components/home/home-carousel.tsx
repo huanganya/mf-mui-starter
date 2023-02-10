@@ -2,7 +2,7 @@ import { IndicatorCarousel } from '@mf-mui-starter/app-shared';
 import { Paper, Button, Typography } from '@mui/material';
 
 export const HomeCarousel = () => {
-  var items = [
+  const items = [
     {
       name: 'Random Name #1',
       description: 'Probably the most random thing you have ever seen!',
