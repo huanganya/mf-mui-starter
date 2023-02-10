@@ -2,7 +2,7 @@ import { render, waitFor } from '@testing-library/react';
 import {
   FormField,
   DirectionType,
-} from '../../../src/components/form/form-field';
+} from '../../../src/lib/components/form/form-field';
 
 describe('FormField', () => {
   it('should render FormField properly', () => {

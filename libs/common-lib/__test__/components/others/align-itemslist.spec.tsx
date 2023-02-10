@@ -1,4 +1,4 @@
-import { AlignItemsList } from '../../../src/components/others/align-itemslist';
+import { AlignItemsList } from '../../../src/lib/components/others/align-itemslist';
 import { fireEvent, render } from '@testing-library/react';
 import { RuleOutlined } from '@mui/icons-material';
 

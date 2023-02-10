@@ -2,7 +2,7 @@ import React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { AppProvider } from '@mf-mui-starter/app-shared/app-manager';
-import { TopAppbar, BottomFooter } from '@mf-mui-starter/app-shared/uis';
+import { TopAppbar, BottomFooter } from '@mf-mui-starter/app-shared/lib';
 import { Box, Container } from '@mui/system';
 import App from './app/app';
 import styles from './bootstrap.module.scss';

@@ -17,10 +17,10 @@ import {
   profileItemData,
   logoutItem,
 } from '../../constants/top-appbar-items';
-import { authContext } from '../../app-manager/providers/auth-provider';
 import React from 'react';
 import { Logo } from './logo';
 import { AlertBox } from './alert-box';
+import { authContext } from '../../app-manager';
 
 export const TopAppbar = () => {
   const navigate = useNavigate();

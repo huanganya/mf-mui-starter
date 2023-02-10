@@ -1,10 +1,10 @@
 import { act, render, waitFor } from '@testing-library/react';
-import { authContext, AuthContextProvider } from '../../app-manager';
+import { authContext, AuthContextProvider } from '../../src/app-manager';
 import * as commonLib from '@mf-mui-starter/common-lib';
 import React from 'react';
 
-jest.mock('@mf-mui-starter/app-shared/uis');
-const sharedUI = require('@mf-mui-starter/app-shared/uis');
+jest.mock('@mf-mui-starter/app-shared/lib');
+const sharedUI = require('@mf-mui-starter/app-shared/lib');
 
 describe('AuthContextProvider', () => {
   let triggerLogout: () => void;
