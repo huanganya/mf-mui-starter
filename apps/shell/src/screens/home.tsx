@@ -48,7 +48,7 @@ export const Home = ({ title }: { title: string }) => {
             </Typography>
             <button onClick={() => setCounter(counter + 1)}>
               counter {counter}
-            </button>{' '}
+            </button>
           </Grid>
         </Grid>
       </Grid>
