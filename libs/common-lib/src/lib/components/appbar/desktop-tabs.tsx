@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import { Tab, Tabs } from '@mui/material';
 import { ArrowDropDown } from '@mui/icons-material';
 import { AnchoredPopover } from '../others/anchored-popover';
@@ -9,6 +8,7 @@ import { DesktopBox } from '../responsive/desktop-box';
 export interface DesktopTabProp {
   title: string;
   link?: string;
+  onClick?: (target: HTMLDivElement) => void;
   icon?: React.ReactElement;
   renderComponent?: (handleClose: () => void) => React.ReactElement;
   popoverFullWidth?: boolean;
@@ -48,6 +48,7 @@ export const DesktopTabs = ({ pageTabs }: { pageTabs: DesktopTabProp[] }) => {
     return (
       <LinkTab
         key={index}
+        onClick={tab.onClick}
         href={tab.link}
         label={tab.title}
         onMouseOver={() => setValue(index)}
@@ -65,18 +66,16 @@ export const DesktopTabs = ({ pageTabs }: { pageTabs: DesktopTabProp[] }) => {
         >
           {pageTabs.map(renderTab)}
         </Tabs>
-        <Box>
-          {anchorEl && pageTabs[value].renderComponent && (
-            <AnchoredPopover
-              anchorEl={anchorEl}
-              handleClose={handleClose}
-              popoverFullWidth={pageTabs[value].popoverFullWidth}
-              alignment={pageTabs[value].alignment ?? 'left'}
-            >
-              {pageTabs[value].renderComponent?.(handleClose)}
-            </AnchoredPopover>
-          )}
-        </Box>
+        {anchorEl && pageTabs[value].renderComponent && (
+          <AnchoredPopover
+            anchorEl={anchorEl}
+            handleClose={handleClose}
+            popoverFullWidth={pageTabs[value].popoverFullWidth}
+            alignment={pageTabs[value].alignment ?? 'left'}
+          >
+            {pageTabs[value].renderComponent?.(handleClose)}
+          </AnchoredPopover>
+        )}
       </>
     </DesktopBox>
   );

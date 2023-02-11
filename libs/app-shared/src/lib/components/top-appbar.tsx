@@ -104,7 +104,6 @@ export const TopAppbar = () => {
         logoutItem={{
           ...logoutItem,
           onClick: () => {
-            console.log('logout clicked');
             logout();
           },
         }}

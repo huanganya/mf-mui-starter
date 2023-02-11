@@ -20,7 +20,7 @@ export const MainAppBar = ({
 }) => {
   return (
     <>
-      <AppBar>
+      <AppBar sx={{ zIndex: 1110 }}>
         <Toolbar
           disableGutters={true}
           sx={{

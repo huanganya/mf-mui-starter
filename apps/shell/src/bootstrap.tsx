@@ -1,29 +1,32 @@
 import React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import { Box, Container } from '@mui/system';
+import App from './app/app';
+import styles from './bootstrap.module.scss';
+import { HideOnScroll } from '@mf-mui-starter/common-lib';
 import {
   AppProvider,
   TopAppbar,
   BottomFooter,
 } from '@mf-mui-starter/app-shared';
-import { Box, Container } from '@mui/system';
-import App from './app/app';
-import styles from './bootstrap.module.scss';
+import { Toolbar } from '@mui/material';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+//todo: fix the hideOnScroll for TopAppbar for the pages with no StickyTabs
 root.render(
   <AppProvider>
     <BrowserRouter>
       <React.Suspense fallback={null}>
         <Box className={styles.app}>
-          <Box>
+          <HideOnScroll>
             <TopAppbar />
-            <Container className={styles.container}>
-              <App />
-            </Container>
-          </Box>
+          </HideOnScroll>
+          <Container className={styles.container}>
+            <App />
+          </Container>
           <BottomFooter />
         </Box>
       </React.Suspense>

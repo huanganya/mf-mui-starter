@@ -5,7 +5,7 @@ export const Redirector = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname.replace(/\/*.*?\//, '/');
-
+  
   useEffect(() => {
     if (path) {
       navigate(`${path}`);
