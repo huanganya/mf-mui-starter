@@ -4,13 +4,11 @@ import { BrowserRouter } from 'react-router-dom';
 import { Box, Container } from '@mui/system';
 import App from './app/app';
 import styles from './bootstrap.module.scss';
-import { HideOnScroll } from '@mf-mui-starter/common-lib';
 import {
   AppProvider,
   TopAppbar,
   BottomFooter,
 } from '@mf-mui-starter/app-shared';
-import { Toolbar } from '@mui/material';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -21,12 +19,10 @@ root.render(
     <BrowserRouter>
       <React.Suspense fallback={null}>
         <Box className={styles.app}>
-          <HideOnScroll>
-            <TopAppbar />
-          </HideOnScroll>
-          <Container className={styles.container}>
+          <TopAppbar />
+          <Box className={styles.container} id="app-box">
             <App />
-          </Container>
+          </Box>
           <BottomFooter />
         </Box>
       </React.Suspense>

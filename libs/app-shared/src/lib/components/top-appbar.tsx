@@ -21,9 +21,12 @@ import React from 'react';
 import { Logo } from './logo';
 import { AlertBox } from './alert-box';
 import { authContext } from '../../app-manager/providers/auth-provider';
+import { HideOnScroll } from '@mf-mui-starter/common-lib';
+import { useHideTopAppbarEffect } from '../../hooks/useHideTopAppbarEffect';
 
 export const TopAppbar = () => {
   const navigate = useNavigate();
+  const { enableHideOnScroll } = useHideTopAppbarEffect();
   const { logout } = React.useContext(authContext);
   const pageTabs = [
     { title: 'Home', link: '/' },
@@ -95,7 +98,7 @@ export const TopAppbar = () => {
   };
 
   return (
-    <>
+    <HideOnScroll enable={enableHideOnScroll}>
       <MainAppBar
         logo={<Logo />}
         pageTabs={pageTabs}
@@ -108,7 +111,7 @@ export const TopAppbar = () => {
           },
         }}
       />
-    </>
+    </HideOnScroll>
   );
 };
 

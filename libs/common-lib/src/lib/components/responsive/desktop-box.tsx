@@ -5,9 +5,9 @@ export const DesktopBox = ({ children }: { children: React.ReactElement }) => {
   return (
     <Box
       sx={{
-        flexGrow: 1,
-        display: { xs: 'none', md: 'flex' },
+        display: { xs: 'none', sm: 'flex' },
       }}
+      id="desktop-box"
     >
       {children}
     </Box>

@@ -1,13 +1,14 @@
-import { AppBar, Toolbar } from '@mui/material';
+import { AppBar, Container, SxProps, Theme, Toolbar } from '@mui/material';
 import { useScrollEffect } from '../../../hooks/useScrollEffect';
 import { DesktopTabs } from './desktop-tabs';
 
 interface StickyAppbarProps {
   tabs: { title: string; anchorId: string }[];
   scrollOffSet: number;
+  sx?: SxProps<Theme>;
 }
 
-export const StickyTabs = ({ tabs, scrollOffSet }: StickyAppbarProps) => {
+export const StickyTabs = ({ tabs, scrollOffSet, sx }: StickyAppbarProps) => {
   const { handleScrollTo } = useScrollEffect(scrollOffSet);
 
   const pageTabs = tabs.map((item) => ({
@@ -15,10 +16,28 @@ export const StickyTabs = ({ tabs, scrollOffSet }: StickyAppbarProps) => {
     onClick: () => handleScrollTo(item.anchorId),
   }));
   return (
-    <AppBar position="sticky" elevation={0}>
-      <Toolbar>
-        <DesktopTabs pageTabs={pageTabs} />
-      </Toolbar>
-    </AppBar>
+    <>
+      <AppBar
+        position="sticky"
+        elevation={1}
+        sx={{
+          position: 'sticky',
+          ...sx,
+        }}
+      >
+        <Toolbar
+          disableGutters
+          sx={{
+            justifyContent: 'center',
+            alignItems: 'flex-end',
+            borderbottom: 1,
+          }}
+        >
+          <Container>
+            <DesktopTabs pageTabs={pageTabs} />
+          </Container>
+        </Toolbar>
+      </AppBar>
+    </>
   );
 };
