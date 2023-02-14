@@ -1,9 +1,6 @@
 import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
-import {
-  AlignItemProp,
-  AvatarListItem,
-} from '../../../../../libs/common-lib/src/lib/components/others/avatar-list-item';
+import { AlignItemProp, AvatarListItem } from '@mf-mui-starter/common-lib';
 import {
   FavoriteBorder,
   LocalAtm,

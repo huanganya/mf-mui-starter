@@ -1,10 +1,14 @@
-import Card from '@mui/material/Card';
-import { CardMedia, Divider, Grid } from '@mui/material';
-import ProfileCardInfo, { userData } from './profile-card-info';
+import { CardMedia, Divider, Grid, Card } from '@mui/material';
+import ProfileCardInfo from './profile-card-info';
 import ProfileCardShortCuts from './profile-card-shortcuts';
 
-export const ProfileCard = (props: { userData: userData }) => {
-  const { userData } = props;
+export const ProfileCard = () => {
+  const userData = {
+    userName: 'Davin Lesmana',
+    userNRIC: 'S3279307Z',
+    userPicture:
+      'https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png',
+  };
 
   return (
     <Card sx={{ maxWidth: 345 }}>

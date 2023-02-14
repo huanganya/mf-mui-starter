@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+import { MessageOutlined, ArrowRightAltOutlined } from '@mui/icons-material';
 import {
   Badge,
   Box,
@@ -21,11 +23,40 @@ export interface TaskItem {
 
 //remove inline styling when figure out how class works
 
-export const TasksCard = (props: {
-  listOfTasks: TaskItem[];
-  numberOfTasks: number;
-}) => {
-  const { listOfTasks, numberOfTasks } = props;
+export const TasksCard = () => {
+  const [listOfTasks, setListOfTasks] = useState<TaskItem[]>([]);
+  const [numberOfTasks, setNumberOfTasks] = useState<number>(0);
+
+  useEffect(() => {
+    //simulate api call
+    setListOfTasks([
+      {
+        id: '1',
+        taskTitle: 'Macrodata Refinement:Remove Scary Numbers',
+        taskCategory: 'MDR',
+        taskIcon: <MessageOutlined style={{ height: '20px', width: '20px' }} />,
+        buttonText: 'Click to Confirm',
+        buttonClass: 'primary',
+        buttonIcon: <ArrowRightAltOutlined />,
+        handleButtonFunction: () => {
+          console.log('button click works');
+        },
+      },
+      {
+        id: '2',
+        taskTitle: 'Optics and Design:Hang Up New Paintings',
+        taskCategory: 'O&D',
+        taskIcon: <MessageOutlined style={{ height: '20px', width: '20px' }} />,
+        buttonText: 'Click to Confirm',
+        buttonClass: 'primary',
+        buttonIcon: <ArrowRightAltOutlined />,
+        handleButtonFunction: () => {
+          console.log('button click works');
+        },
+      },
+    ]);
+    setNumberOfTasks(2);
+  }, []);
 
   return (
     <Card className="card-style" sx={{ maxWidth: 345, marginBottom: '20px' }}>
