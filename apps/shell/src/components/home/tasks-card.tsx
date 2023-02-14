@@ -29,20 +29,14 @@ export const TasksCard = (props: {
 
   return (
     <Card className="card-style" sx={{ maxWidth: 345, marginBottom: '20px' }}>
-      <div
-        className="header"
+      <Box
         style={{
           width: '100%!important',
           height: '10px',
-          left: '1736px',
-          top: '363px',
           background: 'linear-gradient(270deg, #6f2bba 0%, #d0343a 100%)',
           borderRadius: '8px 8px 0px 0px',
-          whiteSpace: 'nowrap',
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
         }}
-      ></div>
+      ></Box>
       <Box>
         <Grid item xs={7} sx={{ display: 'flex', alignItems: 'left' }}>
           <Typography
@@ -52,7 +46,6 @@ export const TasksCard = (props: {
               margin: '20px',
             }}
             id="tableTitle"
-            component="div"
           >
             My Tasks
             <Badge
@@ -67,12 +60,12 @@ export const TasksCard = (props: {
       </Box>
       {listOfTasks.map((task: TaskItem, index: number) => {
         return (
-          <div style={{ marginTop: 0, marginLeft: '15px' }}>
+          <Box style={{ marginTop: 0, marginLeft: '15px' }}>
             {index > 0 ? (
               <Grid
                 item
                 xs={12}
-                className="dividerView"
+                className="DividerView"
                 sx={{
                   marginRight: '15px',
                   marginTop: '20px',
@@ -88,7 +81,7 @@ export const TasksCard = (props: {
                   {task.taskIcon}
                 </Grid>
                 <Grid item xs={11}>
-                  <div
+                  <Box
                     className="label-style"
                     style={{
                       fontSize: '15px',
@@ -99,20 +92,20 @@ export const TasksCard = (props: {
                     }}
                   >
                     {task.taskCategory}
-                  </div>
+                  </Box>
                 </Grid>
               </Grid>
               <Grid container item xs={12}>
                 <Grid item xs={1}></Grid>
                 <Grid item xs={11}>
-                  <div
+                  <Box
                     style={{
                       textAlign: 'left',
                       marginBottom: '20px',
                     }}
                   >
                     {task.taskTitle}
-                  </div>
+                  </Box>
                   <Button
                     className={task.buttonClass}
                     style={{
@@ -131,7 +124,7 @@ export const TasksCard = (props: {
                 </Grid>
               </Grid>
             </Grid>
-          </div>
+          </Box>
         );
       })}
     </Card>
@@ -139,4 +132,3 @@ export const TasksCard = (props: {
 };
 
 export default TasksCard;
-

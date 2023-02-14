@@ -2,12 +2,12 @@ import { GlobalDataContext } from '@mf-mui-starter/app-shared/app-manager';
 import { ArrowRightAltOutlined, MessageOutlined } from '@mui/icons-material';
 import { Card, Grid, Link } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import TasksCard, { TaskItem } from "apps/shell/src/components/home/TasksCard"
+import TasksCard, { TaskItem } from "apps/shell/src/components/home/tasks-card"
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HomeCalendar } from '../components/home/home-calendar';
 import { HomeCarousel } from '../components/home/home-carousel';
-import ProfileCard from "apps/shell/src/components/home/ProfileCard"
+import ProfileCard from "apps/shell/src/components/home/profile-card"
 
 export const Home = ({ title }: { title: string }) => {
   const { counter, setCounter } = useContext(GlobalDataContext);

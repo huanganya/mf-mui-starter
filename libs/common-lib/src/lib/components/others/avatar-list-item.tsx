@@ -28,14 +28,26 @@ export const AvatarListItem = ({
       key={index}
       data-testid={`list-item-${item.testId}`}
     >
-      <ListItemAvatar data-testid={`list-item-avatar-${item.testId}`}>
+      <ListItemAvatar
+        data-testid={`list-item-avatar-${item.testId}`}
+        sx={{
+          justifyContent: 'flex-end',
+          alignItems: 'flex-end',
+        }}
+      >
         {item.icon}
       </ListItemAvatar>
       <ListItemText
         data-testid={`list-item-text-${item.testId}`}
         primary={item.primary}
         secondary={item.secondary}
-        sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          height: '100%',
+          justifyContent: 'flex-start',
+          alignItems: 'flex-start',
+        }}
       />
     </ListItem>
   );

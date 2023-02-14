@@ -1,3 +1,4 @@
+import { PaletteColorOptions, SimplePaletteColorOptions } from '@mui/material';
 import { TypographyOptions } from '@mui/material/styles/createTypography';
 
 export const palette = {
@@ -19,9 +20,10 @@ export const palette = {
   error: {
     main: '#BA0512',
   },
-  text: {
-    primary: '#313841',
+  bodyText: {
+    main: '#313841',
     disabled: '#969AA1',
+    light: '#7D838B',
   },
 };
 
@@ -193,7 +195,7 @@ export const components = {
     styleOverrides: {
       root: {
         backgroundColor: '#fff',
-        color: palette.text.primary,
+        color: palette.bodyText.main,
         '&.Mui-selected': {
           color: '#fff',
           backgroundColor: '#323841',
@@ -205,9 +207,33 @@ export const components = {
       },
     },
   },
+  MuiButton: {
+    styleOverrides: {
+      outlined: {
+        color: palette.bodyText.main,
+        border: '1px solid #D1D3D6',
+        '&:hover': {
+          color: palette.bodyText.main,
+          borderColor: palette.bodyText.main,
+          backgroundColor: 'transparent',
+        },
+      },
+      sizeSmall: {
+        fontSize: '11px',
+        padding: '6px 8px',
+      },
+    },
+  },
 };
 
 declare module '@mui/material/styles' {
+  interface Palette {
+    bodyText: SimplePaletteColorOptions;
+  }
+  interface PaletteOptions {
+    bodyText: SimplePaletteColorOptions;
+  }
+
   interface TypographyVariants {
     title: React.CSSProperties;
     subheader: React.CSSProperties;
@@ -254,5 +280,11 @@ declare module '@mui/material/Typography' {
     body14SemiBold: true;
     body14Medium: true;
     body14: true;
+  }
+}
+
+declare module '@mui/material/Button' {
+  interface ButtonPropsColorOverrides {
+    bodyText: true;
   }
 }
