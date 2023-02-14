@@ -3,7 +3,7 @@ import { LocalizedDatePicker } from './localized-datepicker';
 
 const Story: ComponentMeta<typeof LocalizedDatePicker> = {
   component: LocalizedDatePicker,
-  title: 'LocalizedDatePicker',
+  title: 'Common-LocalizedDatePicker',
 };
 export default Story;
 

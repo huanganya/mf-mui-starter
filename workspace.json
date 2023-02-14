@@ -4,8 +4,8 @@
     "app-shared": "libs/app-shared",
     "common-assets": "libs/common-assets",
     "common-lib": "libs/common-lib",
-    "common-lib-e2e": "apps/common-lib-e2e",
     "remote": "apps/remote",
-    "shell": "apps/shell"
+    "shell": "apps/shell",
+    "storybook-host": "libs/storybook-host"
   }
 }

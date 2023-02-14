@@ -1,7 +1,7 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import { DesktopTabs } from '../../../src/components/appbar/desktop-tabs';
 import { BrowserRouter } from 'react-router-dom';
 import { SearchOutlined } from '@mui/icons-material';
+import { DesktopTabs } from '../../../src/lib/components/appbar/desktop-tabs';
 
 const mockUseNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({

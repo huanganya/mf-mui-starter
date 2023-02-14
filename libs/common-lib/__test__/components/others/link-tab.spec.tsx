@@ -1,4 +1,4 @@
-import { LinkTab } from '../../../src/components/others/link-tab';
+import { LinkTab } from '../../../src/lib/components/others/link-tab';
 import { fireEvent, render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -13,17 +13,23 @@ describe('LinkTab', () => {
 
   const TestComponent = () => (
     <BrowserRouter>
-      <LinkTab label={'testLinkTab'} href={'/test'} onMouseOver={onMouseOverCallback} />
+      <LinkTab
+        label={'testLinkTab'}
+        href={'/test'}
+        onMouseOver={onMouseOverCallback}
+      />
     </BrowserRouter>
   );
 
   const TestComponentNoHREF = () => (
     <BrowserRouter>
-      <LinkTab label={'testLinkTab'}  />
+      <LinkTab label={'testLinkTab'} />
     </BrowserRouter>
   );
 
-  afterEach(()=>{jest.resetAllMocks()})
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
 
   it('should render LinkTab properly', async () => {
     const { getByText } = render(<TestComponent />);
@@ -43,7 +49,7 @@ describe('LinkTab', () => {
     const { getByText } = render(<TestComponentNoHREF />);
 
     fireEvent.click(getByText('testLinkTab'));
-    
+
     expect(mockUseNavigate).toBeCalledWith('/');
   });
 
@@ -62,5 +68,4 @@ describe('LinkTab', () => {
 
     expect(onMouseOverCallback).toHaveBeenCalledTimes(0);
   });
-
 });

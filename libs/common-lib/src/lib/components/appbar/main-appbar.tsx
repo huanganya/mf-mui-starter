@@ -1,7 +1,7 @@
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import { MobileTabAppBar } from '../responsive/appbar';
-import { DesktopTabs, PageTabProp } from './desktop-tabs';
+import { DesktopTabs, DesktopTabProp } from './desktop-tabs';
 import { DesktopButton, DesktopButtonProp } from './desktop-button';
 import { Box } from '@mui/system';
 
@@ -12,15 +12,15 @@ export const MainAppBar = ({
   profileItem,
   logoutItem,
 }: {
-  pageTabs: PageTabProp[];
-  rightPageTabs?: PageTabProp[];
+  pageTabs: DesktopTabProp[];
+  rightPageTabs?: DesktopTabProp[];
   logo?: React.ReactElement;
   profileItem: DesktopButtonProp;
   logoutItem: DesktopButtonProp;
 }) => {
   return (
     <>
-      <AppBar>
+      <AppBar sx={{ zIndex: 1110 }}>
         <Toolbar
           disableGutters={true}
           sx={{

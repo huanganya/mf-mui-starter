@@ -3,7 +3,7 @@ import { DesktopBox } from './desktop-box';
 
 const Story: ComponentMeta<typeof DesktopBox> = {
   component: DesktopBox,
-  title: 'DesktopBox',
+  title: 'Common-DesktopBox',
 };
 export default Story;
 

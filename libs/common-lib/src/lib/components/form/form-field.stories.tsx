@@ -5,7 +5,7 @@ import { DirectionType, FormField, FormFieldProps } from './form-field';
 
 const Story: ComponentMeta<typeof FormField> = {
   component: FormField,
-  title: 'FormField',
+  title: 'Common-FormField',
 };
 export default Story;
 

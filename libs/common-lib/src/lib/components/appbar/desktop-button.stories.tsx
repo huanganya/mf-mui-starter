@@ -4,7 +4,7 @@ import InboxIcon from '@mui/icons-material/InboxOutlined';
 
 const Story: ComponentMeta<typeof DesktopButton> = {
   component: DesktopButton,
-  title: 'DesktopButton',
+  title: 'Common-DesktopButton',
 };
 export default Story;
 

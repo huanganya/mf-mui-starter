@@ -3,7 +3,7 @@ import { renderTab } from './desktop-tabs';
 
 const Story: ComponentMeta<typeof renderTab> = {
   component: renderTab,
-  title: 'renderTab',
+  title: 'Common-renderTab',
 };
 export default Story;
 

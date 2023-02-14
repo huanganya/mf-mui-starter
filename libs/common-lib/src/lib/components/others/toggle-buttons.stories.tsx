@@ -3,7 +3,7 @@ import { ToggleButtons } from './toggle-buttons';
 
 const Story: ComponentMeta<typeof ToggleButtons> = {
   component: ToggleButtons,
-  title: 'ToggleButtons',
+  title: 'Common-ToggleButtons',
 };
 export default Story;
 
@@ -12,4 +12,12 @@ const Template: ComponentStory<typeof ToggleButtons> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  options: [
+    { value: 'Button 1', label: 'Button 1', badge: 10 },
+    { value: 'Button 2', label: 'Button 2' },
+  ],
+  onClick: (value: string) => {
+    console.log('clicked', value);
+  },
+};

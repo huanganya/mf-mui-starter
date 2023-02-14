@@ -1,6 +1,6 @@
 import { GlobalDataContext } from '@mf-mui-starter/app-shared/app-manager';
 import { ArrowRightAltOutlined, MessageOutlined } from '@mui/icons-material';
-import { Card, Grid, Link } from '@mui/material';
+import { Card, Container, Grid, Link } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import TasksCard, { TaskItem } from "apps/shell/src/components/home/tasks-card"
 import { useContext, useEffect, useState } from 'react';
@@ -46,7 +46,8 @@ export const Home = ({ title }: { title: string }) => {
     setNumberOfTasks(2);
   }, []);
 
-  return (
+  return (    <Container>
+
     <Grid container direction="column" spacing={3}>
       <Grid item>
         <Card>
@@ -93,12 +94,41 @@ export const Home = ({ title }: { title: string }) => {
                 </Link>
               </p>
             </Typography>
-            <button onClick={() => setCounter(counter + 1)}>
-              counter {counter}
-            </button>{' '}
+          </Card>
+        </Grid>
+        <Grid item container spacing={3}>
+          <Grid item container direction="column" md={4} spacing={3}>
+            <Grid item>
+              <LeftCardTop />
+            </Grid>
+            <Grid item>
+              <LeftCardBottom />
+            </Grid>
+          </Grid>
+          <Grid item container direction="column" md={8} spacing={3}>
+            <Grid item>
+              <HomeCarousel />
+            </Grid>
+            <Grid item>
+              <HomeCalendar />
+            </Grid>
+            <Grid item>
+              <Typography variant="subheader">
+                Main content
+                <p>
+                  It will hold the dashboard of the main app.
+                  <Link onClick={() => navigate('/remote/path2')}>
+                    Click here to a remote's path
+                  </Link>
+                </p>
+              </Typography>
+              <button onClick={() => setCounter(counter + 1)}>
+                counter {counter}
+              </button>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
-    </Grid>
+    </Container>
   );
 };

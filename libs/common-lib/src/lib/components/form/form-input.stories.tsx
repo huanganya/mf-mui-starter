@@ -6,7 +6,7 @@ import { FormInput, FormInputProps } from './form-input';
 const Story: ComponentMeta<typeof FormInput> = {
   component: FormInput,
   decorators: [withFormik],
-  title: 'FormInput',
+  title: 'Common-FormInput',
 };
 export default Story;
 

@@ -3,7 +3,7 @@ import { AvatarListItem } from './avatar-list-item';
 
 const Story: ComponentMeta<typeof AvatarListItem> = {
   component: AvatarListItem,
-  title: 'AvatarListItem',
+  title: 'Common-AvatarListItem',
 };
 export default Story;
 
