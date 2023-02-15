@@ -8,8 +8,13 @@ export interface userData {
   userName: string;
 }
 
-export const ProfileCardInfo = (props: { userData: userData }) => {
-  const { userData } = props;
+export const ProfileCardInfo = () => {
+  const userData = {
+    userName: 'Davin Lesmana',
+    userNRIC: 'S3279307Z',
+    userPicture:
+      'https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png',
+  };
 
   return (
     <Grid item container spacing={2}>

@@ -59,15 +59,15 @@ export const TasksCard = () => {
   }, []);
 
   return (
-    <Card className="card-style" sx={{ maxWidth: 345, marginBottom: '20px' }}>
+    <Card className="card-style" sx={{ maxWidth: 345 }}>
       <Box
         style={{
-          width: '100%!important',
-          height: '10px',
+          width: '100%',
+          height: '7px',
           background: 'linear-gradient(270deg, #6f2bba 0%, #d0343a 100%)',
-          borderRadius: '8px 8px 0px 0px',
+          borderRadius: '7px 7px 0px 0px',
         }}
-      ></Box>
+      />
       <Box>
         <Grid item xs={7} sx={{ display: 'flex', alignItems: 'left' }}>
           <Typography
