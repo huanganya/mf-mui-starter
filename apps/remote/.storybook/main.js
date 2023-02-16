@@ -3,14 +3,8 @@ const rootMain = require('../../../.storybook/main');
 module.exports = {
   ...rootMain,
   core: { ...rootMain.core, builder: 'webpack5' },
-  stories: [
-    ...rootMain.stories,
-    '../../**/src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)',
-    '../../../apps/shell/src/**/*.stories.@(js|jsx|ts|tsx|mdx)',
-    '../../../apps/remote/src/**/*.stories.@(js|jsx|ts|tsx|mdx)',
-  ],
+  stories: [...rootMain.stories, '../src/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
   addons: [...rootMain.addons, '@nrwl/react/plugins/storybook'],
-
   webpackFinal: async (config, { configType }) => {
     // apply any global webpack configs that might have been specified in .storybook/main.js
     if (rootMain.webpackFinal) {
