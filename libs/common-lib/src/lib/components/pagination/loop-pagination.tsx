@@ -32,8 +32,8 @@ export const LoopPagination = ({
   };
 
   return (
-    <Grid container>
-      <Grid item xs={4} md={4}>
+    <Grid container spacing={0.5}>
+      <Grid item xs={4} md={4} display="flex" justifyContent="flex-start">
         <IconButton
           onClick={handlePageBack}
           size="small"
@@ -42,26 +42,26 @@ export const LoopPagination = ({
         </IconButton>
       </Grid>
 
-      <Grid item xs={1} md={1} display="inline-grid" alignItems="center">
+      <Grid item display="inline-grid" alignItems="center">
         <Typography variant="body16SemiBold">
           {currentPage}
         </Typography>
       </Grid>
 
-      <Grid item xs={1} md={1} display="inline-grid" alignItems="center">
+      <Grid item display="inline-grid" alignItems="center">
         <Typography variant="body16SemiBold">
           /
         </Typography>
 
       </Grid>
 
-      <Grid item xs={1} md={1} display="inline-grid" alignItems="center">
+      <Grid item display="inline-grid" alignItems="center">
         <Typography variant="body16SemiBold">
           {totalPage}
         </Typography>
       </Grid>
 
-      <Grid item xs={4} md={4}>
+      <Grid item xs={4} md={4} display="flex" justifyContent="flex-end">
         <IconButton
           onClick={handlePageNext}
           size="small"
