@@ -2,9 +2,7 @@ import { useState } from "react";
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
 import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRightOutlined';
 import IconButton from '@mui/material/IconButton';
-import { List, ListItemIcon } from "@mui/material";
-import { ListItem } from "@mui/material";
-import { Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 
 export const LoopPagination = ({
   totalPage,
@@ -34,48 +32,43 @@ export const LoopPagination = ({
   };
 
   return (
-    <List>
-      <ListItem className="unclickableHorizontalList">
+    <Grid container>
+      <Grid item xs={4} md={4}>
         <IconButton
           onClick={handlePageBack}
           size="small"
         >
           <KeyboardArrowLeftOutlinedIcon style={{ color: "#313841" }} />
         </IconButton>
-      </ListItem>
+      </Grid>
 
-      <ListItem
-        className="unclickableHorizontalList paddingTopBottomZero"
-      >
+      <Grid item xs={1} md={1} display="inline-grid" alignItems="center">
         <Typography variant="body16SemiBold">
           {currentPage}
         </Typography>
-      </ListItem>
+      </Grid>
 
-      <ListItem
-        className="unclickableHorizontalList paddingTopBottomZero"
-      >
+      <Grid item xs={1} md={1} display="inline-grid" alignItems="center">
         <Typography variant="body16SemiBold">
           /
         </Typography>
-      </ListItem>
 
-      <ListItem
-        className="unclickableHorizontalList paddingTopBottomZero"
-      >
+      </Grid>
+
+      <Grid item xs={1} md={1} display="inline-grid" alignItems="center">
         <Typography variant="body16SemiBold">
           {totalPage}
         </Typography>
-      </ListItem>
+      </Grid>
 
-      <ListItem className="unclickableHorizontalList">
+      <Grid item xs={4} md={4}>
         <IconButton
           onClick={handlePageNext}
           size="small"
         >
           <KeyboardArrowRightOutlinedIcon style={{ color: "#313841" }} />
         </IconButton>
-      </ListItem>
-    </List>
+      </Grid>
+    </Grid>
   )
 };
