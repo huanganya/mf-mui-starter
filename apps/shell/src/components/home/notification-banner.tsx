@@ -8,11 +8,11 @@ import {
   Grid,
 } from '@mui/material';
 import InfoIcon from '@mui/icons-material/Info';
-import CloseIcon from '@mui/icons-material/Close';
+import CancelIcon from '@mui/icons-material/Cancel';
 import IconButton from '@mui/material/IconButton';
 import { styled } from "@mui/material/styles";
 import { Stack } from "@mui/system";
-import { LoopPagination } from "./loopPagination";
+import { LoopPagination } from "./loop-pagination";
 
 export const Notifications = () => {
   const theme = useTheme();
@@ -86,7 +86,7 @@ export const Notifications = () => {
                 onClick={handleCloseNotificationBanner}
                 size='small'
               >
-                <CloseIcon />
+                <CancelIcon style={{ color: "#313841" }} />
               </IconButton>
             </Stack>
           </Grid>

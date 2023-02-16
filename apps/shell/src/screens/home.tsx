@@ -1,5 +1,5 @@
 import { GlobalDataContext } from '@mf-mui-starter/app-shared';
-import { Card, Container, Grid, Link } from '@mui/material';
+import { Container, Grid, Link } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -20,14 +20,12 @@ export const Home = ({ title }: { title: string }) => {
         spacing={3}
         sx={{ paddingTop: '20px' }}
       >
-        <Grid item>
-          <Card>
-            <Typography variant="h5" sx={{ textAlign: 'center' }}>
-              It is the Host App: Top Item{' '}
-            </Typography>
-          </Card>
-        </Grid>
         <Grid item container spacing={3}>
+          <Grid item container direction="column" md={12} spacing={3}>
+            <Grid item>
+              <Notifications />
+            </Grid>
+          </Grid>
           <Grid item container direction="column" md={4} spacing={3}>
             <Grid item>
               <LeftCardTop />
