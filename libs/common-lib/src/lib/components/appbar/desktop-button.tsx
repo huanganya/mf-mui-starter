@@ -3,7 +3,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import { AnchoredPopover } from '../others/anchored-popover';
-import { AlignItemProp, AvatarListItem } from '../others/avatar-list-item';
+import { AlignItemProp, AvatarListItem } from '../list/avatar-list-item';
 import { Box, SxProps, Theme, useTheme } from '@mui/material';
 import { DesktopBox } from '../responsive/desktop-box';
 

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Tab, Tabs } from '@mui/material';
 import { ArrowDropDown } from '@mui/icons-material';
 import { AnchoredPopover } from '../others/anchored-popover';
-import { LinkTab } from '../others/link-tab';
+import { LinkTab } from '../nav/link-tab';
 import { DesktopBox } from '../responsive/desktop-box';
 
 export interface DesktopTabProp {

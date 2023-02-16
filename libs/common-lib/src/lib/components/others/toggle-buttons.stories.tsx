@@ -3,7 +3,7 @@ import { ToggleButtons } from './toggle-buttons';
 
 const Story: ComponentMeta<typeof ToggleButtons> = {
   component: ToggleButtons,
-  title: 'Common-ToggleButtons',
+  title: 'Common-Others-ToggleButtons',
 };
 export default Story;
 

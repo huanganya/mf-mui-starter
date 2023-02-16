@@ -1,13 +1,13 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { AlignItemsList } from '../others/align-itemslist';
+import { AlignItemsList } from '../list/align-itemslist';
 import { DesktopTabs } from './desktop-tabs';
-import { NavMenuItem } from '../others/nav-menu-item';
+import { NavMenuItem } from '../nav/nav-menu-item';
 import { Box, Typography } from '@mui/material';
 import RuleOutlined from '@mui/icons-material/RuleOutlined';
 
 const Story: ComponentMeta<typeof DesktopTabs> = {
   component: DesktopTabs,
-  title: 'Common-DesktopTabs',
+  title: 'Common-Appbar-DesktopTabs',
 };
 export default Story;
 

@@ -1,20 +1,7 @@
-import { theme } from '@mf-mui-starter/common-lib';
+import { LeftStrip } from '@mf-mui-starter/common-lib';
 import { Grid, Chip, Link, Typography, Card, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-const LeftStrip = () => {
-  return (
-    <Box
-      sx={{
-        width: '6px',
-        height: '100%',
-        backgroundColor: theme.palette.primary.main,
-        position: 'relative',
-        left: '0px',
-        top: '0px',
-      }}
-    />
-  );
-};
+
 export const CalendarItems = () => {
   const navigate = useNavigate();
   var cards = [

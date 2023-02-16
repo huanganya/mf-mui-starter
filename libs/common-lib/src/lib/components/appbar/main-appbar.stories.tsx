@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { DesktopBox } from '../responsive/desktop-box';
 import { MainAppBar } from './main-appbar';
 import AdbIcon from '@mui/icons-material/Adb';
-import { AlignItemsList } from '../others/align-itemslist';
+import { AlignItemsList } from '../list/align-itemslist';
 import { RuleOutlined, SearchOutlined } from '@mui/icons-material';
 import { SearchBar } from '../others/search-bar';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
@@ -13,7 +13,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const Story: ComponentMeta<typeof MainAppBar> = {
   component: MainAppBar,
-  title: 'Common-MainAppBar',
+  title: 'Common-Appbar-MainAppBar',
 };
 export default Story;
 

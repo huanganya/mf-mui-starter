@@ -13,7 +13,12 @@ export const Home = ({ title }: { title: string }) => {
   const navigate = useNavigate();
   return (
     <Container>
-      <Grid container direction="column" spacing={3}>
+      <Grid
+        container
+        direction="column"
+        spacing={3}
+        sx={{ paddingTop: '20px' }}
+      >
         <Grid item>
           <Card>
             <Typography variant="h5" sx={{ textAlign: 'center' }}>

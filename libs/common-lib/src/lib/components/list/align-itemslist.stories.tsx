@@ -4,7 +4,7 @@ import { AlignItemsList } from './align-itemslist';
 
 const Story: ComponentMeta<typeof AlignItemsList> = {
   component: AlignItemsList,
-  title: 'Common-AlignItemsList',
+  title: 'Common-List-AlignItemsList',
 };
 export default Story;
 

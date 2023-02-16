@@ -5,7 +5,7 @@ import { theme } from '../../../theme/theme-provider';
 
 const Story: ComponentMeta<typeof NavMenuItem> = {
   component: NavMenuItem,
-  title: 'Common-NavMenuItem',
+  title: 'Common-Nav-NavMenuItem',
 };
 export default Story;
 
