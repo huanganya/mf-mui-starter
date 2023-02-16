@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 import {
   Typography,
   CardHeader,
@@ -10,9 +10,9 @@ import {
 import InfoIcon from '@mui/icons-material/Info';
 import CancelIcon from '@mui/icons-material/Cancel';
 import IconButton from '@mui/material/IconButton';
-import { styled } from "@mui/material/styles";
-import { Stack } from "@mui/system";
-import { LoopPagination } from "./loop-pagination";
+import { styled } from '@mui/material/styles';
+import { Stack } from '@mui/system';
+import { LoopPagination } from './loop-pagination';
 
 export const Notifications = () => {
   const theme = useTheme();
@@ -45,7 +45,7 @@ export const Notifications = () => {
             borderRadius: '5px',
           }}
         />
-      )
+      ),
     },
     {
       link: '',
@@ -53,7 +53,7 @@ export const Notifications = () => {
       linkText: '',
       primaryText: 'Example: XZY Survey has been launched!',
       secondaryText: 'Please complete XZY Survey by DDMMYYYY.',
-      icon: ''
+      icon: '',
     },
     {
       link: '',
@@ -61,9 +61,9 @@ export const Notifications = () => {
       linkText: '',
       primaryText: 'hello',
       secondaryText: 'byebye',
-      icon: ''
-    }
-  ]
+      icon: '',
+    },
+  ];
   return (
     <Card
       variant="outlined"
@@ -71,7 +71,7 @@ export const Notifications = () => {
         backgroundColor: '#F4F8FC',
         border: '1px solid #2C6ECB',
         borderRadius: '6px',
-        display: isClosed ? "none" : "block"
+        display: isClosed ? 'none' : 'block',
       }}
     >
       <CardHeader
@@ -80,13 +80,10 @@ export const Notifications = () => {
             <Stack direction="row" spacing={1}>
               <LoopPagination
                 totalPage={notificationCard.length}
-                setCurrentPageIndex={setCurrentPageIndex}
+                onPageChange={setCurrentPageIndex}
               />
-              <IconButton
-                onClick={handleCloseNotificationBanner}
-                size='small'
-              >
-                <CancelIcon style={{ color: "#313841" }} />
+              <IconButton onClick={handleCloseNotificationBanner} size="small">
+                <CancelIcon style={{ color: '#313841' }} />
               </IconButton>
             </Stack>
           </Grid>
@@ -96,12 +93,13 @@ export const Notifications = () => {
             {notificationCard[currentPageIndex].primaryText}
           </Typography>
         }
-        sx={{ paddingBottom: "0", paddingTop: "0" }}
+        sx={{ paddingBottom: '0', paddingTop: '0' }}
       />
       <CardContentNoPadding>
-        <Typography variant="body16">{notificationCard[currentPageIndex].secondaryText}</Typography>
+        <Typography variant="body16">
+          {notificationCard[currentPageIndex].secondaryText}
+        </Typography>
       </CardContentNoPadding>
     </Card>
   );
 };
-
