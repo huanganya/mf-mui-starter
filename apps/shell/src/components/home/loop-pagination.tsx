@@ -8,10 +8,10 @@ import { Typography } from "@mui/material";
 
 export const LoopPagination = ({
   totalPage,
-  setCurrentPageIndex,
+  onPageChange,
 }: {
   totalPage: number;
-  setCurrentPageIndex: (arg0: number) => void;
+  onPageChange: (arg0: number) => void;
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -21,7 +21,7 @@ export const LoopPagination = ({
       : currentPage + 1;
 
     setCurrentPage(pageSet);
-    setCurrentPageIndex(pageSet - 1);
+    onPageChange(pageSet - 1);
   };
 
   const handlePageBack = () => {
@@ -30,7 +30,7 @@ export const LoopPagination = ({
       : currentPage - 1
 
     setCurrentPage(pageSet);
-    setCurrentPageIndex(pageSet - 1);
+    onPageChange(pageSet - 1);
   };
 
   return (
