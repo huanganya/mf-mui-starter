@@ -6,23 +6,15 @@ import {
   Card,
   useTheme,
   Grid,
+  Link,
 } from '@mui/material';
 import InfoIcon from '@mui/icons-material/Info';
 import CancelIcon from '@mui/icons-material/Cancel';
 import IconButton from '@mui/material/IconButton';
-import { styled } from '@mui/material/styles';
-import {
-  LoopPagination
-} from '@mf-mui-starter/common-lib';
+import { LoopPagination } from '@mf-mui-starter/common-lib';
 
 export const Notifications = () => {
   const theme = useTheme();
-  const CardContentNoPadding = styled(CardContent)(`
-      paddingTop: "4px";
-      &:last-child {
-        padding-bottom: 16px;
-      }
-    `);
   const [isClosed, setIsClosed] = useState(false);
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
 
@@ -35,8 +27,13 @@ export const Notifications = () => {
       link: '',
       hasLink: false,
       linkText: '',
-      primaryText: 'Example: ABC Survey has been launched!',
-      secondaryText: 'Please complete ABC Survey by DDMMYYYY.',
+      primaryText: 'Example: The latest item ABC has been arrived!',
+      secondaryText: (
+        <>
+          Please complete registration form by DDMMYYYY.{' '}
+          <Link href={'/'}>Interested? Click here...</Link>
+        </>
+      ),
       icon: (
         <InfoIcon
           sx={{
@@ -51,17 +48,38 @@ export const Notifications = () => {
       link: '',
       hasLink: false,
       linkText: '',
-      primaryText: 'Example: XZY Survey has been launched!',
-      secondaryText: 'Please complete XZY Survey by DDMMYYYY.',
-      icon: '',
+      primaryText: 'Example: The latest item XYZ has been arrived',
+      secondaryText: (
+        <>
+          Please complete XZY payment by DDMMYYYY.{' '}
+          <Link href={'/'}>Click here to pay</Link>
+        </>
+      ),
+      icon: (
+        <InfoIcon
+          sx={{
+            color: '#2C6ECB',
+            paddingLeft: '10px',
+            borderRadius: '5px',
+          }}
+        />
+      ),
     },
     {
       link: '',
       hasLink: false,
       linkText: '',
-      primaryText: 'hello',
-      secondaryText: 'byebye',
-      icon: '',
+      primaryText: 'Hello',
+      secondaryText: <>byebye</>,
+      icon: (
+        <InfoIcon
+          sx={{
+            color: '#2C6ECB',
+            paddingLeft: '10px',
+            borderRadius: '5px',
+          }}
+        />
+      ),
     },
   ];
   return (
@@ -69,24 +87,21 @@ export const Notifications = () => {
       variant="outlined"
       sx={{
         backgroundColor: '#fcf4f4', //'#F4F8FC',
-        border: '1px solid #cb2c2c',//'1px solid #2C6ECB',
+        border: '1px solid #cb2c2c', //'1px solid #2C6ECB',
         borderRadius: '6px',
         paddingTop: '16px',
         display: isClosed ? 'none' : 'block',
       }}
     >
-      <Grid container spacing={1}>
-        <Grid item xs={0.5} md={0.5}>
+      <Grid container spacing={1} wrap="nowrap">
+        <Grid item xs={'auto'}>
           {notificationCard[currentPageIndex].icon}
         </Grid>
-        <Grid item xs={11.5} md={11.5}>
+        <Grid item xs={12}>
           <CardHeader
+            sx={{ paddingLeft: '0', paddingBottom: '0', paddingTop: '0' }}
             action={
-              <Grid
-                container
-                direction="row"
-                justifyContent="space-between"
-              >
+              <Grid container direction="row" justifyContent="space-between">
                 <Grid item>
                   <LoopPagination
                     totalPage={notificationCard.length}
@@ -94,25 +109,35 @@ export const Notifications = () => {
                   />
                 </Grid>
                 <Grid item>
-                  <IconButton onClick={handleCloseNotificationBanner} size="small">
+                  <IconButton
+                    onClick={handleCloseNotificationBanner}
+                    size="small"
+                  >
                     <CancelIcon style={{ color: '#313841' }} />
                   </IconButton>
                 </Grid>
               </Grid>
             }
             subheader={
-              <Typography variant="body18Semi" color={theme.palette.text.primary}>
+              <Typography
+                variant="body18Semi"
+                color={theme.palette.text.primary}
+              >
                 {notificationCard[currentPageIndex].primaryText}
               </Typography>
             }
-            sx={{ paddingBottom: '0', paddingTop: '0' }}
           />
-          <CardContentNoPadding>
+          <CardContent
+            sx={{
+              paddingLeft: '0',
+              paddingTop: '4px',
+              '&:last-child': { paddingBottom: '16px' },
+            }}
+          >
             <Typography variant="body16">
               {notificationCard[currentPageIndex].secondaryText}
             </Typography>
-          </CardContentNoPadding>
-
+          </CardContent>
         </Grid>
       </Grid>
     </Card>
