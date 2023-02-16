@@ -15,6 +15,11 @@
     url('/fonts/Inter-SemiBold.ttf') format('truetype');
 }
 
-.inlineLi {
-  display:inline-block;
+.unclickableHorizontalList {
+  display: inline-block !important;
+  width: auto !important;
+}
+
+.paddingTopBottomZero {
+  padding: 13px 0px !important;
 }
