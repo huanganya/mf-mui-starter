@@ -1,5 +1,5 @@
 import { GlobalDataContext } from '@mf-mui-starter/app-shared';
-import { Card, Container, Grid, Link } from '@mui/material';
+import { Container, Grid, Link } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -7,25 +7,20 @@ import { HomeCalendar } from '../components/home/home-calendar';
 import { HomeCarousel } from '../components/home/home-carousel';
 import { LeftCardBottom } from '../components/home/left-card-bottom';
 import { LeftCardTop } from '../components/home/left-card-top';
+import { Notifications } from '../components/home/notification-banner';
 
 export const Home = ({ title }: { title: string }) => {
   const { counter, setCounter } = useContext(GlobalDataContext);
   const navigate = useNavigate();
   return (
-    <Container>
+    <Container sx={{ marginTop: "24px" }}>
       <Grid
         container
         direction="column"
         spacing={3}
         sx={{ paddingTop: '20px' }}
       >
-        <Grid item>
-          <Card>
-            <Typography variant="h5" sx={{ textAlign: 'center' }}>
-              It is the Host App: Top Item{' '}
-            </Typography>
-          </Card>
-        </Grid>
+        <Notifications />
         <Grid item container spacing={3}>
           <Grid item container direction="column" md={4} spacing={3}>
             <Grid item>

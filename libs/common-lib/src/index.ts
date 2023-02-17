@@ -39,6 +39,9 @@ export * from './lib/components/responsive/desktop-box';
 //scroll related
 export * from './lib/components/scroll/hide-on-scroll';
 
+// pagination 
+export * from './lib/components/pagination/loop-pagination';
+
 //theme
 export * from './theme/theme-provider';
 export * from './theme/theme';
