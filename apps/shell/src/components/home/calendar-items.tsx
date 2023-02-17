@@ -36,8 +36,8 @@ export const CalendarItems = () => {
 
   return (
     <>
-      {cards.map((card) => (
-        <Card sx={{ my: '12px', borderRadius: '5px' }}>
+      {cards.map((card, index) => (
+        <Card key={index} sx={{ my: '12px', borderRadius: '5px' }}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={4}>
               <Box

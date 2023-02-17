@@ -9,7 +9,7 @@ export const CalendarButtons = () => {
   return (
     <Grid container justifyContent={'space-between'}>
       <Grid item>
-        <Button data-testId={'today-button'}>Today</Button>
+        <Button data-testid={'today-button'}>Today</Button>
         <LocalizedDatePicker
           views={['year', 'month']}
           minDate={dayjs(new Date())}

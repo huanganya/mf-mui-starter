@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Popover } from '@mui/material';
+import { Popover, SxProps, Theme } from '@mui/material';
 
 export const AnchoredPopover = ({
   anchorEl,
@@ -7,12 +7,14 @@ export const AnchoredPopover = ({
   children,
   popoverFullWidth,
   alignment,
+  sx,
 }: {
   anchorEl: EventTarget & Element;
   handleClose: () => void;
   children?: React.ReactElement;
   popoverFullWidth?: boolean;
   alignment: 'left' | 'right';
+  sx?: SxProps<Theme>;
 }) => {
   return (
     <Popover
@@ -34,6 +36,7 @@ export const AnchoredPopover = ({
           width: popoverFullWidth ? '100%' : undefined,
         },
       }}
+      sx={sx}
     >
       {children}
     </Popover>

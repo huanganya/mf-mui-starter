@@ -19,6 +19,7 @@ export const AlignItemsList = ({
     >
       {items.map((item, index) => (
         <AvatarListItem
+          key={index}
           item={item}
           index={index}
           sx={{ borderRadius: '5px' }}

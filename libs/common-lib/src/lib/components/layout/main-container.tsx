@@ -24,7 +24,7 @@ export const MainContainer = ({
       >
         <Container
           id={'head-container'}
-          data-testId={`head-container-${pageId}`}
+          data-testid={`head-container-${pageId}`}
           sx={{ paddingTop: '20px' }}
         >
           {headerComponent}

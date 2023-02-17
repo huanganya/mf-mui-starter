@@ -6,6 +6,7 @@ import { AnchoredPopover } from '../others/anchored-popover';
 import { AlignItemProp, AvatarListItem } from '../list/avatar-list-item';
 import { Box, SxProps, Theme, useTheme } from '@mui/material';
 import { DesktopBox } from '../responsive/desktop-box';
+import { useResponsiveQuery } from '../../../hooks/useResponsiveQuery';
 
 export interface DesktopButtonProp extends AlignItemProp {
   renderComponent?: (handleClose: () => void) => React.ReactElement;
@@ -19,6 +20,7 @@ export const DesktopButton = ({
   index: number;
   sx?: SxProps<Theme>;
 }) => {
+  const { isMiddleDeviceAndUp } = useResponsiveQuery();
   const theme = useTheme();
   const [anchorEl, setAnchorEl] = React.useState<
     (EventTarget & Element) | null
@@ -57,7 +59,7 @@ export const DesktopButton = ({
           />
           {shouldRenderExpand && (anchorEl ? <ExpandLess /> : <ExpandMore />)}
         </ListItemButton>
-        {shouldRenderExpand && anchorEl && (
+        {shouldRenderExpand && isMiddleDeviceAndUp && anchorEl && (
           <AnchoredPopover
             anchorEl={anchorEl}
             handleClose={handleClose}

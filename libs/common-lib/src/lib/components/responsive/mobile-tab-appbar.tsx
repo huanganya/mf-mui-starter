@@ -7,12 +7,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { DesktopTabProp } from '../appbar/desktop-tabs';
+import { useResponsiveQuery } from '../../../hooks/useResponsiveQuery';
 
 export const MobileTabAppBar = ({
   pageTabs,
 }: {
   pageTabs: DesktopTabProp[];
 }) => {
+  const { isSmallDevice } = useResponsiveQuery();
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -24,8 +27,14 @@ export const MobileTabAppBar = ({
   };
 
   return (
-    <>
-      <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+    <Box
+      sx={{
+        display: isSmallDevice ? 'flex' : 'none',
+        alignItems: 'center',
+        flexDirection: 'row',
+      }}
+    >
+      <Box sx={{ flexGrow: 1 }}>
         <IconButton
           size="large"
           aria-label="account of current user"
@@ -61,7 +70,7 @@ export const MobileTabAppBar = ({
           ))}
         </Menu>
       </Box>
-      <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+      <AdbIcon sx={{ mr: 1 }} />
       <Typography
         variant="h5"
         noWrap
@@ -80,6 +89,6 @@ export const MobileTabAppBar = ({
       >
         LOGO
       </Typography>
-    </>
+    </Box>
   );
 };

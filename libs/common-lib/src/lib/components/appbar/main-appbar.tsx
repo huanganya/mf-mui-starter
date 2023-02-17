@@ -1,6 +1,6 @@
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import { MobileTabAppBar } from '../responsive/appbar';
+import { MobileTabAppBar } from '../responsive/mobile-tab-appbar';
 import { DesktopTabs, DesktopTabProp } from './desktop-tabs';
 import { DesktopButton, DesktopButtonProp } from './desktop-button';
 import { Box } from '@mui/system';

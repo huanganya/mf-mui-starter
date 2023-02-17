@@ -99,8 +99,8 @@ const menuItemsForRemote1: NavMenuItemProps[] = [
 
 export const getMenuItemsRemote1 = (handleClose: () => void) => (
   <>
-    {menuItemsForRemote1.map((item) => (
-      <NavMenuItem item={item} handleClose={handleClose} />
+    {menuItemsForRemote1.map((item, index) => (
+      <NavMenuItem key={index} item={item} handleClose={handleClose} />
     ))}
   </>
 );

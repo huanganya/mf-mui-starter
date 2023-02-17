@@ -4,6 +4,7 @@ import { ArrowDropDown } from '@mui/icons-material';
 import { AnchoredPopover } from '../others/anchored-popover';
 import { LinkTab } from '../nav/link-tab';
 import { DesktopBox } from '../responsive/desktop-box';
+import { useResponsiveQuery } from '../../../hooks/useResponsiveQuery';
 
 export interface DesktopTabProp {
   title: string;
@@ -15,6 +16,7 @@ export interface DesktopTabProp {
   alignment?: 'left' | 'right';
 }
 export const DesktopTabs = ({ pageTabs }: { pageTabs: DesktopTabProp[] }) => {
+  const { isMiddleDeviceAndUp } = useResponsiveQuery();
   const [value, setValue] = React.useState<number>(0);
   const [anchorEl, setAnchorEl] = React.useState<
     (EventTarget & Element) | null
@@ -66,7 +68,7 @@ export const DesktopTabs = ({ pageTabs }: { pageTabs: DesktopTabProp[] }) => {
         >
           {pageTabs.map(renderTab)}
         </Tabs>
-        {anchorEl && pageTabs[value].renderComponent && (
+        {anchorEl && isMiddleDeviceAndUp && pageTabs[value].renderComponent && (
           <AnchoredPopover
             anchorEl={anchorEl}
             handleClose={handleClose}
