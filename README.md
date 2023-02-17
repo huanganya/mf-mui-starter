@@ -41,8 +41,9 @@ Run `npm run start` for a dev server. The app will automatically reload if you c
 
 1. Host App: Navigate to http://localhost:4200/.
 2. Remote App: Navigate to http://localhost:4201/.
-3. Host App will render the remote app
-4. Remote App's route was handled by a Redirector which will remove the extra path from the local request
+3. Remote2 App: Navigate to http://localhost:4202/.
+4. Host App will render the remote app
+5. Remote App's route was handled by a Redirector which will remove the extra path from the local request
 
 ## Running unit tests
 

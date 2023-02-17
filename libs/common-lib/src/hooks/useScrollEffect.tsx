@@ -1,4 +1,6 @@
-export const useScrollEffect = (headerOffset: number) => {
+export const useScrollEffect = (
+  headerOffset: number
+): { handleScrollTo: (id: string) => void } => {
   const handleScrollTo = (id: string) => {
     const target = document.getElementById(id);
 

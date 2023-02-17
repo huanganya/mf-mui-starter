@@ -34,7 +34,7 @@ export const getListRemote2 = (
       secondary: "— I'll be in your neighborhood doing errands this…",
       onClick: () => {
         handleClose();
-        navigate('remote/path1');
+        navigate('remote2/path1');
       },
       testId: 'remote2-item1',
     },
@@ -53,7 +53,7 @@ export const getListRemote2 = (
       secondary: "— Wish I could come, but I'm out of town this…",
       onClick: () => {
         handleClose();
-        navigate('remote/path2');
+        navigate('remote2/path2');
       },
       testId: 'remote2-item2',
     },
@@ -72,7 +72,7 @@ export const getListRemote2 = (
       secondary: ' — Do you have Paris recommendations? Have you ever…',
       onClick: () => {
         handleClose();
-        navigate('remote/path1/path11');
+        navigate('remote2/path1/path11');
       },
       testId: 'remote2-item3',
     },

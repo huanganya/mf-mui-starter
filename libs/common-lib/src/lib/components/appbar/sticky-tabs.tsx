@@ -3,17 +3,20 @@ import { useScrollEffect } from '../../../hooks/useScrollEffect';
 import { DesktopTabs } from './desktop-tabs';
 
 interface StickyAppbarProps {
-  tabs: { title: string; anchorId: string }[];
-  scrollOffSet: number;
+  tabs: { title: string; anchorId?: string; onClick?: () => void }[];
+  scrollOffSet?: number;
   sx?: SxProps<Theme>;
 }
 
 export const StickyTabs = ({ tabs, scrollOffSet, sx }: StickyAppbarProps) => {
-  const { handleScrollTo } = useScrollEffect(scrollOffSet);
+  const { handleScrollTo } = useScrollEffect(scrollOffSet ?? 0);
 
   const pageTabs = tabs.map((item) => ({
     title: item.title,
-    onClick: () => handleScrollTo(item.anchorId),
+    onClick: () => {
+      item.anchorId && handleScrollTo(item.anchorId);
+      item.onClick?.();
+    },
   }));
   return (
     <>

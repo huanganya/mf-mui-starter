@@ -15,6 +15,8 @@ export function PageThree() {
       </Typography>
     </>
   );
+  const array10 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
   const getStickTabs = () => (
     <StickyTabs
       sx={{ background: `url('/assets/images/background/bg1.jpg')` }}
@@ -75,7 +77,7 @@ export function PageThree() {
               Applications
             </Typography>
           </Grid>
-          {[...Array(20).keys()].map(() => (
+          {array10.map(() => (
             <Grid item>
               <Typography variant="body14">
                 Applications: This page will demostrate how to make the sticky
@@ -89,7 +91,7 @@ export function PageThree() {
               Schedule
             </Typography>
           </Grid>
-          {[...Array(20).keys()].map(() => (
+          {array10.map(() => (
             <Grid item>
               <Typography variant="body14">
                 Schedule: This page will demostrate how to make the sticky tab
@@ -104,7 +106,7 @@ export function PageThree() {
             <RainbowCard>
               <Grid container direction={'column'} alignItems={'center'}>
                 <Typography variant="h6">This is the header</Typography>{' '}
-                {[...Array(20).keys()].map(() => (
+                {array10.map(() => (
                   <Grid item>
                     <Typography variant="body14">
                       This is the sticky side bar

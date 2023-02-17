@@ -5,6 +5,8 @@
     "common-assets": "libs/common-assets",
     "common-lib": "libs/common-lib",
     "remote": "apps/remote",
+    "remote2": "apps/remote2",
+    "remote2-e2e": "apps/remote2-e2e",
     "shell": "apps/shell",
     "storybook-host": "libs/storybook-host"
   }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 //todo: move this to constants folder
-const pathsToEnableHideOnScroll = ['page-three'];
+const pathsToEnableHideOnScroll = ['page-three', 'path1'];
 
 export const useHideTopAppbarEffect = () => {
   const [enableHideOnScroll, setEnableHideOnScroll] = useState(false);
