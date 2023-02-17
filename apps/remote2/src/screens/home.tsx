@@ -6,7 +6,7 @@ export function Home({ title }: { title: string }) {
   const { counter, setCounter } = useContext(GlobalDataContext);
   return (
     <Container>
-      remote2 {title}
+      remote2 App {title}
       <button onClick={() => setCounter(counter - 1)}>counter {counter}</button>
     </Container>
   );
