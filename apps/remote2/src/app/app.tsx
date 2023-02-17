@@ -8,14 +8,6 @@ export function App() {
   return (
     <Box className={styles.container}>
       <AppRoutes />
-      <Container>
-        <Typography variant="h5">It is the remote2 App </Typography>
-        <Typography variant="h5">
-          <Link onClick={() => navigate('/remote2/page-three')}>
-            Sticky tab bar under main tabbar for changing contents
-          </Link>
-        </Typography>
-      </Container>
     </Box>
   );
 }

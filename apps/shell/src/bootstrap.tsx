@@ -13,7 +13,6 @@ import {
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-//todo: fix the hideOnScroll for TopAppbar for the pages with no StickyTabs
 root.render(
   <AppProvider>
     <BrowserRouter>
