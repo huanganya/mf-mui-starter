@@ -1,4 +1,4 @@
-import { Box, MenuItem, SxProps, Theme, Typography } from '@mui/material';
+import { Grid, MenuItem, SxProps, Theme, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 export interface NavMenuItemProps {
@@ -27,10 +27,16 @@ export const NavMenuItem = ({
         navigate(item.href);
       }}
     >
-      <Box sx={sx}>{item.leftIcon}</Box>
-      <Typography sx={[extraSx, ...(Array.isArray(sx) ? sx : [sx])]}>
-        {item.title}
-      </Typography>
+      <Grid container wrap="nowrap">
+        <Grid item sx={{ ...sx, verticalAlign: 'center' }}>
+          {item.leftIcon}
+        </Grid>
+        <Grid item>
+          <Typography sx={[extraSx, ...(Array.isArray(sx) ? sx : [sx])]}>
+            {item.title}
+          </Typography>
+        </Grid>
+      </Grid>
     </MenuItem>
   );
 };
