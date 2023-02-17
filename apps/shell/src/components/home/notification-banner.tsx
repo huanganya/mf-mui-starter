@@ -82,6 +82,61 @@ export const Notifications = () => {
       ),
     },
   ];
+
+  const actionContent = () => {
+    return (
+      <Grid container direction="row" justifyContent="space-between">
+        <Grid item>
+          <LoopPagination
+            totalPage={notificationCard.length}
+            onPageChange={setCurrentPageIndex}
+          />
+        </Grid>
+        <Grid item>
+          <IconButton
+            onClick={handleCloseNotificationBanner}
+            size="small"
+          >
+            <CancelIcon style={{ color: '#313841' }} />
+          </IconButton>
+        </Grid>
+      </Grid>
+    );
+  };
+
+  const cardHeader = () => {
+    return (
+      <CardHeader
+        sx={{ paddingLeft: '0', paddingBottom: '0', paddingTop: '0' }}
+        action={actionContent()}
+        subheader={
+          <Typography
+            variant="body18Semi"
+            color={theme.palette.text.primary}
+          >
+            {notificationCard[currentPageIndex].primaryText}
+          </Typography>
+        }
+      />
+    );
+  };
+
+  const cardContent = () => {
+    return (
+      <CardContent
+        sx={{
+          paddingLeft: '0',
+          paddingTop: '4px',
+          '&:last-child': { paddingBottom: '16px' },
+        }}
+      >
+        <Typography variant="body16">
+          {notificationCard[currentPageIndex].secondaryText}
+        </Typography>
+      </CardContent>
+    );
+  };
+
   return (
     <Card
       variant="outlined"
@@ -98,46 +153,10 @@ export const Notifications = () => {
           {notificationCard[currentPageIndex].icon}
         </Grid>
         <Grid item xs={12}>
-          <CardHeader
-            sx={{ paddingLeft: '0', paddingBottom: '0', paddingTop: '0' }}
-            action={
-              <Grid container direction="row" justifyContent="space-between">
-                <Grid item>
-                  <LoopPagination
-                    totalPage={notificationCard.length}
-                    onPageChange={setCurrentPageIndex}
-                  />
-                </Grid>
-                <Grid item>
-                  <IconButton
-                    onClick={handleCloseNotificationBanner}
-                    size="small"
-                  >
-                    <CancelIcon style={{ color: '#313841' }} />
-                  </IconButton>
-                </Grid>
-              </Grid>
-            }
-            subheader={
-              <Typography
-                variant="body18Semi"
-                color={theme.palette.text.primary}
-              >
-                {notificationCard[currentPageIndex].primaryText}
-              </Typography>
-            }
-          />
-          <CardContent
-            sx={{
-              paddingLeft: '0',
-              paddingTop: '4px',
-              '&:last-child': { paddingBottom: '16px' },
-            }}
-          >
-            <Typography variant="body16">
-              {notificationCard[currentPageIndex].secondaryText}
-            </Typography>
-          </CardContent>
+          <>
+            {cardHeader()}
+            {cardContent()}
+          </>
         </Grid>
       </Grid>
     </Card>
