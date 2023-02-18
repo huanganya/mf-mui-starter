@@ -12,6 +12,9 @@ export * from './lib/components/appbar/desktop-button';
 export * from './lib/components/appbar/desktop-tabs';
 export * from './lib/components/appbar/sticky-tabs';
 
+//breadcrumbs
+export * from './lib/components/breadcrumbs/router-breadcrumbs';
+
 //other components
 export * from './lib/components/others/icon-text-field';
 export * from './lib/components/others/search-bar';
@@ -39,7 +42,7 @@ export * from './lib/components/responsive/desktop-box';
 //scroll related
 export * from './lib/components/scroll/hide-on-scroll';
 
-// pagination 
+// pagination
 export * from './lib/components/pagination/loop-pagination';
 
 //theme

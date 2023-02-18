@@ -18,8 +18,8 @@ root.render(
     <BrowserRouter>
       <React.Suspense fallback={null}>
         <Box className={styles.app}>
-          <TopAppbar />
           <Box className={styles.container} id="app-box">
+            <TopAppbar />
             <App />
           </Box>
           <BottomFooter />

@@ -1,4 +1,5 @@
 import { Box, Container } from '@mui/material';
+import { RouterBreadCrumbs } from '../breadcrumbs/router-breadcrumbs';
 
 export const MainContainer = ({
   background,
@@ -16,23 +17,25 @@ export const MainContainer = ({
   footerComponent?: React.ReactElement;
 }) => {
   return (
-    <Box>
+    <Box sx={{ height: '100%' }} data-testid="main-container">
       <Box
         sx={{
           background,
         }}
       >
         <Container
-          id={'head-container'}
-          data-testid={`head-container-${pageId}`}
+          data-testid={`breadcrumbs-${pageId}`}
           sx={{ paddingTop: '20px' }}
         >
+          <RouterBreadCrumbs />
+        </Container>
+        <Container data-testid={`head-${pageId}`} sx={{ paddingTop: '40px' }}>
           {headerComponent}
         </Container>
       </Box>
       {stickTabs}
-      <Container id={`content-container-${pageId}`}>{children}</Container>
-      <Box>{footerComponent}</Box>
+      <Container data-testid={`content-${pageId}`}>{children}</Container>
+      <Box data-testid={`footer-${pageId}`}>{footerComponent}</Box>
     </Box>
   );
 };
