@@ -34,7 +34,7 @@ export const RouterBreadCrumbs = () => {
         const to = `/${pathnames.slice(0, index + 1).join('/')}`;
 
         return last ? (
-          <Typography color="text.primary" key={to}>
+          <Typography variant="body16Bold" key={to}>
             {breadcrumbNameMap[to]}
           </Typography>
         ) : (
