@@ -41,11 +41,11 @@ export const AlertBoxItem = ({
   >
     <Grid container spacing={0}>
       {!item.read &&
-        <Grid xs={0.5}>
+        <Grid item xs={0.5}>
           <Circle sx={{ fontSize: 10 }}/>
         </Grid>
       }
-      <Grid xs={!item.read ? 10.5 : 11}>
+      <Grid item xs={!item.read ? 10.5 : 11}>
         <Stack spacing={1}>
           <Typography variant={'body18Bold'}>
             {item.title}
@@ -58,7 +58,7 @@ export const AlertBoxItem = ({
           </Typography>
         </Stack>
       </Grid>
-      <Grid xs={1}>
+      <Grid item xs={1}>
         <IconMenuPopup
           icon = {<MoreVert/>}
           buttonProps={{
