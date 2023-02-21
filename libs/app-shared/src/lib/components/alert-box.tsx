@@ -1,19 +1,28 @@
-import { Grid, Typography } from '@mui/material';
+import { Divider, Grid, Stack, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { ToggleButtons, ToggleButtonsProp } from '@mf-mui-starter/common-lib';
 import { useNavigate } from 'react-router';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useState } from 'react';
+import { AlertBoxItem } from './alert-box-item';
+import { AlertBoxData, AlertBoxOptions } from '../../constants/alert-box-items';
 
 export const AlertBox = ({ handleClose }: { handleClose: () => void }) => {
-  const options: ToggleButtonsProp[] = [
-    { value: 'public', label: 'Public Alerts', badge: 2 },
-    { value: 'private', label: 'Private Reminders' },
-  ];
+  const [value, setValue] = useState(AlertBoxOptions[0].value);
+
+  const selectedData = AlertBoxData[value] ?? [];
+  const processedOptions: ToggleButtonsProp[] = AlertBoxOptions.map(opt => {
+    const badgeNum = (AlertBoxData[opt.value] ?? []).filter(el => !el.read).length;
+    return {
+      ...opt,
+      badge: badgeNum !== 0 ? badgeNum : undefined,
+    } 
+  })
+  
   const navigate = useNavigate();
-  const [value, setValue] = useState(options[0].value);
+  
   return (
-    <Box sx={{ minWidth: '480px', padding: '15px' }}>
+    <Box sx={{ width:'480px' , padding: '15px' }}>
       <Grid container direction="column" spacing={2}>
         <Grid item container justifyContent={'space-between'}>
           <Typography variant="subheader">Alerts</Typography>
@@ -30,14 +39,25 @@ export const AlertBox = ({ handleClose }: { handleClose: () => void }) => {
         </Grid>
         <Grid item>
           <ToggleButtons
-            options={options}
+            options={processedOptions}
             onClick={(value: string) => {
               setValue(value);
             }}
           />
         </Grid>
         <Grid item>
-          <Typography>This is the content of {value}</Typography>
+          <Stack  
+            spacing={1}
+            divider={<Divider flexItem />}
+          >
+            {selectedData.map((item) => {
+              return (
+                <AlertBoxItem
+                  item = {item}
+                />
+              ); 
+            })}
+          </Stack>
         </Grid>
       </Grid>
     </Box>
