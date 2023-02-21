@@ -83,7 +83,7 @@ export const AlertBoxItem = ({
             Mark As Read
           </MenuItem>
           <MenuItem
-            key={'mark-as-read'}
+            key={'Delete'}
             onClick={() => {
               onClickMenuItem();
               handleMenuClose();
