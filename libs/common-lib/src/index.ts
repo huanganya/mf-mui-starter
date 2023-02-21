@@ -21,6 +21,7 @@ export * from './lib/components/others/search-bar';
 export * from './lib/components/others/toggle-buttons';
 export * from './lib/components/others/localized-datepicker';
 export * from './lib/components/others/sticky-paper';
+export * from './lib/components/others/icon-menu-popup';
 
 //list components
 export * from './lib/components/list/align-itemslist';
