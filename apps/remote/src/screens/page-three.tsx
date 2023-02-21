@@ -1,8 +1,7 @@
-import { Box, Grid, Paper, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import {
   MainContainer,
   RainbowCard,
-  RouterBreadCrumbs,
   StickyPaper,
   StickyTabs,
 } from '@mf-mui-starter/common-lib';
@@ -10,7 +9,7 @@ import {
 export function PageThree() {
   const getHeaderComponent = () => (
     <>
-      <Typography variant="h6">Page with sticky tab bar</Typography>
+      <Typography variant="h3">Page with sticky tab bar</Typography>
       <Typography variant="body14">
         This page will demostrate how to make the sticky tab bar111
       </Typography>

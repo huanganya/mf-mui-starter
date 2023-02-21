@@ -30,12 +30,11 @@ export const Home = ({ title }: { title: string }) => {
       footerComponent={getFooterComponent()}
     >
       <Container>
-        Remote {title}
+        <Typography variant="h3">Remote22222 {title}</Typography>
         <Button onClick={() => setCounter(counter - 1)}>
           counter {counter}
         </Button>
         <Container>
-          <Typography variant="h5">It is the Remote22222 App </Typography>
           <Link onClick={() => navigate('/')}>
             Click here to root(either remote22222's root or host's root, depends
             on where it's rendered)

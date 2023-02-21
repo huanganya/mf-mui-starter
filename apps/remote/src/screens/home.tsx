@@ -28,7 +28,7 @@ export const Home = ({ title }: { title: string }) => {
       footerComponent={getFooterComponent()}
     >
       <Container>
-        Remote {title}
+        <Typography variant="h3">Remote {title}</Typography>
         <Button onClick={() => setCounter(counter - 1)}>
           counter {counter}
         </Button>

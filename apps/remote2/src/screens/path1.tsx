@@ -21,7 +21,7 @@ export const Path1 = () => {
 
   const getHeaderComponent = () => (
     <>
-      <Typography variant="h6">Page with sticky tab bar</Typography>
+      <Typography variant="h3">Page with sticky tab bar</Typography>
       <Typography variant="body14">
         This page will demostrate how to make the sticky tab and change the
         content based on selected tab
