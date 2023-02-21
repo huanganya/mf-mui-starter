@@ -16,6 +16,9 @@ const Template: ComponentStory<typeof LinkTab> = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {
-  label: '',
-  href: '',
+  label: 'Test Link Tab',
+  href: '/',
+  onClick: () => {
+    console.log('Clicked Link Tab');
+  },
 };

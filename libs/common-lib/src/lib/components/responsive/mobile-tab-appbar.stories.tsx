@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { MobileTabAppBar } from './appbar';
+import { MobileTabAppBar } from './mobile-tab-appbar';
 
 const Story: ComponentMeta<typeof MobileTabAppBar> = {
   component: MobileTabAppBar,
