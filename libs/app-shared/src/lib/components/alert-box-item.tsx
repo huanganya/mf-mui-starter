@@ -12,11 +12,13 @@ export interface AlertBoxItemType {
 }
 
 export interface AlertBoxItemProps {
-    item: AlertBoxItemType
+    item: AlertBoxItemType,
+    onClickMenuItem: () => void,
 }
 
 export const AlertBoxItem = ({
-    item
+    item,
+    onClickMenuItem
 }: AlertBoxItemProps) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const openMenu = Boolean(anchorEl);
@@ -73,13 +75,19 @@ export const AlertBoxItem = ({
         >
           <MenuItem
             key={'mark-as-read'}
-            onClick={handleMenuClose}
+            onClick={() => {
+              onClickMenuItem();
+              handleMenuClose();
+            }}
           >
             Mark As Read
           </MenuItem>
           <MenuItem
             key={'mark-as-read'}
-            onClick={handleMenuClose}
+            onClick={() => {
+              onClickMenuItem();
+              handleMenuClose();
+            }}
           >
             Delete
           </MenuItem>

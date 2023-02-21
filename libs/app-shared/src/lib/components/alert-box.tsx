@@ -53,7 +53,8 @@ export const AlertBox = ({ handleClose }: { handleClose: () => void }) => {
             {selectedData.map((item) => {
               return (
                 <AlertBoxItem
-                  item = {item}
+                  item={item}
+                  onClickMenuItem={() => {}}
                 />
               ); 
             })}
