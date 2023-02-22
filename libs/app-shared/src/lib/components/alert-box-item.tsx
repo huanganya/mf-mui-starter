@@ -92,7 +92,7 @@ export const AlertBoxItem = ({
           }}
         >
           <MenuItem
-            data-test-id={"alert-box-item-mark-as-read-option"}
+            data-testid={"alert-box-item-mark-as-read-option"}
             key={'mark-as-read'}
             disabled={read}
             onClick={() => {
@@ -102,7 +102,7 @@ export const AlertBoxItem = ({
             Mark As Read
           </MenuItem>
           <MenuItem
-            data-test-id={"alert-box-item-delete-option"}
+            data-testid={"alert-box-item-delete-option"}
             key={'delete'}
             onClick={() => {
               handleMenuClose();
