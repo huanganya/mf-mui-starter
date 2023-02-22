@@ -13,7 +13,8 @@ const Template: ComponentStory<typeof AlertBoxItem> = (args) => {
 
 export const Primary = Template.bind({});
 Primary.args = {
-  onClickMenuItem: () => {
-    console.log('clicked');
-  },
+  title: "hello",
+  content: "hello content",
+  date: new Date(),
+  read: false,
 };

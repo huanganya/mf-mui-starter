@@ -11,14 +11,14 @@ export interface AlertBoxItemType {
   read?: boolean;
 }
 
-export interface AlertBoxItemProps {
-    item: AlertBoxItemType,
-    onClickMenuItem: () => void,
+export interface AlertBoxItemProps extends AlertBoxItemType {
 }
 
 export const AlertBoxItem = ({
-    item,
-    onClickMenuItem
+  title,
+  content,
+  date,
+  read,
 }: AlertBoxItemProps) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const openMenu = Boolean(anchorEl);
@@ -34,27 +34,27 @@ export const AlertBoxItem = ({
   return (
   <Box 
     sx={{
-      backgroundColor: !item.read ? '#c4f1ff' : undefined,
+      backgroundColor: !read ? '#c4f1ff' : undefined,
       borderRadius: 2,
       p: '5px',
     }}
   >
-    <Grid container spacing={0}>
-      {!item.read &&
+    <Grid container spacing={0} paddingX={0}>
+      {!read &&
         <Grid item xs={0.5}>
-          <Circle sx={{ fontSize: 10 }}/>
+          <Circle sx={{ fontSize: 10 }} data-testid={"alert-box-circle-unread-test-id"}/>
         </Grid>
       }
-      <Grid item xs={!item.read ? 10.5 : 11}>
+      <Grid item xs={!read ? 10.5 : 11}>
         <Stack spacing={1}>
-          <Typography variant={'body18Bold'}>
-            {item.title}
+          <Typography variant={'body18Bold'} data-testid={"alert-box-title-test-id"}>
+            {title}
           </Typography>
-          <Typography variant={'body14'} paragraph>
-            {item.content}
+          <Typography variant={'body14'} paragraph data-testid={"alert-box-content-test-id"}>
+            {content}
           </Typography>
-          <Typography variant={'body14'}>
-            {dayjs(item.date).format('DD MMM YYYY')}
+          <Typography variant={'body14'} data-testid={"alert-box-date-test-id"}>
+            {dayjs(date).format('DD MMM YYYY')}
           </Typography>
         </Stack>
       </Grid>
@@ -65,6 +65,7 @@ export const AlertBoxItem = ({
             "aria-controls": openMenu ? 'menuPopUp' : undefined,
             "aria-expanded": openMenu ? 'true' : undefined,
             "aria-haspopup": "true",
+            "data-testid":"alert-box-option-button-test-id",
             onClick: handleIconClick,
           }}
           menuProps={{
@@ -74,19 +75,19 @@ export const AlertBoxItem = ({
           }}
         >
           <MenuItem
+            data-test-id={"alert-box-mark-as-read-option"}
             key={'mark-as-read'}
-            disabled={item.read}
+            disabled={read}
             onClick={() => {
-              onClickMenuItem();
               handleMenuClose();
             }}
           >
             Mark As Read
           </MenuItem>
           <MenuItem
+            data-test-id={"alert-box-delete-option"}
             key={'delete'}
             onClick={() => {
-              onClickMenuItem();
               handleMenuClose();
             }}
           >
