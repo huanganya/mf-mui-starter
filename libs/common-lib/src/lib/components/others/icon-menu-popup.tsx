@@ -1,11 +1,11 @@
-import React from "react";
+import {ReactNode} from "react";
 import { Box, IconButton, IconButtonProps, Menu, MenuProps } from "@mui/material";
 
 export interface IconMenuPopupProps {
     icon: React.ReactElement;
     buttonProps: IconButtonProps & {"data-testid": string};
     menuProps: MenuProps;
-    children: React.ReactNode[];
+    children: ReactNode | ReactNode[];
 }
 
 export const IconMenuPopup = ({
