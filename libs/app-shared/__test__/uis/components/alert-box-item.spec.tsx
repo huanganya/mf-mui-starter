@@ -31,13 +31,13 @@ describe('AlertBoxItem', () => {
     const { getByTestId, queryAllByTestId } = render(<UnreadComponent />);
     
     // Text Data
-    const title = getByTestId("alert-box-title-test-id");
-    const content = getByTestId ("alert-box-content-test-id");
-    const date = getByTestId ("alert-box-date-test-id"); 
+    const title = getByTestId("alert-box-item-title-test-id");
+    const content = getByTestId ("alert-box-item-content-test-id");
+    const date = getByTestId ("alert-box-item-date-test-id"); 
 
     // Test Option Button And Circle
-    const buttons = queryAllByTestId("alert-box-option-button-test-id");
-    const circleIcons = queryAllByTestId("alert-box-circle-unread-test-id")
+    const buttons = queryAllByTestId("alert-box-item-option-button-test-id");
+    const circleIcons = queryAllByTestId("alert-box-item-circle-unread-test-id");
     
     expect(title.textContent).toBe("Title Test Unread");
     expect(content.textContent).toBe("Content Test Unread");
@@ -50,13 +50,13 @@ describe('AlertBoxItem', () => {
     const { getByTestId, queryAllByTestId } = render(<ReadComponent />);
     
     // Text Data
-    const title = getByTestId("alert-box-title-test-id");
-    const content = getByTestId ("alert-box-content-test-id");
-    const date = getByTestId ("alert-box-date-test-id"); 
+    const title = getByTestId("alert-box-item-title-test-id");
+    const content = getByTestId ("alert-box-item-content-test-id");
+    const date = getByTestId ("alert-box-item-date-test-id"); 
 
     // Test Option Button And Circle
-    const buttons = queryAllByTestId("alert-box-option-button-test-id");
-    const circleIcons = queryAllByTestId("alert-box-circle-unread-test-id")
+    const buttons = queryAllByTestId("alert-box-item-option-button-test-id");
+    const circleIcons = queryAllByTestId("alert-box-item-circle-unread-test-id");
     
     expect(title.textContent).toBe("Title Test Read");
     expect(content.textContent).toBe("Content Test Read");
@@ -64,6 +64,8 @@ describe('AlertBoxItem', () => {
     expect(buttons.length).toBe(1);
     expect(circleIcons.length).toBe(0);
   });
+
+  
 
 //   it('could click AlertBoxItem Unread options button and show 2 enabled option', () => {
 //     const { queryAllByRole, getByText} = render(<UnreadComponent />);

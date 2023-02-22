@@ -53,8 +53,22 @@ export const AlertBox = ({ handleClose }: { handleClose: () => void }) => {
             {selectedData.map((item) => {
               return (
                 <AlertBoxItem
-                  item={item}
-                  onClickMenuItem={() => {}}
+                  {...item}
+                  actionButtonProps={
+                    value !== "announcements" 
+                      ? { 
+                          variant: "contained", 
+                          color: "primary", 
+                          content: "Go to this page", 
+                          url: "/alerts",
+                          size: "small",
+                          sx:{
+                            minWidth: "100px",
+                            maxWidth: "120px"
+                          }
+                        }
+                      : undefined
+                  }
                 />
               ); 
             })}

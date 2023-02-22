@@ -18,3 +18,22 @@ Primary.args = {
   date: new Date(),
   read: false,
 };
+
+export const withActionButton = Template.bind({});
+withActionButton.args = {
+  title: "hello",
+  content: "hello content",
+  date: new Date(),
+  read: false,
+  actionButtonProps: { 
+    variant: "contained", 
+    color: "primary", 
+    content: "Go to this page", 
+    url: "/alerts",
+    size: "small",
+    sx:{
+      minWidth: "100px",
+      maxWidth: "120px"
+    }
+  },
+};
