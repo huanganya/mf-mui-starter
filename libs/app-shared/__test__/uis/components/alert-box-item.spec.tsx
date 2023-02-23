@@ -1,4 +1,5 @@
 
+import { Button } from '@mui/material';
 import { cleanup, fireEvent, render } from '@testing-library/react';
 import dayjs from 'dayjs';
 import { AlertBoxItem } from 'libs/app-shared/src/lib/components/alert-box-item';
@@ -33,17 +34,21 @@ describe('AlertBoxItem', () => {
         content={"Content Test Read"}
         date={readDate}
         read={true}
-        actionButtonProps={{ 
-            variant: "contained", 
-            color: "primary", 
-            content: "Go to this page", 
-            url: "/alerts",
-            size: "small",
-            sx:{
+        actionComponent={
+          <Button
+            data-testid={"alert-box-action-component-id"}
+            variant={"contained"}
+            color={"primary"}
+            size={"small"}
+            sx={{
               minWidth: "100px",
               maxWidth: "120px"
-            }
-        }}
+            }}
+            onClick={() => {}}
+          >
+            Go to this page
+          </Button>
+        }
     />
   );
 
@@ -89,7 +94,7 @@ describe('AlertBoxItem', () => {
     expect(circleIcons.length).toBe(0);
   });
 
-  it('should render AlertBoxItem with ActionButton Normally', () => {
+  it('should render AlertBoxItem with ActionComponent Normally', () => {
     const { getByTestId, queryAllByTestId } = render(<WithActionButtonComponent />);
     
     // Text Data
@@ -99,7 +104,7 @@ describe('AlertBoxItem', () => {
 
     // Test Option Button And Circle
     const optionButtons = queryAllByTestId("alert-box-item-option-button-test-id");
-    const actionButtons = queryAllByTestId("alert-box-action-button-id");
+    const actionComponent = queryAllByTestId("alert-box-action-component-id");
     const circleIcons = queryAllByTestId("alert-box-item-circle-unread-test-id");
     
     expect(title.textContent).toBe("Title Test Read");
@@ -107,7 +112,7 @@ describe('AlertBoxItem', () => {
     expect(date.textContent).toBe(dayjs(readDate).format("DD MMM YYYY"));
     expect(optionButtons.length).toBe(1);
     expect(circleIcons.length).toBe(0);
-    expect(actionButtons.length).toBe(1);
+    expect(actionComponent.length).toBe(1);
   });
 
   it('when option button click, it should be shown popup menu with two option', () => {
@@ -145,19 +150,6 @@ describe('AlertBoxItem', () => {
         optionsMenuItems = queryAllByRole("menuitem");
         expect(optionsMenuItems.length).toBe(0);
     }
-  });
-
-  it('when clicked, action button opens a new page', () => {
-    const mockWindowOpen = jest.fn((url?: string | URL, target?: string, features?: string) => null);
-    const windowSpy = jest.spyOn(window, "open").mockImplementation(mockWindowOpen);
-    
-    const { getByTestId } = render(<WithActionButtonComponent />);
-    // Test Option Button And Circle
-    const actionButton = getByTestId("alert-box-action-button-id");
-    fireEvent.click(actionButton);
-
-    expect(mockWindowOpen).toBeCalledTimes(1);
-    windowSpy.mockRestore();
   });
 
 

@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { AlertBoxItem } from './alert-box-item';
 
@@ -25,15 +26,18 @@ withActionButton.args = {
   content: "hello content",
   date: new Date(),
   read: false,
-  actionButtonProps: { 
-    variant: "contained", 
-    color: "primary", 
-    content: "Go to this page", 
-    url: "/alerts",
-    size: "small",
-    sx:{
-      minWidth: "100px",
-      maxWidth: "120px"
-    }
-  },
+  actionComponent: (
+    <Button
+      variant={"contained"}
+      color={"primary"}
+      size={"small"}
+      sx={{
+        minWidth: "100px",
+        maxWidth: "120px"
+      }}
+      onClick={() => {}}
+      >
+        Go to this page
+    </Button>
+  ),
 };

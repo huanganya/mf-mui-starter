@@ -1,4 +1,4 @@
-import { Divider, Grid, Stack, Typography } from '@mui/material';
+import { Button, Divider, Grid, Stack, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { ToggleButtons, ToggleButtonsProp } from '@mf-mui-starter/common-lib';
 import { useNavigate } from 'react-router';
@@ -54,20 +54,22 @@ export const AlertBox = ({ handleClose }: { handleClose: () => void }) => {
               return (
                 <AlertBoxItem
                   {...item}
-                  actionButtonProps={
+                  actionComponent={
                     value !== "announcements" 
-                      ? { 
-                          variant: "contained", 
-                          color: "primary", 
-                          content: "Go to this page", 
-                          url: "/alerts",
-                          size: "small",
-                          sx:{
-                            minWidth: "100px",
-                            maxWidth: "120px"
-                          }
-                        }
-                      : undefined
+                    ? (
+                      <Button
+                        variant={"contained"}
+                        color={"primary"}
+                        size={"small"}
+                        sx={{
+                          minWidth: "100px",
+                          maxWidth: "120px"
+                        }}
+                        onClick={() => {}}
+                      >
+                        Go to this page
+                      </Button>
+                    ) : undefined
                   }
                 />
               ); 

@@ -1,6 +1,6 @@
 import {useState, ReactNode, MouseEvent} from "react";
 import { Circle, MoreVert } from "@mui/icons-material";
-import { Stack, Box, Typography, Grid, MenuItem, Button, ButtonProps } from "@mui/material";
+import { Stack, Box, Typography, Grid, MenuItem} from "@mui/material";
 import { IconMenuPopup } from '@mf-mui-starter/common-lib';
 import dayjs from 'dayjs';
 
@@ -11,14 +11,8 @@ export interface AlertBoxItemType {
   read?: boolean;
 }
 
-export type AlertBoxItemActionButtonProps = {
-  "data-testid"?: string, 
-  content: string,
-  url: string,
-} & Omit<ButtonProps, "onClick">;
-
 export interface AlertBoxItemProps extends AlertBoxItemType {
-  actionButtonProps?: AlertBoxItemActionButtonProps;
+  actionComponent?: ReactNode;
 }
 
 export const AlertBoxItem = ({
@@ -26,9 +20,8 @@ export const AlertBoxItem = ({
   content,
   date,
   read,
-  actionButtonProps,
+  actionComponent,
 }: AlertBoxItemProps) => {
-  const {"data-testid": dataTestId, content: buttonContent , url, ...buttonProps} = actionButtonProps ?? {};
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const openMenu = Boolean(anchorEl);
   
@@ -62,14 +55,7 @@ export const AlertBoxItem = ({
           <Typography variant={'body14'} paragraph data-testid={"alert-box-item-content-test-id"}>
             {content}
           </Typography>
-          {actionButtonProps &&
-            <Button
-              {...buttonProps}
-              data-testid={"alert-box-action-button-id"}
-              onClick={() => {window.open(url, "_blank")}}
-              children={buttonContent}
-            />
-          }
+          {actionComponent}
           <Typography variant={'body14'} data-testid={"alert-box-item-date-test-id"}>
             {dayjs(date).format('DD MMM YYYY')}
           </Typography>
