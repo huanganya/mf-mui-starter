@@ -41,13 +41,13 @@ export const AlertBoxItem = ({
       p: '5px',
     }}
   >
-    <Grid container spacing={0} paddingX={0}>
+    <Grid container spacing={0} paddingX={0} columns={24}>
       {!read &&
-        <Grid item xs={0.5} md={0.2} alignContent={"flex-end"}>
+        <Grid item xs={1} sm={1} lg={0.5} alignContent={"flex-end"}>
           <Circle sx={{ fontSize: 10 }} data-testid={"alert-box-item-circle-unread-test-id"}/>
         </Grid>
       }
-      <Grid item xs={!read ? 10.5: 11} md={!read ? 11.3 : 11.5}>
+      <Grid item xs={!read ? 21: 22} sm={!read ? 21: 22} lg={!read ? 22.5: 23}>
         <Stack spacing={1}>
           <Typography variant={'body18Bold'} data-testid={"alert-box-item-title-test-id"}>
             {title}
@@ -61,7 +61,7 @@ export const AlertBoxItem = ({
           </Typography>
         </Stack>
       </Grid>
-      <Grid item xs={1} md={0.5} alignContent={"flex-end"}>
+      <Grid item xs={2} sm={2} lg={1} alignContent={"flex-end"}>
         <IconMenuPopup
           icon = {<MoreVert/>}
           buttonProps={{
