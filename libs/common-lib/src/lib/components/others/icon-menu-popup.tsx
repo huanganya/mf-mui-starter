@@ -3,7 +3,7 @@ import { Box, IconButton, IconButtonProps, Menu, MenuProps } from "@mui/material
 
 export interface IconMenuPopupProps {
     icon: React.ReactElement;
-    buttonProps: IconButtonProps & {"data-testid": string};
+    buttonProps: IconButtonProps & {"data-testid"?: string};
     menuProps: MenuProps;
     children: ReactNode | ReactNode[];
 }
