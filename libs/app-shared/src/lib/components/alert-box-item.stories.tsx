@@ -18,6 +18,8 @@ Primary.args = {
   content: "hello content",
   date: new Date(),
   read: false,
+  markAsReadHandler:() => {},
+  deleteHandler: () => {},
 };
 
 export const withActionButton = Template.bind({});
@@ -26,6 +28,8 @@ withActionButton.args = {
   content: "hello content",
   date: new Date(),
   read: false,
+  markAsReadHandler:() => {},
+  deleteHandler: () => {},
   actionComponent: (
     <Button
       variant={"contained"}

@@ -15,6 +15,8 @@ describe('AlertBoxItem', () => {
         content={"Content Test Unread"}
         date={unreadDate}
         read={false}
+        markAsReadHandler={() => {}}
+        deleteHandler={() => {}}
     />
   );
 
@@ -25,6 +27,8 @@ describe('AlertBoxItem', () => {
         content={"Content Test Read"}
         date={readDate}
         read={true}
+        markAsReadHandler={() => {}}
+        deleteHandler={() => {}}
     />
   );
 
@@ -34,6 +38,8 @@ describe('AlertBoxItem', () => {
         content={"Content Test Read"}
         date={readDate}
         read={true}
+        markAsReadHandler={() => {}}
+        deleteHandler={() => {}}
         actionComponent={
           <Button
             data-testid={"alert-box-action-component-id"}

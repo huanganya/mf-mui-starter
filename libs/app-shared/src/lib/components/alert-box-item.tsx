@@ -13,6 +13,8 @@ export interface AlertBoxItemType {
 
 export interface AlertBoxItemProps extends AlertBoxItemType {
   actionComponent?: ReactNode;
+  markAsReadHandler: () => void;
+  deleteHandler: () => void;
 }
 
 export const AlertBoxItem = ({
@@ -21,6 +23,8 @@ export const AlertBoxItem = ({
   date,
   read,
   actionComponent,
+  deleteHandler,
+  markAsReadHandler
 }: AlertBoxItemProps) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const openMenu = Boolean(anchorEl);
@@ -33,6 +37,7 @@ export const AlertBoxItem = ({
     setAnchorEl(null);
   };
 
+
   return (
   <Box 
     sx={{
@@ -44,19 +49,31 @@ export const AlertBoxItem = ({
     <Grid container spacing={0} paddingX={0} columns={24}>
       {!read &&
         <Grid item xs={1} sm={1} lg={0.5} alignContent={"flex-end"}>
-          <Circle sx={{ fontSize: 10 }} data-testid={"alert-box-item-circle-unread-test-id"}/>
+          <Circle sx={{ fontSize: 10, color: "#0f68f7"}}  data-testid={"alert-box-item-circle-unread-test-id"}/>
         </Grid>
       }
       <Grid item xs={!read ? 21: 22} sm={!read ? 21: 22} lg={!read ? 22.5: 23}>
         <Stack spacing={1}>
-          <Typography variant={'body18Bold'} data-testid={"alert-box-item-title-test-id"}>
+          <Typography 
+            variant={read ? 'body18' : 'body18Bold'} 
+            color={read ? "text.secondary" : undefined} 
+            data-testid={"alert-box-item-title-test-id"}
+          >
             {title}
           </Typography>
-          <Typography variant={'body14'} paragraph data-testid={"alert-box-item-content-test-id"}>
+          <Typography 
+            variant={'body14'}  
+            color={read ? "text.secondary" : undefined} 
+            paragraph data-testid={"alert-box-item-content-test-id"}
+          >
             {content}
           </Typography>
           {actionComponent}
-          <Typography variant={'body14'} data-testid={"alert-box-item-date-test-id"}>
+          <Typography 
+            variant={'body14'} 
+            color={read ? "text.secondary" : undefined} 
+            data-testid={"alert-box-item-date-test-id"}
+          >
             {dayjs(date).format('DD MMM YYYY')}
           </Typography>
         </Stack>
@@ -82,6 +99,7 @@ export const AlertBoxItem = ({
             key={'mark-as-read'}
             disabled={read}
             onClick={() => {
+              markAsReadHandler();
               handleMenuClose();
             }}
           >
@@ -91,6 +109,7 @@ export const AlertBoxItem = ({
             data-testid={"alert-box-item-delete-option"}
             key={'delete'}
             onClick={() => {
+              deleteHandler();
               handleMenuClose();
             }}
           >

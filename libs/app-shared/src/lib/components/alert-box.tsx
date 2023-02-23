@@ -8,9 +8,10 @@ import { AlertBoxItem } from './alert-box-item';
 import { AlertBoxData, AlertBoxOptions } from '../../constants/alert-box-items';
 
 export const AlertBox = ({ handleClose }: { handleClose: () => void }) => {
+  const [alertData, setAlertData] = useState(AlertBoxData);
   const [value, setValue] = useState(AlertBoxOptions[0].value);
-
-  const selectedData = AlertBoxData[value] ?? [];
+  const selectedData = alertData[value] ?? [];
+  
   const processedOptions: ToggleButtonsProp[] = AlertBoxOptions.map(opt => {
     const badgeNum = (AlertBoxData[opt.value] ?? []).filter(el => !el.read).length;
     return {
@@ -50,10 +51,29 @@ export const AlertBox = ({ handleClose }: { handleClose: () => void }) => {
             spacing={1}
             divider={<Divider flexItem />}
           >
-            {selectedData.map((item) => {
+            {selectedData.map((item, index) => {
               return (
                 <AlertBoxItem
                   {...item}
+                  markAsReadHandler={() => {
+                    let copyAlertData = [...selectedData];
+                    copyAlertData[index] = {
+                      ...copyAlertData[index],
+                      read: true,
+                    }
+                    setAlertData({
+                      ...alertData,
+                      [value]: copyAlertData
+                    });
+                  }}
+                  deleteHandler={() => {
+                    let copyAlertData = [...selectedData];
+                    copyAlertData.splice(index, 1)
+                    setAlertData({
+                      ...alertData,
+                      [value]: copyAlertData
+                    });
+                  }}
                   actionComponent={
                     value !== "announcements" 
                     ? (
