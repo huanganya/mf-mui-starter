@@ -7,6 +7,8 @@ import { AlertBoxItem } from 'libs/app-shared/src/lib/components/alert-box-item'
 describe('AlertBoxItem', () => {
   const unreadDate = new Date();
   const readDate = dayjs(unreadDate).subtract(1, 'day').toDate();
+  const markAsReadHandler = jest.fn(() => {});
+  const deleteHandler = jest.fn(() => {});
 
   
   const UnreadComponent = () => (
@@ -15,8 +17,8 @@ describe('AlertBoxItem', () => {
         content={"Content Test Unread"}
         date={unreadDate}
         read={false}
-        markAsReadHandler={() => {}}
-        deleteHandler={() => {}}
+        markAsReadHandler={markAsReadHandler}
+        deleteHandler={deleteHandler}
     />
   );
 
@@ -27,8 +29,8 @@ describe('AlertBoxItem', () => {
         content={"Content Test Read"}
         date={readDate}
         read={true}
-        markAsReadHandler={() => {}}
-        deleteHandler={() => {}}
+        markAsReadHandler={markAsReadHandler}
+        deleteHandler={deleteHandler}
     />
   );
 
@@ -38,8 +40,8 @@ describe('AlertBoxItem', () => {
         content={"Content Test Read"}
         date={readDate}
         read={true}
-        markAsReadHandler={() => {}}
-        deleteHandler={() => {}}
+        markAsReadHandler={markAsReadHandler}
+        deleteHandler={deleteHandler}
         actionComponent={
           <Button
             data-testid={"alert-box-action-component-id"}
@@ -156,6 +158,9 @@ describe('AlertBoxItem', () => {
         optionsMenuItems = queryAllByRole("menuitem");
         expect(optionsMenuItems.length).toBe(0);
     }
+
+    expect(markAsReadHandler).toBeCalledTimes(1);
+    expect(deleteHandler).toBeCalledTimes(1);
   });
 
 
